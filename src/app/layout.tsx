@@ -1,6 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { BUSINESS } from "@/lib/constants";
+import { Nav } from "@/components/layout/Nav";
+import { Footer } from "@/components/layout/Footer";
+import { LocalBusinessSchema } from "@/components/seo/LocalBusinessSchema";
+import { Analytics } from "@/components/seo/Analytics";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BUSINESS.url),
@@ -17,6 +21,7 @@ export const metadata: Metadata = {
     url: BUSINESS.url,
   },
   twitter: { card: "summary_large_image" },
+  icons: { icon: "/favicon.ico" },
 };
 
 export const viewport: Viewport = {
@@ -29,11 +34,17 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="h-full antialiased">
+      <head>
+        <LocalBusinessSchema />
+      </head>
       <body
         className="min-h-full flex flex-col"
         style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
       >
-        {children}
+        <Nav />
+        <div className="flex-1 flex flex-col">{children}</div>
+        <Footer />
+        <Analytics />
       </body>
     </html>
   );
