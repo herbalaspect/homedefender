@@ -1,0 +1,14 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" width="64" height="64">
+  <!-- Shield shape -->
+  <path d="M32 4L58 16V32C58 48 44.5 60.5 32 64C19.5 60.5 6 48 6 32V16L32 4Z" fill="#DC3545"/>
+
+  <!-- Shadow tone on right side -->
+  <path d="M32 4L58 16V32C58 48 44.5 60.5 32 64V4Z" fill="#a72c37" opacity="0.4"/>
+
+  <!-- Crest detail -->
+  <path d="M32 12C30 20 30 44 32 52C34 44 34 20 32 12Z" stroke="#ffffff" stroke-opacity="0.1" stroke-width="2"/>
+
+  <!-- Red X icon -->
+  <path d="M22 22L42 42M42 22L22 42" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

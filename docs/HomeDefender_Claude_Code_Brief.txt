@@ -1,0 +1,819 @@
+
+Claude Code Build Brief
+Migrating homedefenderusa.com from Webflow to Next.js
+Home Defender Remodeling
+homedefenderusa.com
+What this document is for
+This is the project brief you paste into Claude Code (or share with a developer) to build the new homedefenderusa.com site. It includes: tech stack decisions and rationale, the full file structure to create, what data files to set up, exact prompts to use with Claude Code in sequence, the SEO migration strategy to preserve search rankings, and the deploy + redirect plan.
+Should You Move Off Webflow?
+Worth pausing on before committing. The right answer depends on what matters more after launch.
+The case for staying on Webflow
+Webflow handles hosting, CDN, SSL, image optimization, and sitemap generation automatically — all of those become your problem on a custom build.
+Webflow's visual CMS lets non-technical people edit copy, swap images, and add city pages without writing code.
+Your existing SEO bugs aren't Webflow's fault — they're content bugs that would exist on any platform. Fixing them in Webflow is faster than rebuilding.
+If you'll rarely touch the site after launch, the platform doesn't matter much.
+The case for moving to Next.js + Claude Code
+Per-page meta description and schema markup is awkward in Webflow at scale. With 45+ pages each needing custom schema, code-driven gets tighter.
+11 city landing pages can be generated programmatically from a data file. In Webflow that's CMS Collections setup; in Next.js it's 30 lines of code.
+Page speed on Webflow is decent but rarely great. Next.js with proper optimization scores nearly perfect Core Web Vitals.
+Once the project is in a git repo, you have version history, can roll back, and can A/B test changes branch-by-branch.
+Iteration speed with Claude Code is genuinely faster than building in Webflow's UI for someone comfortable with code.
+Decision criteria
+Move to Claude Code if:
+(1) You want the new build live faster than Webflow CMS work would take, (2) you're comfortable that future copy edits will require code changes, (3) you have time to migrate cleanly without losing search rankings.
+
+Stay on Webflow if:
+(1) You'll be updating content frequently, (2) you want a non-technical person to manage it, (3) you don't want to deal with hosting, deploys, and DNS yourself.
+
+The rest of this document assumes the move is happening. If after reading the migration plan you decide it's more work than fixing Webflow, that's a legitimate conclusion — and you have all the content docs you need to do it in Webflow instead.
+Recommended Tech Stack
+Stack chosen for: SEO performance, Claude Code compatibility, low ongoing cost, fast deploys, and ability for a non-developer to make small edits later if needed.
+Layer
+Choice
+Why
+Framework
+Next.js 15 (App Router)
+Best-in-class SEO out of the box. Static generation for fast page loads. Built-in image optimization. Per-page meta tags and structured data are first-class.
+Styling
+Tailwind CSS
+Most-used styling system, well-documented, AI-friendly. Easy to match your existing brand colors (navy #1A2E3B, green #3A7D5C).
+Content
+MDX + data files
+Blog posts in MDX (Markdown + components). City pages and service pages generated from TypeScript data files. No CMS dependency, no monthly fee.
+Forms
+Formspree or Resend
+Contact form needs a backend. Formspree is simplest ($10/mo) — Resend ($20/mo) gives more flexibility for follow-up sequences. Pick one based on whether you need email automation.
+Hosting
+Vercel
+Free tier sufficient for a marketing site at your traffic level. Auto-deploys on git push. Built-in CDN. Native Next.js host.
+Analytics
+Google Analytics 4 + Vercel Analytics
+GA4 for marketing analytics and Search Console integration. Vercel Analytics for Core Web Vitals monitoring (free).
+Domain
+Keep current registrar
+Just point DNS to Vercel after launch. Don't transfer the registrar — too much risk during migration.
+
+Estimated monthly cost
+Vercel: $0 (Hobby tier covers it; upgrade only if traffic grows past 100k visits/month)
+Domain: ~$15/year (whatever you pay now)
+Formspree (or Resend): $10–20/month
+Total: ~$10–20/month vs. current Webflow cost (typically $23–39/month for CMS plans)
+Repository Structure
+Organize the repo so your existing project documents live alongside the code. This is critical for working with Claude Code — the AI references the docs to write the right copy and avoid drifting from your strategy.
+Recommended folder layout
+homedefenderusa/
+├── README.md
+├── CLAUDE.md                       ← project context for Claude Code
+├── package.json
+├── next.config.ts
+├── tailwind.config.ts
+├── tsconfig.json
+│
+├── docs/                           ← all your existing strategy docs
+│   ├── seo-competitive-analysis.docx
+│   ├── page-by-page-rewrites.docx
+│   ├── website-content-library.docx
+│   ├── website-sitemap.docx
+│   ├── ea-checklist.xlsx
+│   └── brand-guidelines.md         ← (create — see below)
+│
+├── content/                        ← page copy as data
+│   ├── cities.ts                   ← all 11 city page data
+│   ├── services.ts                 ← service category descriptions
+│   ├── faqs.ts                     ← global FAQ data
+│   ├── testimonials.ts             ← customer testimonials
+│   └── blog/                       ← blog posts in MDX
+│       ├── when-to-replace-roof-wisconsin.mdx
+│       ├── roof-replacement-cost-madison-2026.mdx
+│       ├── hail-damage-roof-inspection-madison.mdx
+│       ├── asphalt-shingle-vs-metal-roof-wisconsin.mdx
+│       └── how-to-choose-roofing-contractor-madison.mdx
+│
+├── src/
+│   ├── app/                        ← Next.js App Router pages
+│   │   ├── layout.tsx              ← global layout, navigation, footer
+│   │   ├── page.tsx                ← homepage
+│   │   ├── about/page.tsx
+│   │   ├── contact/page.tsx
+│   │   ├── defender-shield/page.tsx
+│   │   ├── faq/page.tsx
+│   │   ├── testimonials/page.tsx
+│   │   ├── how-much-does-roof-replacement-cost-madison/page.tsx
+│   │   ├── services/
+│   │   │   ├── page.tsx            ← services hub
+│   │   │   ├── roofing/page.tsx
+│   │   │   ├── gutter-protection/page.tsx
+│   │   │   ├── windows/page.tsx
+│   │   │   └── roofing/
+│   │   │       ├── roof-replacement/page.tsx
+│   │   │       ├── roof-repair/page.tsx
+│   │   │       ├── emergency-roof-repair/page.tsx
+│   │   │       ├── asphalt-shingle-roofing/page.tsx
+│   │   │       ├── metal-roofing/page.tsx
+│   │   │       ├── storm-damage-madison-wi/page.tsx
+│   │   │       ├── roof-inspection-madison-wi/page.tsx
+│   │   │       └── roof-replacement-[city]/page.tsx  ← dynamic city pages
+│   │   ├── blog/
+│   │   │   ├── page.tsx            ← blog index
+│   │   │   └── [slug]/page.tsx     ← individual blog posts
+│   │   ├── sitemap.ts              ← XML sitemap generation
+│   │   ├── robots.ts               ← robots.txt generation
+│   │   └── api/
+│   │       └── contact/route.ts    ← contact form handler
+│   │
+│   ├── components/
+│   │   ├── ui/                     ← buttons, forms, cards
+│   │   ├── layout/                 ← Nav, Footer, Container
+│   │   ├── sections/               ← reusable page sections
+│   │   │   ├── Hero.tsx
+│   │   │   ├── ServiceList.tsx
+│   │   │   ├── FAQ.tsx
+│   │   │   ├── Testimonials.tsx
+│   │   │   ├── CTA.tsx
+│   │   │   └── DefenderShieldUpsell.tsx
+│   │   └── seo/
+│   │       ├── LocalBusinessSchema.tsx
+│   │       ├── FAQSchema.tsx
+│   │       └── ArticleSchema.tsx
+│   │
+│   ├── lib/
+│   │   ├── constants.ts            ← NAP, phone, brand info
+│   │   └── utils.ts
+│   │
+│   └── styles/
+│       └── globals.css
+│
+└── public/
+    ├── images/
+    └── favicon.ico
+
+Why this structure
+All strategy docs in /docs/ means Claude Code can reference them directly when generating page copy. The model reads markdown easily; for the docx files, also save markdown versions if you want maximum AI usefulness.
+Page content lives in /content/ as TypeScript data files, not hardcoded into pages. Updating a city's testimonial means editing one line in content/cities.ts — not searching through JSX.
+Blog posts in MDX means you can write blog content as Markdown with custom React components embedded. AI-friendly format.
+Dynamic route /services/roofing/roof-replacement-[city] generates all 11 city pages from one template + the cities.ts data file.
+/components/seo/ houses reusable schema components — drop a <LocalBusinessSchema /> on any page.
+The CLAUDE.md File
+CLAUDE.md is a special file Claude Code reads at the start of every session. It's where you put project context, conventions, and guardrails so the AI consistently produces output that matches your strategy.
+Below is the complete CLAUDE.md to drop in your repo root. Treat it as a living document — update it as you make decisions.
+Full CLAUDE.md content
+# Home Defender Remodeling — Project Context
+ 
+## Business
+Home Defender Remodeling is a Wisconsin roofing-led home improvement contractor.
+Service area: Madison and Dane County (NOT all of Wisconsin).
+Services: Roofing (lead), Gutter Protection, Windows.
+Phone: (608) 925-3576
+Email: info@homedefenderusa.com
+Domain: homedefenderusa.com
+ 
+Canonical brand name: "Home Defender Remodeling"
+- Never write "Home Defender" alone (was historically inconsistent — locked now)
+- Never write "Home Defender USA" (legacy domain only, not the brand)
+- Never write "Home Defender Remodelling" (British spelling — was a bug)
+ 
+## Brand
+- Navy: #1A2E3B (primary)
+- Green: #3A7D5C (accent)
+- Typography: Arial / system sans-serif
+- Tone: Plainspoken, no superlatives, honest. Concrete examples and numbers.
+  Avoid "Wisconsin's #1 trusted..." style language. Avoid corporate marketing speak.
+ 
+## The Defender Shield
+Branded annual home protection plan, $295/year. Designed to compete with
+Ridge Top Exteriors' RoofCare+. Reference the program by full name "The Defender Shield"
+on every page where natural — homepage, service pages, blog posts.
+ 
+## SEO Priorities (NON-NEGOTIABLE)
+- Service area: ALWAYS "Madison, Dane County, and southern Wisconsin"
+  Never "Milwaukee to Madison, Green Bay to Kenosha" (was an old bug)
+- Every page MUST have:
+  - Unique <title> (50–60 chars), Open Graph, Twitter Card
+  - Unique meta description (145–160 chars)
+  - Single <h1> with primary keyword + city
+  - LocalBusiness schema (JSON-LD)
+- City pages MUST have FAQ schema
+- Blog posts MUST have Article schema with author + dates
+- All images need descriptive alt text — never empty, never "image1.jpg"
+ 
+## Content Conventions
+- City pages target the format "Roof Replacement in [City], WI"
+- Page copy is in /content/, not hardcoded in JSX
+- Edit testimonials in content/testimonials.ts, never inline
+- All real customer names start as "[Customer Name]" placeholders until verified
+- Phone numbers: display "(608) 925-3576", tel: links use "+16089253576"
+ 
+## Key Files to Reference Before Writing Page Copy
+- docs/website-content-library.docx — full copy for every new page
+- docs/page-by-page-rewrites.docx — exact rewrites for existing page edits
+- docs/website-sitemap.docx — complete URL architecture
+- docs/seo-competitive-analysis.docx — strategy and competitor analysis
+ 
+## Deploy
+- Hosted on Vercel
+- Auto-deploys from main branch
+- Preview deploys on pull requests
+ 
+## What NOT to do
+- Do not write fake testimonials with full names
+- Do not invent statistics or specific dollar amounts not in the docs
+- Do not claim certifications (GAF, Owens Corning) — those are aspirational, not current
+- Do not claim "25 years in business" — actual age unspecified
+- Do not link to broken pages or "#" placeholders
+ 
+Data File Templates
+The most important architectural decision: page copy lives in TypeScript data files in /content/, not hardcoded in JSX. This is what makes the city pages scalable and what makes future copy edits a 1-line change.
+content/cities.ts
+All 11 city pages are generated from this single file. The page template at /services/roofing/roof-replacement-[city]/page.tsx reads from this and renders each page.
+// content/cities.ts
+export interface CityPage {
+  slug: string;
+  cityName: string;
+  cityState: string;
+  title: string;
+  metaDescription: string;
+  h1: string;
+  hero: string;
+  localContext: string;
+  faqs: Array<{ question: string; answer: string }>;
+  testimonial: {
+    quote: string;
+    author: string;  // "[Customer Name]" until real one available
+    location: string;
+  };
+  neighbors: string[];  // slugs of neighboring city pages
+}
+ 
+export const cities: CityPage[] = [
+  {
+    slug: "madison",
+    cityName: "Madison",
+    cityState: "WI",
+    title: "Roof Replacement in Madison, WI | Home Defender Remodeling",
+    metaDescription: "Expert roof replacement for Madison homes. GAF, Owens Corning, CertainTeed materials. 10-year workmanship warranty. Free estimates from $9,000.",
+    h1: "Roof Replacement in Madison, WI",
+    hero: `Madison sits at the intersection of two lakes...`,  // full hero from content library
+    localContext: `Madison's housing stock spans more than a century...`,  // full context paragraph
+    faqs: [
+      {
+        question: "Do I need a permit for a roof replacement in Madison?",
+        answer: "Yes. The City of Madison requires a building permit..."
+      },
+      // ... 4 more FAQs from content library
+    ],
+    testimonial: {
+      quote: "Home Defender Remodeling replaced our roof on the east side last fall...",
+      author: "[Customer Name]",
+      location: "Madison, WI"
+    },
+    neighbors: ["sun-prairie", "verona", "fitchburg", "middleton"]
+  },
+  // ... 10 more cities (Sun Prairie, Verona, Fitchburg, etc.)
+];
+ 
+export function getCityBySlug(slug: string): CityPage | undefined {
+  return cities.find(c => c.slug === slug);
+}
+ 
+export function getAllCitySlugs(): string[] {
+  return cities.map(c => c.slug);
+}
+
+content/testimonials.ts
+// content/testimonials.ts
+export interface Testimonial {
+  id: string;
+  quote: string;
+  author: string;     // "[Customer Name]" if not yet verified
+  location: string;
+  service: "roofing" | "gutter" | "windows" | "general";
+  isPlaceholder: boolean;  // true until real name verified
+}
+ 
+export const testimonials: Testimonial[] = [
+  {
+    id: "madison-roofing-1",
+    quote: "Home Defender Remodeling replaced our roof on the east side last fall...",
+    author: "[Customer Name]",
+    location: "Madison, WI",
+    service: "roofing",
+    isPlaceholder: true
+  },
+  // ... more testimonials
+];
+ 
+export function getTestimonialsByService(service: string, limit = 3) {
+  return testimonials.filter(t => t.service === service).slice(0, limit);
+}
+
+src/lib/constants.ts
+// src/lib/constants.ts
+// Single source of truth for NAP, contact info, brand details.
+// Used by Footer, Schema, Contact page, etc.
+ 
+export const BUSINESS = {
+  name: "Home Defender Remodeling",
+  domain: "homedefenderusa.com",
+  url: "https://homedefenderusa.com",
+  phone: "(608) 925-3576",
+  phoneTel: "+16089253576",
+  email: "info@homedefenderusa.com",
+  address: {
+    streetAddress: "[FILL IN]",
+    addressLocality: "Madison",
+    addressRegion: "WI",
+    postalCode: "[FILL IN]",
+    addressCountry: "US"
+  },
+  geo: {
+    latitude: 43.0731,
+    longitude: -89.4012
+  },
+  hours: {
+    days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "08:00",
+    closes: "18:00"
+  },
+  serviceAreas: [
+    "Madison", "Sun Prairie", "Verona", "Fitchburg", "Middleton",
+    "Waunakee", "Cottage Grove", "McFarland", "Stoughton", "Oregon",
+    "DeForest", "Monona"
+  ],
+  social: {
+    facebook: "https://www.facebook.com/profile.php?id=61570822227803",
+    google: "https://maps.app.goo.gl/PqGYGV7MYZofukGC9",
+    // linkedin: "",  // add when active
+    // instagram: "", // add when active
+  }
+} as const;
+ 
+export const BRAND = {
+  colors: {
+    navy: "#1A2E3B",
+    green: "#3A7D5C"
+  },
+  font: "Arial, sans-serif"
+} as const;
+Claude Code Prompt Sequence
+Use these prompts in order. Each builds on the previous one. Don't skip prompts — Claude Code's quality depends on having the foundation in place when later prompts run.
+Pro tip: between prompts, commit and review what was generated. Catching mistakes early is much cheaper than catching them at deploy time.
+Prompt 0 — Initialize the project
+Purpose: Set up Next.js with the right configuration
+
+Create a new Next.js 15 project for homedefenderusa.com. Use:
+- App Router (not Pages Router)
+- TypeScript
+- Tailwind CSS
+- src/ directory layout
+- Import alias: @/*
+ 
+After project creation, set up the folder structure exactly as specified in 
+docs/claude-code-brief.md "Repository Structure" section. Create empty files 
+where indicated. Read CLAUDE.md before doing anything else and confirm you 
+understand the project conventions before writing any code.
+
+Prompt 1 — Build the layout, navigation, and footer
+Purpose: Global components every page will use
+
+Build the global layout components:
+ 
+1. src/app/layout.tsx — root layout with proper metadata, viewport, 
+   schema markup placeholder, and Google Analytics
+2. src/components/layout/Nav.tsx — top navigation matching the current 
+   homedefenderusa.com structure (Roofing dropdown with sub-services, 
+   Gutter dropdown, Windows, About, Contact, plus the new "Defender Shield" link)
+3. src/components/layout/Footer.tsx — footer with full NAP, social links 
+   (only active ones — skip LinkedIn/Instagram for now), and the canonical 
+   brand name "Home Defender Remodeling"
+4. src/components/layout/Container.tsx — content width container
+ 
+Use BUSINESS constants from @/lib/constants. Match the brand colors (navy 
+#1A2E3B, green #3A7D5C). Mobile-first responsive design.
+ 
+Do NOT include the broken Webflow links (#) for LinkedIn/Instagram — leave 
+them out entirely until real profiles are active.
+
+Prompt 2 — Set up SEO components and constants
+Purpose: Reusable schema and metadata utilities
+
+Build the SEO infrastructure:
+ 
+1. src/components/seo/LocalBusinessSchema.tsx — outputs JSON-LD 
+   LocalBusiness schema using BUSINESS constants. Take optional cityServed 
+   prop to scope to a specific city for city pages.
+2. src/components/seo/FAQSchema.tsx — takes an array of {question, answer} 
+   and outputs FAQPage JSON-LD
+3. src/components/seo/ArticleSchema.tsx — takes article props and outputs 
+   Article JSON-LD for blog posts
+4. src/lib/seo.ts — utility for generating Next.js Metadata objects with 
+   proper Open Graph, Twitter Card, canonical URLs
+ 
+Reference the schema templates in docs/seo-competitive-analysis.docx 
+"Required Schema Markup" section.
+
+Prompt 3 — Build the homepage
+Purpose: First real page — sets the visual standard
+
+Build src/app/page.tsx — the homepage. Reference 
+docs/page-by-page-rewrites.docx Section "Page 1 — Homepage" for exact copy:
+ 
+- Title: "Madison Roofing Contractor | Home Defender Remodeling"
+- Meta: "Trusted Madison roofing contractor serving Dane County..."
+- H1: "Madison Roofing, Gutters & Windows | Built for Wisconsin Weather"
+ 
+Sections in order: Hero, Top Services (Roofing first), Why Choose Us, 
+Process, Testimonials (3 distinct ones from content/testimonials.ts), 
+Defender Shield Upsell block, Service Area, Final CTA.
+ 
+Include LocalBusinessSchema component. Use real testimonials from the 
+data file — never duplicate text across testimonials.
+ 
+Style for fast LCP: hero image with priority loading, fonts via 
+next/font, no render-blocking JS.
+
+Prompt 4 — Build the city page template + populate cities data
+Purpose: Generate 11 city pages from one template
+
+This is the highest-leverage step.
+ 
+1. Create content/cities.ts. Read docs/website-content-library.docx 
+   "Section 3 — City-Specific Roof Replacement Pages" and import all 11 
+   cities (Madison, Sun Prairie, Verona, Fitchburg, Middleton, Waunakee, 
+   Cottage Grove, McFarland, Stoughton, Oregon, DeForest, Monona) as 
+   structured CityPage data including hero, localContext, 5 FAQs each, 
+   and placeholder testimonials.
+ 
+2. Create src/app/services/roofing/roof-replacement-[city]/page.tsx — 
+   dynamic route that:
+   - Uses generateStaticParams to pre-generate all 11 city pages at build time
+   - Uses generateMetadata to set per-city title and meta description
+   - Renders: Hero, Local Context paragraph, Service Overview (template), 
+     Why Choose Us (template), Process (template), Materials (template), 
+     Warranty (template), Pricing section linking to pricing page, FAQ 
+     section with FAQSchema, Local Testimonial, Service Area Neighbors 
+     block linking to neighbor cities, Final CTA
+   - Includes LocalBusinessSchema with cityServed scoped to that city
+ 
+Reference docs/website-content-library.docx Section 2 "Service Area Page 
+Master Template" for the static section copy.
+
+Prompt 5 — Build the Defender Shield page
+Purpose: The strategic centerpiece
+
+Build src/app/defender-shield/page.tsx using the full webpage 
+copy from docs/website-content-library.docx Section 1 "The Defender Shield 
+Program."
+ 
+Sections: Hero with $295/year CTA button, "Everything Included" with all 8 
+benefits, "Why Preventative Care Saves Money" section, "How The Defender 
+Shield Compares" table (vs. competitor's RoofCare+ — but DON'T name Ridge 
+Top by name; use "typical roofing maintenance plans" framing for legal 
+safety), 6-question FAQ with FAQSchema, Final CTA with enrollment button.
+ 
+Form integration: enrollment button currently goes to /contact?service=defender-shield. 
+We'll wire up real Stripe later — for now, enrollment opens a contact form 
+with service pre-filled.
+ 
+Use a slightly different visual treatment from regular service pages — 
+this page should feel premium. Subtle border, maybe a darker section 
+background. Brand it as a distinct product within Home Defender Remodeling.
+
+Prompt 6 — Build remaining service pages and edits
+Purpose: All non-city service pages
+
+Build all remaining service pages. For each, read the 
+corresponding section in docs/page-by-page-rewrites.docx (for existing 
+page edits) or docs/website-content-library.docx (for new pages) for 
+exact title, meta, H1, and copy:
+ 
+Service category pages:
+- /services (services hub)
+- /services/roofing (CRITICAL: ensure NO gutter content on this page — 
+  the current site has gutter content bleeding onto the roofing page)
+- /services/gutter-protection
+- /services/windows
+ 
+Roofing sub-services:
+- /services/roofing/roof-replacement
+- /services/roofing/roof-repair
+- /services/roofing/emergency-roof-repair (with prominent click-to-call)
+- /services/roofing/asphalt-shingle-roofing
+- /services/roofing/metal-roofing
+- /services/roofing/storm-damage-madison-wi (NEW — full copy in content library)
+- /services/roofing/roof-inspection-madison-wi (NEW — full copy in content library)
+ 
+Gutter sub-services:
+- /services/gutter/gutter-installation
+- /services/gutter/gutter-replacement
+- /services/gutter/gutter-cleaning
+- /services/gutter/gutter-repair
+ 
+For every page: LocalBusinessSchema, FAQ schema where FAQ content exists, 
+testimonials from content/testimonials.ts (NEVER duplicate), proper 
+metadata, single H1, quality alt text on images.
+
+Prompt 7 — Build pricing transparency page and remaining priority pages
+Purpose: High commercial-intent pages
+
+Build:
+ 
+1. src/app/how-much-does-roof-replacement-cost-madison/page.tsx — 
+   pricing transparency page. Use full copy from 
+   docs/website-content-library.docx Section 4.3.
+ 
+2. src/app/about/page.tsx — about page edit per 
+   docs/page-by-page-rewrites.docx "Page 2 — About Us"
+ 
+3. src/app/contact/page.tsx — contact form connected to /api/contact 
+   route handler. Use Formspree or Resend (whichever you set up). 
+   Include LocalBusinessSchema and embedded Google Map.
+ 
+4. src/app/faq/page.tsx — full FAQ page with FAQSchema marking up every 
+   question. Pull questions from content/faqs.ts.
+ 
+5. src/app/testimonials/page.tsx (NOTE: plural — set up 301 redirect 
+   from /testimonial)
+ 
+6. src/app/api/contact/route.ts — POST handler that sends email via 
+   chosen service (Formspree or Resend).
+
+Prompt 8 — Build the blog
+Purpose: Foundational content marketing
+
+Build the blog system:
+ 
+1. src/app/blog/page.tsx — blog index page listing all posts with 
+   thumbnail, title, excerpt, date, read time
+ 
+2. src/app/blog/[slug]/page.tsx — individual blog post page with 
+   ArticleSchema, breadcrumbs, internal links, related posts at bottom, 
+   CTA to schedule estimate
+ 
+3. Set up MDX support: install @next/mdx and configure next.config.ts
+ 
+4. Convert all 5 blog posts from docs/website-content-library.docx 
+   Section 5 to MDX files in content/blog/. Each MDX file should have 
+   frontmatter with title, description, slug, date, author, readTime, 
+   coverImage.
+ 
+5. Posts to create:
+   - when-to-replace-roof-wisconsin.mdx
+   - roof-replacement-cost-madison-2026.mdx
+   - hail-damage-roof-inspection-madison.mdx
+   - asphalt-shingle-vs-metal-roof-wisconsin.mdx
+   - how-to-choose-roofing-contractor-madison.mdx
+
+Prompt 9 — Sitemap, robots.txt, and final SEO polish
+Purpose: Technical SEO completeness
+
+Build the technical SEO infrastructure:
+ 
+1. src/app/sitemap.ts — generate XML sitemap including: all static pages, 
+   all 11 dynamically-generated city pages (read from content/cities.ts), 
+   all blog posts (read from content/blog/ MDX files). Include lastModified, 
+   changeFrequency, priority for each.
+ 
+2. src/app/robots.ts — robots.txt allowing all bots, pointing to sitemap.
+ 
+3. Add 301 redirects in next.config.ts for:
+   - /testimonial → /testimonials
+   - /service-archive/gutter-protection → /service/gutter-protection
+   - /service-archive/windows → /service/windows
+   - /service-archive/roofing → /service/roofing
+   See docs/website-sitemap.docx "Required 301 Redirects" for full list.
+ 
+4. Audit every page for:
+   - Single H1
+   - Unique title (50–60 chars)
+   - Unique meta description (145–160 chars)
+   - Image alt text on every image
+   - LocalBusinessSchema present
+   - Mobile responsive
+ 
+5. Run npm run build and verify zero TypeScript or lint errors.
+
+Prompt 10 — Performance and accessibility pass
+Purpose: Match or beat competitor page speed
+
+Optimize for Core Web Vitals and accessibility:
+ 
+1. Audit every page with Lighthouse. Target: 90+ on Performance, 100 on 
+   SEO, 95+ on Accessibility, 100 on Best Practices.
+ 
+2. Common fixes:
+   - Use next/image for all images with proper width/height
+   - Lazy-load images below the fold
+   - Use next/font for web fonts
+   - Defer non-critical scripts (Facebook pixel, etc.)
+   - Inline critical CSS
+   - Add proper aria-labels to buttons and links
+ 
+3. Test on real devices, not just dev tools — particularly the city pages 
+   on a mid-range Android phone.
+ 
+4. Verify all pages load in under 2.5 seconds on 4G simulation.
+
+SEO Migration Strategy
+This is the section that determines whether the migration helps or hurts your search rankings. Done right, you preserve everything you've built and improve from there. Done wrong, you lose months of ranking progress.
+The biggest risk in migration
+If a page exists in Google's index pointing to homedefenderusa.com/X and you launch a new site without that URL, Google sees a 404. Repeated 404s on pages that previously ranked tank rankings across the whole site. The fix is comprehensive 301 redirects from every old URL to its new equivalent — even URLs you forgot existed.
+Step-by-step migration plan
+#
+Step
+Detail
+1
+Pre-migration audit (1 week before launch)
+Crawl your current Webflow site with Screaming Frog (free tier covers <500 URLs). Export every URL. Compare to Google Search Console's Pages report — note which URLs are indexed and getting traffic. This becomes your redirect map.
+2
+Build new site on a subdomain first
+Deploy to staging.homedefenderusa.com (or a Vercel preview URL). Test everything: forms, schema validation (Google Rich Results Test), mobile, page speed. Do NOT point your main domain yet.
+3
+Set up 301 redirects in next.config.ts
+Map every old URL to its new equivalent. URLs that don't change still need to be in the redirect file as a safety net. URLs that do change (like /testimonial → /testimonials) need explicit redirects.
+4
+Submit new sitemap to Google Search Console (still on Webflow)
+Don't wait until launch. Google can pre-index your new URLs while the old ones are still live. Use Search Console's URL Inspection tool to request indexing on the staging URLs.
+5
+Cutover day: switch DNS
+Point homedefenderusa.com to Vercel. DNS propagation takes 1–24 hours. During this window, both old and new sites will be hit by different users — that's normal.
+6
+Verify redirects working
+Use a tool like httpstatus.io to check that every old URL returns a 301 to the new URL. Spot-check 20+ URLs manually.
+7
+Resubmit sitemap and request re-indexing
+In Search Console: submit the new sitemap.xml URL, then use URL Inspection to request indexing on top 10 most-trafficked pages.
+8
+Monitor Search Console daily for 30 days
+Watch for: 404 errors (means a redirect was missed), crawl errors, index coverage drops, ranking volatility. Most issues show up in week 1–2.
+9
+Cancel Webflow
+Wait 30 days minimum after successful cutover. Then archive the Webflow site (do NOT delete) and cancel the subscription.
+
+Redirect configuration in next.config.ts
+// next.config.ts
+import type { NextConfig } from 'next';
+ 
+const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      // URL slug renames
+      { source: '/testimonial', destination: '/testimonials', permanent: true },
+      { source: '/service-archive/gutter-protection', destination: '/service/gutter-protection', permanent: true },
+      { source: '/service-archive/windows', destination: '/service/windows', permanent: true },
+      { source: '/service-archive/roofing', destination: '/service/roofing', permanent: true },
+      
+      // Legacy URLs from old Webflow CMS (audit your full URL list — add any that exist)
+      // { source: '/old-page-url', destination: '/new-url', permanent: true },
+    ];
+  },
+  // ... rest of config
+};
+ 
+export default nextConfig;
+Git Repository Setup
+You mentioned including the strategy docs in the git repo. Smart — it makes the docs part of project history and gives Claude Code direct access to them. Here's how to set it up cleanly.
+Initial repo setup
+# Create the project directory
+mkdir homedefenderusa
+cd homedefenderusa
+ 
+# Initialize Next.js
+npx create-next-app@latest . --typescript --tailwind --app --src-dir --import-alias "@/*"
+ 
+# Initialize git (Next.js does this automatically — verify)
+git status
+ 
+# Create the docs folder and copy your strategy files in
+mkdir docs
+# Copy these files into docs/:
+#   - HomeDefender_SEO_Competitive_Analysis.docx
+#   - HomeDefender_Page_by_Page_SEO_Rewrites.docx
+#   - HomeDefender_Website_Content_Library.docx
+#   - HomeDefender_Website_Sitemap.docx
+#   - HomeDefender_Claude_Code_Brief.docx (this document)
+#   - homedefenderusa_ea_checklist_v7.xlsx
+ 
+# Create CLAUDE.md (paste content from this brief)
+touch CLAUDE.md
+ 
+# First commit
+git add .
+git commit -m "Initial project setup with strategy docs"
+ 
+# Create GitHub repo and push
+gh repo create homedefenderusa --private --source=. --remote=origin --push
+
+.gitignore additions
+Next.js generates a good .gitignore by default. Add these lines for marketing sites:
+# Editor
+.idea/
+.vscode/
+ 
+# Local env files
+.env*.local
+ 
+# Vercel
+.vercel/
+ 
+# Don't accidentally commit real customer data
+content/private/
+*.real.json
+
+Branch and PR strategy
+main = production. Auto-deploys to homedefenderusa.com via Vercel.
+Feature branches for any non-trivial change. Vercel automatically creates a preview deploy URL for each branch — share these with stakeholders for review before merging.
+PRs even for solo work. Forces a self-review before merge and keeps the history readable.
+Keep commit messages descriptive. 'Update homepage hero copy per content library' is better than 'fix homepage.'
+
+Markdown versions of strategy docs (optional but recommended)
+Claude Code reads .docx files but works much better with plain markdown. Consider creating .md versions of the key strategy docs in /docs/ alongside the .docx originals:
+docs/seo-competitive-analysis.md
+docs/page-by-page-rewrites.md
+docs/website-content-library.md
+docs/website-sitemap.md
+Easy way to do this: open each docx in Word or Google Docs, File → Download As → Markdown. Or use pandoc if you have it: pandoc input.docx -o output.md
+Timeline and Cost Estimate
+Estimates assume you're working with Claude Code rather than a freelance developer. Add 50–100% if hiring outside help.
+Day
+Work
+Owner
+Hours
+Cost
+1
+Repo setup, CLAUDE.md, docs in /docs/
+You
+2–3
+$0
+1–3
+Prompts 0–2: project init, layout, SEO infrastructure
+Claude Code + you
+8–12
+$0
+4–7
+Prompts 3–5: homepage, city pages, Defender Shield
+Claude Code + you
+12–20
+$0
+8–10
+Prompts 6–7: service pages, pricing, contact
+Claude Code + you
+8–12
+$0
+11–13
+Prompt 8: blog system + 5 posts
+Claude Code + you
+6–10
+$0
+14
+Prompts 9–10: sitemap, redirects, performance
+Claude Code + you
+4–6
+$0
+15
+Pre-launch QA: forms, schema, mobile, accessibility
+You
+3–4
+$0
+16
+DNS cutover, redirect verification, sitemap submission
+You
+1–2
+$0
+17–46
+30-day Search Console monitoring
+You
+0.5/day
+$0
+Total
+End-to-end migration
+
+~50–70
+$10–20/mo ongoing
+
+Honest caveats on the timeline
+This assumes the docs are already complete and accurate (they are — we built them). If you're tweaking content during the build, add days.
+This assumes you're doing the work yourself with Claude Code. If hiring a freelance Next.js developer to execute the prompts, the timeline can compress to 5–7 days but the cost goes from $0 to $3,000–6,000.
+This does NOT include time to: write the actual blog post content (already drafted in the content library, but final polish takes time), source real testimonials, design custom imagery, build a Stripe checkout for The Defender Shield (out of scope for v1).
+First-time deploys often hit issues that take a half-day to resolve. Budget some buffer.
+After Launch
+The build is done. Now the actual SEO work begins. The site is the foundation — the rankings come from what you do over the next 90 days.
+Week 1 after launch
+Daily Search Console check for 404 errors and crawl errors
+Verify Google Analytics is recording sessions
+Verify schema markup with Rich Results Test on top 10 pages
+Monitor for ranking volatility — some movement is normal during re-indexing
+Test contact form submissions actually arrive (do this before launch too, but verify in production)
+Weeks 2–4
+Continue Search Console monitoring (less frequent — every 2–3 days)
+Begin executing Phase 2 of the SEO Competitive Analysis: directory submissions via BrightLocal, citation building, GBP optimization
+Start the review generation system — every customer gets a follow-up text and email asking for a Google review
+Pitch local press for the Defender Shield launch story
+Months 2–3
+Cancel Webflow subscription (after confirming 30 days of clean Search Console)
+Start adding the second wave of content — supplemental blog posts (1/week)
+Apply for GAF Master Elite, Owens Corning Preferred Contractor
+Build out remaining city pages if you want to expand beyond initial 11 (e.g. add Janesville, Lake Mills, Watertown for southern WI expansion)
+Begin pursuing Tier 1 backlink targets from the SEO Competitive Analysis
+
+Final word
+The platform doesn't determine SEO success. Content quality, review velocity, backlinks, and consistency do. A perfect Next.js site with no content updates and no review system will lose to a mediocre Webflow site that publishes weekly and asks every customer for a review. Move to Claude Code if it helps you execute faster — but the execution is what matters, not the tech.
