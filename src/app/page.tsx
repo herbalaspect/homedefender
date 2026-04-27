@@ -1,46 +1,40 @@
-import { BUSINESS, BRAND } from "@/lib/constants";
+import { pageMetadata } from "@/lib/seo";
+import { Hero } from "@/components/sections/Hero";
+import { ServicesGrid } from "@/components/sections/ServicesGrid";
+import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
+import { Process } from "@/components/sections/Process";
+import { Testimonials } from "@/components/sections/Testimonials";
+import { DefenderShieldUpsell } from "@/components/sections/DefenderShieldUpsell";
+import { ServiceArea } from "@/components/sections/ServiceArea";
+import { FinalCTA } from "@/components/sections/FinalCTA";
+import { getDistinctTestimonials } from "../../content/testimonials";
 
-/**
- * Placeholder homepage for Prompt 0. Replaced in Prompt 3 with the real
- * Hero / Services / Why / Process / Testimonials / Defender Shield Upsell /
- * Service Area / CTA sections per Content Library §"Page 1 — Homepage."
- */
+export const metadata = pageMetadata({
+  title: "Madison Roofing Contractor | Home Defender Remodeling",
+  description:
+    "Roofing, gutters, and windows for Madison, Dane County, and southern Wisconsin. Free estimates, written warranties, no high-pressure sales — call today.",
+  path: "/",
+});
+
 export default function HomePage() {
+  // One testimonial each: roofing, gutters, windows. Never duplicate quote
+  // text across the page (CLAUDE.md SEO rule).
+  const testimonialTrio = getDistinctTestimonials([
+    "roofing",
+    "gutter",
+    "windows",
+  ]);
+
   return (
     <main className="flex flex-1 flex-col">
-      <section
-        className="px-6 py-24 sm:py-32"
-        style={{ backgroundColor: BRAND.colors.navy, color: "#ffffff" }}
-      >
-        <div className="mx-auto max-w-3xl">
-          <h1 className="text-3xl font-semibold sm:text-4xl">
-            {BUSINESS.name}
-          </h1>
-          <p className="mt-4 text-base sm:text-lg">
-            Madison roofing, gutters, and windows — built for Wisconsin
-            weather.
-          </p>
-          <p className="mt-2 text-sm opacity-80">
-            Scaffold placeholder. Replaced in Prompt 3.
-          </p>
-        </div>
-      </section>
-      <section className="px-6 py-12">
-        <div className="mx-auto max-w-3xl text-sm">
-          <p>
-            Call{" "}
-            <a
-              href={`tel:${BUSINESS.phoneTel}`}
-              className="font-medium underline"
-              style={{ color: BRAND.colors.green }}
-            >
-              {BUSINESS.phone}
-            </a>{" "}
-            for a free estimate. Serving Madison, Dane County, and southern
-            Wisconsin.
-          </p>
-        </div>
-      </section>
+      <Hero />
+      <ServicesGrid />
+      <WhyChooseUs />
+      <Process />
+      <Testimonials items={testimonialTrio} />
+      <DefenderShieldUpsell />
+      <ServiceArea />
+      <FinalCTA />
     </main>
   );
 }
