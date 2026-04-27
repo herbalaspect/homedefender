@@ -6,6 +6,10 @@ import { Footer } from "@/components/layout/Footer";
 import { LocalBusinessSchema } from "@/components/seo/LocalBusinessSchema";
 import { Analytics } from "@/components/seo/Analytics";
 
+/**
+ * Site-wide defaults. Per-page metadata is built with `pageMetadata()` from
+ * `@/lib/seo` and exported from each page's `page.tsx`.
+ */
 export const metadata: Metadata = {
   metadataBase: new URL(BUSINESS.url),
   title: {
