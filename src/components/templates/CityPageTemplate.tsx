@@ -93,6 +93,44 @@ export function CityPageTemplate({ city }: { city: CityPage }) {
         </Container>
       </section>
 
+      {/* 2b. Permitting / oversight (neighborhoods only when present) */}
+      {city.permittingSection && (
+        <section className="bg-gray-50 py-14 sm:py-20">
+          <Container>
+            <div className="max-w-3xl">
+              <h2
+                className="text-2xl font-bold sm:text-3xl"
+                style={{ color: BRAND.colors.navy }}
+              >
+                Permitting and oversight in {city.cityName}
+              </h2>
+              <p className="mt-4 text-base text-gray-700 whitespace-pre-line">
+                {city.permittingSection}
+              </p>
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {/* 2c. Roofing considerations specific to this place */}
+      {city.roofingConsiderations && (
+        <section className="py-14 sm:py-20">
+          <Container>
+            <div className="max-w-3xl">
+              <h2
+                className="text-2xl font-bold sm:text-3xl"
+                style={{ color: BRAND.colors.navy }}
+              >
+                Roofing considerations specific to {city.cityName}
+              </h2>
+              <p className="mt-4 text-base text-gray-700 whitespace-pre-line">
+                {city.roofingConsiderations}
+              </p>
+            </div>
+          </Container>
+        </section>
+      )}
+
       {/* 3. Service overview */}
       <section className="bg-gray-50 py-14 sm:py-20">
         <Container>
