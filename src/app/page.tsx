@@ -1,4 +1,5 @@
 import { pageMetadata } from "@/lib/seo";
+import { LocalBusinessSchema } from "@/components/seo/LocalBusinessSchema";
 import { Hero } from "@/components/sections/Hero";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
@@ -27,6 +28,7 @@ export default function HomePage() {
 
   return (
     <main className="flex flex-1 flex-col">
+      <LocalBusinessSchema />
       <Hero />
       <ServicesGrid />
       <WhyChooseUs />

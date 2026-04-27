@@ -3,7 +3,6 @@ import "./globals.css";
 import { BUSINESS } from "@/lib/constants";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
-import { LocalBusinessSchema } from "@/components/seo/LocalBusinessSchema";
 import { Analytics } from "@/components/seo/Analytics";
 
 /**
@@ -38,9 +37,6 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="h-full antialiased">
-      <head>
-        <LocalBusinessSchema />
-      </head>
       <body
         className="min-h-full flex flex-col"
         style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
