@@ -1,0 +1,276 @@
+
+Website Sitemap
+Complete Site Architecture — Existing Pages, Edits, and New Pages to Build
+Home Defender Remodeling
+homedefenderusa.com
+How to read this document
+This is the complete map of every URL on homedefenderusa.com once SEO work is complete. Each page is tagged with its status: EXISTING (live, no changes needed), EDIT (live, needs the rewrites in the page-by-page guide), NEW (must be built — copy is in the content library), or RENAME (slug needs to change with a 301 redirect from the old URL). The total goes from 19 pages today to roughly 45 pages once the build-out is complete.
+Legend
+Each page in the sitemap below is marked with one of four status tags:
+EXISTING
+Page is live now and doesn't need substantive changes. Site-wide template fixes (footer, schema, brand name) still apply, but page-specific rewrites aren't required.
+EDIT
+Page is live but needs the title tag, meta description, H1, and copy rewrites in the Page-by-Page SEO Rewrites document. Full instructions per page are in that document.
+NEW
+Page does not exist yet and needs to be built. Full webpage copy is in the Website Content Library document — Section 1 for The Defender Shield, Section 3 for city pages, Section 4 for priority pages, and Section 5 for blog posts.
+RENAME
+Page is live but the URL slug needs to change for SEO consistency. Requires a 301 redirect from the old URL to the new URL so existing links and search rankings transfer.
+Summary
+The site goes from 19 pages today to approximately 45 pages once the build-out is complete. Roughly half the new pages are city-specific service area pages — the single biggest content win available against the competition.
+Section
+Existing
+Edit
+New
+Total
+Top-level pages
+0
+4
+1
+5
+Service category pages
+0
+3
+0
+3
+Roofing sub-services
+0
+5
+2
+7
+Gutter sub-services
+0
+4
+0
+4
+City landing pages (roof replacement)
+0
+0
+11
+11
+Reference / commercial-intent pages
+0
+0
+1
+1
+Blog posts
+0–5
+0
+5
+5+
+Defender Shield
+0
+0
+1
+1
+TOTAL
+0
+16
+21
+~45
+
+Complete Sitemap
+Below is every URL on the new site, organized hierarchically. The hierarchy reflects how pages link to each other internally, not necessarily the navigation menu structure.
+Top-level pages
+EDIT
+/
+Homepage
+EDIT
+/about
+About Home Defender Remodeling
+EDIT
+/services
+Services hub
+EDIT
+/contact
+Contact
+NEW
+/defender-shield
+The Defender Shield protection plan
+
+Service category pages
+EDIT
+/service/roofing
+Roofing services overview
+EDIT
+/service/gutter-protection
+Gutter protection services
+EDIT
+/service/windows
+Window services
+
+Roofing sub-service pages
+EXISTING
+/services/roofing/
+(parent — no own page; navigation only)
+EDIT
+    └─ /services/roofing/roof-replacement
+Roof replacement
+EDIT
+    └─ /services/roofing/roof-repair
+Roof repair
+EDIT
+    └─ /services/roofing/emergency-roof-repair
+Emergency roof repair
+EDIT
+    └─ /services/roofing/asphalt-shingle-roofing
+Asphalt shingle roofing
+EDIT
+    └─ /services/roofing/metal-roofing
+Metal roofing
+NEW
+    └─ /services/roofing/storm-damage-roof-repair-madison-wi
+Storm damage roof repair Madison
+NEW
+    └─ /services/roofing/roof-inspection-madison-wi
+Free roof inspection Madison
+
+Gutter sub-service pages
+EXISTING
+/services/gutter/
+(parent — no own page; navigation only)
+EDIT
+    └─ /services/gutter/gutter-installation
+Gutter installation
+EDIT
+    └─ /services/gutter/gutter-replacement
+Gutter replacement
+EDIT
+    └─ /services/gutter/gutter-cleaning
+Gutter cleaning
+EDIT
+    └─ /services/gutter/gutter-repair
+Gutter repair
+
+City landing pages — roof replacement
+These are the highest-impact new pages. Each is built from the master template plus city-specific hero, local context, FAQs, and testimonial (Section 3 of Website Content Library).
+NEW
+/services/roofing/roof-replacement-madison-wi
+Madison
+NEW
+/services/roofing/roof-replacement-sun-prairie-wi
+Sun Prairie
+NEW
+/services/roofing/roof-replacement-verona-wi
+Verona
+NEW
+/services/roofing/roof-replacement-fitchburg-wi
+Fitchburg
+NEW
+/services/roofing/roof-replacement-middleton-wi
+Middleton
+NEW
+/services/roofing/roof-replacement-waunakee-wi
+Waunakee
+NEW
+/services/roofing/roof-replacement-cottage-grove-wi
+Cottage Grove
+NEW
+/services/roofing/roof-replacement-mcfarland-wi
+McFarland
+NEW
+/services/roofing/roof-replacement-stoughton-wi
+Stoughton
+NEW
+/services/roofing/roof-replacement-oregon-wi
+Oregon
+NEW
+/services/roofing/roof-replacement-deforest-wi
+DeForest
+NEW
+/services/roofing/roof-replacement-monona-wi
+Monona
+
+Reference / commercial-intent pages
+NEW
+/how-much-does-roof-replacement-cost-madison
+Pricing transparency guide
+
+Support / trust-building pages
+EDIT
+/faq
+FAQ page
+RENAME
+/testimonials
+Testimonials
+(Currently at /testimonial — singular. Rename to /testimonials with 301 redirect from old URL.)
+
+Blog / Resources
+EDIT
+/blog
+Blog index page
+NEW
+    └─ /blog/when-to-replace-roof-wisconsin
+Post 1 — When to Replace Your Roof
+NEW
+    └─ /blog/roof-replacement-cost-madison-2026-guide
+Post 2 — Roof Cost Guide
+NEW
+    └─ /blog/hail-damage-roof-inspection-madison
+Post 3 — Hail Damage Guide
+NEW
+    └─ /blog/asphalt-shingle-vs-metal-roof-wisconsin
+Post 4 — Asphalt vs Metal
+NEW
+    └─ /blog/how-to-choose-roofing-contractor-madison
+Post 5 — Choosing a Contractor
+XML Sitemap & Indexing
+In addition to this human-readable sitemap, the site needs a properly configured XML sitemap that Google can crawl. Webflow generates one automatically at /sitemap.xml — verify it's enabled and contains every page below.
+After publishing each new page
+Verify the page appears in the Webflow-generated /sitemap.xml
+Submit the new URL to Google Search Console: URL Inspection tool → Request Indexing
+Check the page renders correctly on mobile and desktop
+Verify schema markup with Google's Rich Results Test
+Add internal links from at least 2 other relevant pages on the site
+Recommended internal linking pattern
+Strong internal linking is what tells Google the structure of your site. Each page type should link to specific other page types:
+Homepage links to: services hub, /defender-shield, top 3–5 city pages, top 3 blog posts
+Each city page links to: 3–4 neighboring city pages, the relevant service category page (/service/roofing), and the pricing page
+Each roofing sub-service page links to: 2–3 city pages, related sub-service pages (e.g. roof replacement → roof inspection), and 1–2 relevant blog posts
+Each blog post links to: 2–3 service pages relevant to its topic, plus 1–2 related blog posts
+The Defender Shield page links to: storm damage page, roof inspection page, roof replacement page, and the homepage
+Pricing page links to: roof replacement, every relevant city page, financing FAQ
+Required 301 Redirects
+These redirects must be configured before old URLs are deprecated, so existing links and search rankings transfer to the new URLs.
+Old URL
+→
+New URL
+/testimonial
+→
+/testimonials
+/service-archive/gutter-protection
+→
+/service/gutter-protection
+/service-archive/windows
+→
+/service/windows
+/service-archive/roofing
+→
+/service/roofing
+
+Note: the site currently has duplicate URL paths for some services — e.g. links pointing to both /service-archive/gutter-protection and /service/gutter-protection. Pick one canonical version (recommended: /service/) and 301-redirect the other variants. Audit Webflow's CMS to identify which version each internal link currently points to before changing.
+Recommended Build Order
+Build pages in this order to maximize SEO compounding effect:
+#
+Phase
+Pages to build/edit
+1
+Foundation (Week 1–2)
+Site-wide template fixes (footer, schema, brand name, broken links). Edit Homepage, /service/roofing (CRITICAL — fix gutter content on roofing page), and /about. These three drive the most traffic and have the worst current bugs.
+2
+Edit existing pages (Week 3–4)
+Edit remaining service category pages, all roofing sub-services, all gutter sub-services, /faq, /testimonials, /contact, /services hub. By end of Week 4, every existing page meets new SEO standards.
+3
+New: top-priority pages (Week 5–7)
+Build /defender-shield (highest strategic importance), /how-much-does-roof-replacement-cost-madison (high commercial intent), and the first 3 city pages: Madison, Sun Prairie, Verona. These are the highest-converting new pages.
+4
+New: city pages wave 2 (Week 8–10)
+Fitchburg, Middleton, Waunakee, Cottage Grove. Plus the storm damage and roof inspection priority pages.
+5
+New: city pages wave 3 (Week 11–12)
+McFarland, Stoughton, Oregon, DeForest, Monona. Lower search volume but completes the Dane County footprint.
+6
+Blog content (ongoing — start Week 5)
+Publish 1 blog post per week starting in Week 5. Order: When to Replace, Cost Guide, Hail Damage, Asphalt vs Metal, How to Choose a Contractor. Continues at 1/week after these 5 are live.
+
+After all pages are built
+Resubmit the XML sitemap to Google Search Console. Use the URL Inspection tool to request indexing on every new page. Run Screaming Frog (free for sites under 500 URLs) to verify no broken internal links, no missing meta descriptions, no duplicate title tags. Then audit your top 10 pages on PageSpeed Insights and fix any mobile scores below 80.
