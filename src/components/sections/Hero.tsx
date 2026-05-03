@@ -1,62 +1,91 @@
 import Link from "next/link";
-import Image from "next/image";
-import { BUSINESS, BRAND } from "@/lib/constants";
-import { Container } from "@/components/layout/Container";
+import { BUSINESS } from "@/lib/constants";
 
 const HERO_IMAGE =
-  "/images/676573629ab794e176dde87e/6772af2540850ea323415b3a_Home.png";
+  "/images/676573629ab794e176dde87e/688e4553093a5e635ae26720_gutter%20protection.avif";
 
 export function Hero() {
   return (
-    <section
-      style={{ backgroundColor: BRAND.colors.navy, color: "#ffffff" }}
-      className="relative overflow-hidden"
-    >
-      <Container className="py-16 sm:py-24 lg:py-28">
-        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,520px)]">
-          <div className="max-w-3xl">
-            <p
-              className="text-sm font-semibold uppercase tracking-wider"
-              style={{ color: BRAND.colors.green }}
+    <section className="relative isolate flex min-h-[100vh] flex-col justify-end overflow-hidden bg-[#0a0a0a] pt-40 pb-32 text-white">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={HERO_IMAGE}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 h-full w-full object-cover"
+      />
+      <div
+        className="absolute inset-0 -z-10"
+        style={{
+          backgroundImage:
+            "linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.9))",
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="mx-auto w-full max-w-[1200px] px-6 lg:px-10">
+        <div className="max-w-[60ch]">
+          <span className="inline-block rounded-full bg-white/20 px-4 py-1 text-[12px] font-medium uppercase tracking-[0.05em] text-white backdrop-blur-sm">
+            Madison · Dane County · Southern Wisconsin
+          </span>
+          <h1 className="mt-5 text-balance text-4xl leading-[1.1] tracking-[-0.0125em] sm:text-5xl lg:text-6xl">
+            Madison Roofing, Gutters &amp; Windows{" "}
+            <strong className="font-semibold">Built for Wisconsin Weather</strong>
+          </h1>
+          <p className="mt-6 max-w-[60ch] text-lg leading-[1.5] opacity-90 sm:text-xl">
+            Roof replacements, repairs, and gutter protection from a local team
+            that&apos;s seen what Wisconsin winters and summer hailstorms do to
+            a house. Free estimates, written warranties, no high-pressure sales.
+          </p>
+          <div className="mt-8 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-btn border-[1.5px] border-white bg-white px-8 py-5 text-base font-medium tracking-[0.025em] text-[#0a0a0a] hover:bg-white/90"
             >
-              Madison · Dane County · Southern Wisconsin
-            </p>
-            <h1 className="mt-3 text-3xl font-medium leading-tight sm:text-4xl lg:text-5xl">
-              Madison Roofing, Gutters &amp; Windows | Built for Wisconsin Weather
-            </h1>
-            <p className="mt-5 text-base sm:text-lg opacity-90 max-w-2xl">
-              Roof replacements, repairs, and gutter protection from a local team
-              that&apos;s seen what Wisconsin winters and summer hailstorms do to
-              a house. Free estimates, written warranties, no high-pressure sales.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-btn px-6 py-3 text-base font-semibold"
-                style={{ backgroundColor: BRAND.colors.green, color: "#ffffff" }}
-              >
-                Get a Free Estimate
-              </Link>
-              <a
-                href={`tel:${BUSINESS.phoneTel}`}
-                className="inline-flex items-center justify-center rounded-btn border border-white/30 px-6 py-3 text-base font-semibold hover:bg-white/10"
-              >
-                Call {BUSINESS.phone}
-              </a>
-            </div>
+              Get a Free Estimate
+            </Link>
+            <a
+              href={`tel:${BUSINESS.phoneTel}`}
+              className="inline-flex items-center justify-center rounded-btn border-[1.5px] border-white/80 px-8 py-5 text-base font-medium tracking-[0.025em] text-white hover:bg-white/10"
+            >
+              Call {BUSINESS.phone}
+            </a>
           </div>
-          <div className="relative hidden lg:block">
-            <Image
-              src={HERO_IMAGE}
-              alt="Home Defender Remodeling roofing crew in Madison, WI"
-              width={1040}
-              height={780}
-              priority
-              className="h-auto w-full rounded-img object-cover"
-            />
+
+          <div className="mt-8 flex flex-col gap-1">
+            <div className="flex items-center gap-1 text-amber-300">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <StarIcon key={i} className="h-5 w-5" />
+              ))}
+            </div>
+            <p className="text-[15px] font-medium">
+              5/5 Reviews from{" "}
+              <a
+                href={BUSINESS.social.google}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 hover:opacity-80"
+              >
+                Google Ratings
+              </a>
+            </p>
           </div>
         </div>
-      </Container>
+      </div>
     </section>
+  );
+}
+
+function StarIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 256 256"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z" />
+    </svg>
   );
 }
