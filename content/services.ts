@@ -14,6 +14,17 @@
 
 export type ServiceCategorySlug = "roofing" | "gutter-protection" | "windows";
 
+/** Hero image paths, mirrored from the Webflow live site. Reused across
+ *  related pages so the visual identity stays consistent. */
+const HERO_ROOFING =
+  "/images/676573629ab794e176dde87e/689611faea04f1e6e8811525_house%20wideshot.jpg";
+const HERO_GUTTER_INSTALL =
+  "/images/676573629ab794e176dde87e/68a368ba736ed107347908bb_Full%20shot%20man%20with%20helmet%20working%20on%20roof.jpg";
+const HERO_GUTTER_MAINT =
+  "/images/676573629ab794e176dde87e/6772af2540850ea323415b3a_Home.png";
+const HERO_CATEGORY =
+  "/images/676573629ab794e176dde87e/6769592d1ea888d5cb710175_img-overlay-safe.png";
+
 export interface ServiceSection {
   /** H2 on the page. */
   heading: string;
@@ -50,6 +61,8 @@ export interface SubService {
   eyebrow?: string;
   /** Hero subtext — 1–3 sentences below the H1. */
   hero: string;
+  /** Background image for the hero block. Optional — falls back to flat navy. */
+  heroImage?: string;
   /** Body sections, rendered in order after the hero. */
   sections: ServiceSection[];
   /** Page-specific FAQ block. Empty array = no FAQ section. */
@@ -69,6 +82,8 @@ export interface ServiceCategoryPage {
   h1: string;
   eyebrow?: string;
   hero: string;
+  /** Background image for the hero block. Optional — falls back to flat navy. */
+  heroImage?: string;
   /** Paragraphs above the sub-service grid. */
   intro: string[];
   /** Sub-service cards. Order = display order. */
@@ -88,6 +103,7 @@ export const serviceCategories: ServiceCategoryPage[] = [
   {
     slug: "roofing",
     path: "/service/roofing",
+    heroImage: HERO_CATEGORY,
     title: "Roofing Services in Madison, WI | Home Defender Remodeling",
     metaDescription:
       "Roof replacement, repair, inspection, and storm response in Madison and Dane County. Asphalt, metal, free estimates, written warranties. Call (608) 925-3576.",
@@ -176,6 +192,7 @@ export const serviceCategories: ServiceCategoryPage[] = [
   {
     slug: "gutter-protection",
     path: "/service/gutter-protection",
+    heroImage: HERO_CATEGORY,
     title: "Gutter Services in Madison, WI | Home Defender Remodeling",
     metaDescription:
       "Seamless gutter installation, replacement, cleaning, and repair across Madison and Dane County. Stops ice dams and fascia rot. Call (608) 925-3576.",
@@ -246,6 +263,7 @@ export const serviceCategories: ServiceCategoryPage[] = [
   {
     slug: "windows",
     path: "/service/windows",
+    heroImage: HERO_CATEGORY,
     title: "Window Replacement in Madison, WI | Home Defender Remodeling",
     metaDescription:
       "Energy-efficient window replacement for Madison and Dane County homes. Fewer drafts, lower heating bills, professional install. Call (608) 925-3576.",
@@ -322,6 +340,7 @@ export const subServices: SubService[] = [
     slug: "roof-replacement",
     category: "roofing",
     path: "/services/roofing/roof-replacement",
+    heroImage: HERO_ROOFING,
     isGeoTargeted: false,
     title: "Roof Replacement in Madison & Dane County | Home Defender Remodeling",
     metaDescription:
@@ -444,6 +463,7 @@ export const subServices: SubService[] = [
     slug: "roof-repair",
     category: "roofing",
     path: "/services/roofing/roof-repair",
+    heroImage: HERO_ROOFING,
     isGeoTargeted: false,
     title: "Roof Repair in Madison, WI | Home Defender Remodeling",
     metaDescription:
@@ -522,6 +542,7 @@ export const subServices: SubService[] = [
     slug: "emergency-roof-repair",
     category: "roofing",
     path: "/services/roofing/emergency-roof-repair",
+    heroImage: HERO_ROOFING,
     isGeoTargeted: false,
     title: "Emergency Roof Repair in Madison, WI | Home Defender Remodeling",
     metaDescription:
@@ -592,6 +613,7 @@ export const subServices: SubService[] = [
     slug: "asphalt-shingle-roofing",
     category: "roofing",
     path: "/services/roofing/asphalt-shingle-roofing",
+    heroImage: HERO_ROOFING,
     isGeoTargeted: false,
     title: "Asphalt Shingle Roofing in Madison, WI | Home Defender Remodeling",
     metaDescription:
@@ -666,6 +688,7 @@ export const subServices: SubService[] = [
     slug: "metal-roofing",
     category: "roofing",
     path: "/services/roofing/metal-roofing",
+    heroImage: HERO_ROOFING,
     isGeoTargeted: false,
     title: "Metal Roofing in Madison, WI | Home Defender Remodeling",
     metaDescription:
@@ -755,6 +778,7 @@ export const subServices: SubService[] = [
     slug: "storm-damage-roof-repair-madison-wi",
     category: "roofing",
     path: "/services/roofing/storm-damage-roof-repair-madison-wi",
+    heroImage: HERO_ROOFING,
     isGeoTargeted: true,
     title: "Storm Damage Roof Repair in Madison, WI | Home Defender Remodeling",
     metaDescription:
@@ -872,6 +896,7 @@ export const subServices: SubService[] = [
     slug: "roof-inspection-madison-wi",
     category: "roofing",
     path: "/services/roofing/roof-inspection-madison-wi",
+    heroImage: HERO_ROOFING,
     isGeoTargeted: true,
     title: "Free Roof Inspection in Madison, WI | Home Defender Remodeling",
     metaDescription:
@@ -969,6 +994,7 @@ export const subServices: SubService[] = [
     slug: "gutter-installation",
     category: "gutter",
     path: "/services/gutter/gutter-installation",
+    heroImage: HERO_GUTTER_INSTALL,
     isGeoTargeted: false,
     title: "Gutter Installation in Madison, WI | Home Defender Remodeling",
     metaDescription:
@@ -1054,6 +1080,7 @@ export const subServices: SubService[] = [
     slug: "gutter-replacement",
     category: "gutter",
     path: "/services/gutter/gutter-replacement",
+    heroImage: HERO_GUTTER_INSTALL,
     isGeoTargeted: false,
     title: "Gutter Replacement in Madison, WI | Home Defender Remodeling",
     metaDescription:
@@ -1133,6 +1160,7 @@ export const subServices: SubService[] = [
     slug: "gutter-cleaning",
     category: "gutter",
     path: "/services/gutter/gutter-cleaning",
+    heroImage: HERO_GUTTER_MAINT,
     isGeoTargeted: false,
     title: "Gutter Cleaning in Madison, WI | Home Defender Remodeling",
     metaDescription:
@@ -1204,6 +1232,7 @@ export const subServices: SubService[] = [
     slug: "gutter-repair",
     category: "gutter",
     path: "/services/gutter/gutter-repair",
+    heroImage: HERO_GUTTER_MAINT,
     isGeoTargeted: false,
     title: "Gutter Repair in Madison, WI | Home Defender Remodeling",
     metaDescription:

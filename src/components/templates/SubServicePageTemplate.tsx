@@ -27,9 +27,28 @@ export function SubServicePageTemplate({ service }: { service: SubService }) {
 
       {/* 1. Hero */}
       <section
-        className="relative overflow-hidden"
+        className="relative isolate overflow-hidden"
         style={{ backgroundColor: BRAND.colors.navy, color: "#ffffff" }}
       >
+        {service.heroImage && (
+          <>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={service.heroImage}
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 -z-10 h-full w-full object-cover"
+            />
+            <div
+              className="absolute inset-0 -z-10"
+              style={{
+                background:
+                  "linear-gradient(to bottom, rgba(26, 46, 59, 0.65), rgba(26, 46, 59, 0.92))",
+              }}
+              aria-hidden="true"
+            />
+          </>
+        )}
         <Container className="py-16 sm:py-24">
           <div className="max-w-3xl">
             {service.eyebrow && (

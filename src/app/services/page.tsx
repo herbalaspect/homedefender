@@ -6,6 +6,9 @@ import { LocalBusinessSchema } from "@/components/seo/LocalBusinessSchema";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { serviceCategories } from "../../../content/services";
 
+const HUB_HERO_IMAGE =
+  "/images/676573629ab794e176dde87e/676d19fe2da2deb189fdc54d_service.jpg";
+
 export const metadata = pageMetadata({
   title: "Services — Roofing, Gutters, Windows | Home Defender Remodeling",
   description:
@@ -28,9 +31,24 @@ export default function ServicesHubPage() {
 
       {/* Hero */}
       <section
-        className="relative overflow-hidden"
+        className="relative isolate overflow-hidden"
         style={{ backgroundColor: BRAND.colors.navy, color: "#ffffff" }}
       >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={HUB_HERO_IMAGE}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 -z-10 h-full w-full object-cover"
+        />
+        <div
+          className="absolute inset-0 -z-10"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(26, 46, 59, 0.65), rgba(26, 46, 59, 0.92))",
+          }}
+          aria-hidden="true"
+        />
         <Container className="py-16 sm:py-24">
           <div className="max-w-3xl">
             <p
