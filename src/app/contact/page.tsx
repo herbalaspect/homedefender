@@ -48,7 +48,7 @@ export default async function ContactPage({
 
       {/* Hero */}
       <section style={{ backgroundColor: BRAND.colors.navy, color: "#ffffff" }}>
-        <Container className="py-14 sm:py-20">
+        <Container className="py-16 sm:py-24">
           <div className="max-w-3xl">
             <p
               className="text-sm font-semibold uppercase tracking-wider"
@@ -56,7 +56,7 @@ export default async function ContactPage({
             >
               Contact
             </p>
-            <h1 className="mt-3 text-3xl font-medium leading-tight sm:text-4xl">
+            <h1 className="mt-3 text-3xl sm:text-4xl lg:text-5xl">
               Schedule a free estimate.
             </h1>
             <p className="mt-4 text-base sm:text-lg opacity-90">
@@ -70,7 +70,7 @@ export default async function ContactPage({
       </section>
 
       {/* Form + sidebar */}
-      <section className="py-14 sm:py-20">
+      <section className="py-20 sm:py-28">
         <Container>
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
             <div className="lg:col-span-2">
@@ -175,7 +175,7 @@ export default async function ContactPage({
       </section>
 
       {/* Map */}
-      <section className="bg-gray-50 py-14">
+      <section className="bg-gray-50 py-20 sm:py-28">
         <Container>
           <h2
             className="text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl"

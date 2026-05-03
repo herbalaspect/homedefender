@@ -68,7 +68,7 @@ export default function ServicesHubPage() {
       </section>
 
       {/* Category cards */}
-      <section className="py-14 sm:py-20">
+      <section className="py-20 sm:py-28">
         <Container>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {serviceCategories.map((c) => (
@@ -111,7 +111,7 @@ export default function ServicesHubPage() {
       </section>
 
       {/* Service area */}
-      <section className="bg-gray-50 py-14 sm:py-20">
+      <section className="bg-gray-50 py-20 sm:py-28">
         <Container>
           <div className="max-w-3xl">
             <h2

@@ -70,7 +70,7 @@ export function ServiceCategoryTemplate({
       </section>
 
       {/* Intro */}
-      <section className="py-14 sm:py-20">
+      <section className="py-20 sm:py-28">
         <Container>
           <div className="max-w-3xl">
             {category.intro.map((p, i) => (
@@ -87,7 +87,7 @@ export function ServiceCategoryTemplate({
 
       {/* Sub-service cards (if any). Roofing has 7, gutters have 4, windows has 0. */}
       {category.subServiceCards.length > 0 && (
-        <section className="bg-gray-50 py-14 sm:py-20">
+        <section className="bg-gray-50 py-20 sm:py-28">
           <Container>
             <div className="max-w-3xl">
               <h2
@@ -152,7 +152,7 @@ export function ServiceCategoryTemplate({
 
       {/* FAQs */}
       {category.faqs.length > 0 && (
-        <section className="bg-gray-50 py-14 sm:py-20">
+        <section className="bg-gray-50 py-20 sm:py-28">
           <Container>
             <div className="max-w-3xl">
               <h2
@@ -198,7 +198,7 @@ function BodySection({
 }) {
   return (
     <section
-      className={tinted ? "py-14 sm:py-20" : "bg-gray-50 py-14 sm:py-20"}
+      className={tinted ? "py-20 sm:py-28" : "bg-gray-50 py-20 sm:py-28"}
     >
       <Container>
         <div className="max-w-3xl">

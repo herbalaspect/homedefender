@@ -37,7 +37,7 @@ export default function BlogIndex() {
       >
         <Container>
           <p className="text-sm uppercase tracking-wider opacity-80">Blog</p>
-          <h1 className="mt-2 text-4xl sm:text-5xl font-medium leading-tight">
+          <h1 className="mt-2 text-4xl sm:text-5xl">
             Honest advice for Madison-area homeowners
           </h1>
           <p className="mt-4 max-w-2xl text-base sm:text-lg opacity-90">
@@ -48,7 +48,7 @@ export default function BlogIndex() {
         </Container>
       </section>
 
-      <section className="py-12 sm:py-16">
+      <section className="py-20 sm:py-28">
         <Container>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {posts.map((post) => (

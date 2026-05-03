@@ -70,7 +70,7 @@ export default async function BlogPostPage({
 
       <article>
         <header
-          className="py-12 sm:py-16"
+          className="py-16 sm:py-24"
           style={{ backgroundColor: BRAND.colors.navy, color: "#ffffff" }}
         >
           <Container>
@@ -81,7 +81,7 @@ export default async function BlogPostPage({
               <span className="mx-2">/</span>
               <span>{CATEGORY_LABELS[post.category] ?? post.category}</span>
             </nav>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-medium leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl">
               {post.title}
             </h1>
             <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm opacity-90">
@@ -119,9 +119,12 @@ export default async function BlogPostPage({
       </article>
 
       {related.length > 0 && (
-        <section className="border-t border-gray-200 py-12 sm:py-16 bg-gray-50">
+        <section className="border-t border-gray-200 py-20 sm:py-28 bg-gray-50">
           <Container>
-            <h2 className="text-2xl font-medium" style={{ color: BRAND.colors.navy }}>
+            <h2
+              className="text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl"
+              style={{ color: BRAND.colors.navy }}
+            >
               Related posts
             </h2>
             <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-3">

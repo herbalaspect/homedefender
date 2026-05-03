@@ -70,7 +70,7 @@ export default function CostPage() {
 
       {/* Hero */}
       <section style={{ backgroundColor: BRAND.colors.navy, color: "#ffffff" }}>
-        <Container className="py-14 sm:py-20">
+        <Container className="py-20 sm:py-28">
           <div className="max-w-3xl">
             <p
               className="text-sm font-semibold uppercase tracking-wider"
@@ -86,7 +86,7 @@ export default function CostPage() {
       </section>
 
       {/* Intro */}
-      <section className="py-14 sm:py-20">
+      <section className="py-20 sm:py-28">
         <Container>
           <div className="max-w-3xl space-y-5 text-base text-gray-800">
             <p>
@@ -127,7 +127,7 @@ export default function CostPage() {
       </section>
 
       {/* Cost drivers */}
-      <section className="bg-gray-50 py-14 sm:py-20">
+      <section className="bg-gray-50 py-20 sm:py-28">
         <Container>
           <div className="max-w-3xl">
             <h2
@@ -154,7 +154,7 @@ export default function CostPage() {
       </section>
 
       {/* Realistic ranges by home type */}
-      <section className="py-14 sm:py-20">
+      <section className="py-20 sm:py-28">
         <Container>
           <div className="max-w-3xl">
             <h2
@@ -204,7 +204,7 @@ export default function CostPage() {
       </section>
 
       {/* Financing */}
-      <section className="bg-gray-50 py-14 sm:py-20">
+      <section className="bg-gray-50 py-20 sm:py-28">
         <Container>
           <div className="max-w-3xl">
             <h2

@@ -77,7 +77,7 @@ export function CityPageTemplate({ city }: { city: CityPage }) {
       </section>
 
       {/* 2. Local context */}
-      <section className="py-14 sm:py-20">
+      <section className="py-20 sm:py-28">
         <Container>
           <div className="max-w-3xl">
             <h2
@@ -95,7 +95,7 @@ export function CityPageTemplate({ city }: { city: CityPage }) {
 
       {/* 2b. Permitting / oversight (neighborhoods only when present) */}
       {city.permittingSection && (
-        <section className="bg-gray-50 py-14 sm:py-20">
+        <section className="bg-gray-50 py-20 sm:py-28">
           <Container>
             <div className="max-w-3xl">
               <h2
@@ -114,7 +114,7 @@ export function CityPageTemplate({ city }: { city: CityPage }) {
 
       {/* 2c. Roofing considerations specific to this place */}
       {city.roofingConsiderations && (
-        <section className="py-14 sm:py-20">
+        <section className="py-20 sm:py-28">
           <Container>
             <div className="max-w-3xl">
               <h2
@@ -132,7 +132,7 @@ export function CityPageTemplate({ city }: { city: CityPage }) {
       )}
 
       {/* 3. Service overview */}
-      <section className="bg-gray-50 py-14 sm:py-20">
+      <section className="bg-gray-50 py-20 sm:py-28">
         <Container>
           <div className="max-w-3xl">
             <h2
@@ -155,7 +155,7 @@ export function CityPageTemplate({ city }: { city: CityPage }) {
       </section>
 
       {/* 4. Why choose us */}
-      <section className="py-14 sm:py-20">
+      <section className="py-20 sm:py-28">
         <Container>
           <h2
             className="text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl"
@@ -190,7 +190,7 @@ export function CityPageTemplate({ city }: { city: CityPage }) {
       <Process />
 
       {/* 6. Materials */}
-      <section className="bg-gray-50 py-14 sm:py-20">
+      <section className="bg-gray-50 py-20 sm:py-28">
         <Container>
           <div className="max-w-3xl">
             <h2
@@ -230,7 +230,7 @@ export function CityPageTemplate({ city }: { city: CityPage }) {
       </section>
 
       {/* 7. Warranty */}
-      <section className="py-14 sm:py-20">
+      <section className="py-20 sm:py-28">
         <Container>
           <div className="max-w-3xl">
             <h2
@@ -255,7 +255,7 @@ export function CityPageTemplate({ city }: { city: CityPage }) {
       </section>
 
       {/* 8. Pricing */}
-      <section className="bg-gray-50 py-14 sm:py-20">
+      <section className="bg-gray-50 py-20 sm:py-28">
         <Container>
           <div className="max-w-3xl">
             <h2
@@ -283,7 +283,7 @@ export function CityPageTemplate({ city }: { city: CityPage }) {
 
       {/* 9. FAQs */}
       {city.faqs.length > 0 && (
-        <section className="py-14 sm:py-20">
+        <section className="py-20 sm:py-28">
           <Container>
             <div className="max-w-3xl">
               <h2
@@ -329,7 +329,7 @@ export function CityPageTemplate({ city }: { city: CityPage }) {
 
       {/* 11. Neighbors */}
       {city.neighbors.length > 0 && (
-        <section className="bg-gray-50 py-14 sm:py-20">
+        <section className="bg-gray-50 py-20 sm:py-28">
           <Container>
             <div className="max-w-3xl">
               <h2

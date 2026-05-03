@@ -79,8 +79,8 @@ export function SubServicePageTemplate({ service }: { service: SubService }) {
         <section
           className={
             service.sections.length % 2 === 0
-              ? "bg-gray-50 py-14 sm:py-20"
-              : "py-14 sm:py-20"
+              ? "bg-gray-50 py-20 sm:py-28"
+              : "py-20 sm:py-28"
           }
         >
           <Container>
@@ -141,7 +141,7 @@ function BodySection({
 }) {
   return (
     <section
-      className={tinted ? "py-14 sm:py-20" : "bg-gray-50 py-14 sm:py-20"}
+      className={tinted ? "py-20 sm:py-28" : "bg-gray-50 py-20 sm:py-28"}
     >
       <Container>
         <div className="max-w-3xl">
@@ -195,7 +195,7 @@ function RelatedServices({ slugs }: { slugs: string[] }) {
     .filter((s): s is SubService => Boolean(s));
   if (items.length === 0) return null;
   return (
-    <section className="py-14 sm:py-20">
+    <section className="py-20 sm:py-28">
       <Container>
         <div className="max-w-3xl">
           <h2
@@ -245,7 +245,7 @@ function CityCallouts({ slugs }: { slugs: string[] }) {
     .filter(({ city }) => Boolean(city));
   if (cities.length === 0) return null;
   return (
-    <section className="bg-gray-50 py-14 sm:py-20">
+    <section className="bg-gray-50 py-20 sm:py-28">
       <Container>
         <div className="max-w-3xl">
           <h2

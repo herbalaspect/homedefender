@@ -21,7 +21,7 @@ export default function FAQPage() {
 
       {/* Hero */}
       <section style={{ backgroundColor: BRAND.colors.navy, color: "#ffffff" }}>
-        <Container className="py-14 sm:py-20">
+        <Container className="py-16 sm:py-24">
           <div className="max-w-3xl">
             <p
               className="text-sm font-semibold uppercase tracking-wider"
@@ -29,7 +29,7 @@ export default function FAQPage() {
             >
               Frequently Asked Questions
             </p>
-            <h1 className="mt-3 text-3xl font-medium leading-tight sm:text-4xl">
+            <h1 className="mt-3 text-3xl sm:text-4xl lg:text-5xl">
               Answers to the questions we hear most.
             </h1>
             <p className="mt-4 text-base sm:text-lg opacity-90">
@@ -65,7 +65,7 @@ export default function FAQPage() {
         <section
           key={cat.id}
           id={cat.id}
-          className="py-12 even:bg-gray-50 sm:py-16"
+          className="py-16 even:bg-gray-50 sm:py-20"
         >
           <Container>
             <div className="max-w-3xl">

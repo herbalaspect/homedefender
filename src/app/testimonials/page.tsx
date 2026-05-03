@@ -35,7 +35,7 @@ export default function TestimonialsPage() {
 
       {/* Hero */}
       <section style={{ backgroundColor: BRAND.colors.navy, color: "#ffffff" }}>
-        <Container className="py-14 sm:py-20">
+        <Container className="py-16 sm:py-24">
           <div className="max-w-3xl">
             <p
               className="text-sm font-semibold uppercase tracking-wider"
@@ -43,7 +43,7 @@ export default function TestimonialsPage() {
             >
               Customer Stories
             </p>
-            <h1 className="mt-3 text-3xl font-medium leading-tight sm:text-4xl">
+            <h1 className="mt-3 text-3xl sm:text-4xl lg:text-5xl">
               What homeowners in Madison and Dane County say.
             </h1>
             <p className="mt-4 text-base sm:text-lg opacity-90">
@@ -56,7 +56,7 @@ export default function TestimonialsPage() {
       </section>
 
       {/* Testimonials grid */}
-      <section className="py-14 sm:py-20">
+      <section className="py-20 sm:py-28">
         <Container>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {testimonials.map((t) => (
