@@ -145,7 +145,7 @@ export function ServiceCategoryTemplate({
             // Alternate background starting from where the cards left off.
             // If there are cards (gray-50 above), this should start white.
             // If no cards, intro was white, this should start gray.
-            (category.subServiceCards.length > 0 ? idx : idx + 1) % 2 === 0
+            (category.subServiceCards.length > 0 ? idx : idx + 1) % 2 !== 0
           }
         />
       ))}
@@ -198,7 +198,7 @@ function BodySection({
 }) {
   return (
     <section
-      className={tinted ? "py-20 sm:py-28" : "bg-gray-50 py-20 sm:py-28"}
+      className={tinted ? "bg-gray-50 py-20 sm:py-28" : "py-20 sm:py-28"}
     >
       <Container>
         <div className="max-w-3xl">

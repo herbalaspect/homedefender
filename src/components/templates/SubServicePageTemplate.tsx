@@ -70,7 +70,7 @@ export function SubServicePageTemplate({ service }: { service: SubService }) {
         <BodySection
           key={section.heading}
           section={section}
-          tinted={idx % 2 === 0}
+          tinted={idx % 2 !== 0}
         />
       ))}
 
@@ -141,7 +141,7 @@ function BodySection({
 }) {
   return (
     <section
-      className={tinted ? "py-20 sm:py-28" : "bg-gray-50 py-20 sm:py-28"}
+      className={tinted ? "bg-gray-50 py-20 sm:py-28" : "py-20 sm:py-28"}
     >
       <Container>
         <div className="max-w-3xl">
