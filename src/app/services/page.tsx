@@ -7,7 +7,7 @@ import { FinalCTA } from "@/components/sections/FinalCTA";
 import { serviceCategories } from "../../../content/services";
 
 export const metadata = pageMetadata({
-  title: "Services — Roofing, Gutters, Windows | Home Defender",
+  title: "Services — Roofing, Gutters, Windows | Home Defender Remodeling",
   description:
     "Roofing, gutter protection, and window replacement for Madison, Dane County, and southern Wisconsin. Free written estimates and a workmanship warranty in writing.",
   path: "/services",

@@ -687,7 +687,7 @@ For lakefront properties specifically, there can be additional shoreland zoning 
     cityState: "WI",
     isNeighborhood: true,
     parentCity: "Madison",
-    title: "Roof Replacement in University Heights, Madison WI | Home Defender",
+    title: "Roof Replacement in University Heights, Madison WI | Home Defender Remodeling",
     metaDescription: "Roofing contractor experienced with University Heights historic district homes. Landmarks Commission approval, period-appropriate materials, premium installations.",
     h1: "Roof Replacement in University Heights, Madison WI",
     hero: `University Heights is a designated local historic district — Madison's third, established in 1985 and listed on the National Register since 1982. Nearly 400 homes within the district are protected under the Madison Landmarks Commission's oversight, which means roof replacements involving visible exterior changes require a Certificate of Appropriateness before the work can begin.
@@ -752,7 +752,7 @@ For Prairie School homes specifically, the deep eave and low-pitch design means 
     cityState: "WI",
     isNeighborhood: true,
     parentCity: "Madison",
-    title: "Roof Replacement in Marquette / Willy Street, Madison WI | Home Defender",
+    title: "Roof Replacement in Marquette / Willy Street, Madison WI | Home Defender Remodeling",
     metaDescription: "Roofing contractor for Marquette and Third Lake Ridge historic district homes. Landmarks Commission experience, period-appropriate materials, free estimates.",
     h1: "Roof Replacement in Marquette / Third Lake Ridge, Madison WI",
     hero: `The Marquette neighborhood — including the Third Lake Ridge Historic District — is Madison's east-side cultural anchor. Spanning from Blair Street to the Yahara River and from Williamson Street ('Willy Street') to Lake Monona, it's Madison's largest historic district, designated in 1979.

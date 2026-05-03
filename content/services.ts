@@ -323,7 +323,7 @@ export const subServices: SubService[] = [
     category: "roofing",
     path: "/services/roofing/roof-replacement",
     isGeoTargeted: false,
-    title: "Roof Replacement in Madison & Dane County | Home Defender",
+    title: "Roof Replacement in Madison & Dane County | Home Defender Remodeling",
     metaDescription:
       "Full roof replacement across Madison and Dane County. Tear-off, ice and water shield, architectural shingles or standing-seam metal. Free written estimate.",
     h1: "Roof Replacement in Madison and Dane County",
@@ -523,7 +523,7 @@ export const subServices: SubService[] = [
     category: "roofing",
     path: "/services/roofing/emergency-roof-repair",
     isGeoTargeted: false,
-    title: "Emergency Roof Repair in Madison, WI | Home Defender",
+    title: "Emergency Roof Repair in Madison, WI | Home Defender Remodeling",
     metaDescription:
       "Active leaks, storm damage, tree impacts? Fast tarping and emergency roof repair across Madison and Dane County. Call (608) 925-3576.",
     h1: "Emergency Roof Repair in Madison and Dane County",
@@ -593,7 +593,7 @@ export const subServices: SubService[] = [
     category: "roofing",
     path: "/services/roofing/asphalt-shingle-roofing",
     isGeoTargeted: false,
-    title: "Asphalt Shingle Roofing in Madison, WI | Home Defender",
+    title: "Asphalt Shingle Roofing in Madison, WI | Home Defender Remodeling",
     metaDescription:
       "Architectural asphalt shingle roofs for Madison and Dane County. 30–50 year warranties, good wind and impact ratings, predictable cost. Free estimate.",
     h1: "Asphalt Shingle Roofing in Madison",
@@ -756,7 +756,7 @@ export const subServices: SubService[] = [
     category: "roofing",
     path: "/services/roofing/storm-damage-roof-repair-madison-wi",
     isGeoTargeted: true,
-    title: "Storm Damage Roof Repair in Madison, WI | Home Defender",
+    title: "Storm Damage Roof Repair in Madison, WI | Home Defender Remodeling",
     metaDescription:
       "Storm or hail damage to your Madison roof? Free inspection, full insurance documentation, fast emergency response. We handle the claim. Call (608) 925-3576.",
     h1: "Storm Damage Roof Repair in Madison, WI",
@@ -873,7 +873,7 @@ export const subServices: SubService[] = [
     category: "roofing",
     path: "/services/roofing/roof-inspection-madison-wi",
     isGeoTargeted: true,
-    title: "Free Roof Inspection in Madison, WI | Home Defender",
+    title: "Free Roof Inspection in Madison, WI | Home Defender Remodeling",
     metaDescription:
       "Free 30-point roof inspection for Madison and Dane County homes. Honest assessment of your roof's condition with photos and a written report. No upsell.",
     h1: "Free Roof Inspection in Madison, WI",
@@ -970,7 +970,7 @@ export const subServices: SubService[] = [
     category: "gutter",
     path: "/services/gutter/gutter-installation",
     isGeoTargeted: false,
-    title: "Gutter Installation in Madison, WI | Home Defender",
+    title: "Gutter Installation in Madison, WI | Home Defender Remodeling",
     metaDescription:
       "Seamless gutter installation in Madison and Dane County. 5\" and 6\" aluminum or steel, cut to length, hidden hangers, proper pitch. Free estimate.",
     h1: "Seamless Gutter Installation in Madison",
@@ -1055,7 +1055,7 @@ export const subServices: SubService[] = [
     category: "gutter",
     path: "/services/gutter/gutter-replacement",
     isGeoTargeted: false,
-    title: "Gutter Replacement in Madison, WI | Home Defender",
+    title: "Gutter Replacement in Madison, WI | Home Defender Remodeling",
     metaDescription:
       "Full gutter replacement in Madison and Dane County. Tear-off, fascia inspection, capacity check, and a new seamless system. Free written estimate.",
     h1: "Gutter Replacement in Madison",
