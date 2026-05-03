@@ -57,7 +57,7 @@ export function ContactForm({ defaultService }: { defaultService?: string }) {
   if (status === "success") {
     return (
       <div
-        className="rounded-lg border border-green-200 bg-green-50 p-6"
+        className="rounded-img border border-green-200 bg-green-50 p-6"
         role="status"
         aria-live="polite"
       >
@@ -116,7 +116,7 @@ export function ContactForm({ defaultService }: { defaultService?: string }) {
           name="service"
           defaultValue={defaultService ?? ""}
           required
-          className="mt-1.5 block w-full rounded-md border border-gray-300 bg-white px-3 py-2.5 text-base text-gray-900 focus:border-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-500"
+          className="mt-1.5 block w-full rounded-btn border border-gray-300 bg-white px-3 py-2.5 text-base text-gray-900 focus:border-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-500"
         >
           <option value="" disabled>
             Pick the service that best fits…
@@ -142,7 +142,7 @@ export function ContactForm({ defaultService }: { defaultService?: string }) {
           name="message"
           rows={5}
           required
-          className="mt-1.5 block w-full rounded-md border border-gray-300 bg-white px-3 py-2.5 text-base text-gray-900 focus:border-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-500"
+          className="mt-1.5 block w-full rounded-btn border border-gray-300 bg-white px-3 py-2.5 text-base text-gray-900 focus:border-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-500"
           placeholder="Roof age, current symptoms, recent storm exposure, anything else useful."
         />
       </div>
@@ -170,7 +170,7 @@ export function ContactForm({ defaultService }: { defaultService?: string }) {
       <button
         type="submit"
         disabled={submitting}
-        className="inline-flex items-center justify-center rounded-md px-6 py-3 text-base font-semibold text-white disabled:opacity-60"
+        className="inline-flex items-center justify-center rounded-btn px-6 py-3 text-base font-semibold text-white disabled:opacity-60"
         style={{ backgroundColor: BRAND.colors.green }}
       >
         {submitting ? "Sending…" : "Request a Free Estimate"}
@@ -212,7 +212,7 @@ function Field({
         type={type}
         required={required}
         autoComplete={autoComplete}
-        className="mt-1.5 block w-full rounded-md border border-gray-300 bg-white px-3 py-2.5 text-base text-gray-900 focus:border-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-500"
+        className="mt-1.5 block w-full rounded-btn border border-gray-300 bg-white px-3 py-2.5 text-base text-gray-900 focus:border-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-500"
       />
     </div>
   );

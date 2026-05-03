@@ -40,7 +40,7 @@ export function SubServicePageTemplate({ service }: { service: SubService }) {
                 {service.eyebrow}
               </p>
             )}
-            <h1 className="mt-3 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
+            <h1 className="mt-3 text-3xl font-medium leading-tight sm:text-4xl lg:text-5xl">
               {service.h1}
             </h1>
             <p className="mt-5 text-base sm:text-lg opacity-90">
@@ -49,14 +49,14 @@ export function SubServicePageTemplate({ service }: { service: SubService }) {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-md px-6 py-3 text-base font-semibold"
+                className="inline-flex items-center justify-center rounded-btn px-6 py-3 text-base font-semibold"
                 style={{ backgroundColor: BRAND.colors.green, color: "#ffffff" }}
               >
                 Get a Free Estimate
               </Link>
               <a
                 href={`tel:${BUSINESS.phoneTel}`}
-                className="inline-flex items-center justify-center rounded-md border border-white/30 px-6 py-3 text-base font-semibold hover:bg-white/10"
+                className="inline-flex items-center justify-center rounded-btn border border-white/30 px-6 py-3 text-base font-semibold hover:bg-white/10"
               >
                 Call {BUSINESS.phone}
               </a>
@@ -86,7 +86,7 @@ export function SubServicePageTemplate({ service }: { service: SubService }) {
           <Container>
             <div className="max-w-3xl">
               <h2
-                className="text-2xl font-bold sm:text-3xl"
+                className="text-2xl font-medium sm:text-3xl"
                 style={{ color: BRAND.colors.navy }}
               >
                 Frequently asked questions
@@ -95,7 +95,7 @@ export function SubServicePageTemplate({ service }: { service: SubService }) {
                 {service.faqs.map((f) => (
                   <div
                     key={f.question}
-                    className="rounded-lg border border-gray-200 bg-white p-5"
+                    className="rounded-img border border-gray-200 bg-white p-5"
                   >
                     <dt
                       className="text-base font-semibold"
@@ -146,7 +146,7 @@ function BodySection({
       <Container>
         <div className="max-w-3xl">
           <h2
-            className="text-2xl font-bold sm:text-3xl"
+            className="text-2xl font-medium sm:text-3xl"
             style={{ color: BRAND.colors.navy }}
           >
             {section.heading}
@@ -164,7 +164,7 @@ function BodySection({
               {section.list.map((item, i) => (
                 <li
                   key={i}
-                  className="rounded-lg border border-gray-200 bg-white p-5"
+                  className="rounded-img border border-gray-200 bg-white p-5"
                 >
                   {item.heading && (
                     <p
@@ -199,7 +199,7 @@ function RelatedServices({ slugs }: { slugs: string[] }) {
       <Container>
         <div className="max-w-3xl">
           <h2
-            className="text-2xl font-bold sm:text-3xl"
+            className="text-2xl font-medium sm:text-3xl"
             style={{ color: BRAND.colors.navy }}
           >
             Related services
@@ -210,7 +210,7 @@ function RelatedServices({ slugs }: { slugs: string[] }) {
             <Link
               key={s.slug}
               href={s.path}
-              className="group block rounded-lg border border-gray-200 bg-white p-5 transition-shadow hover:shadow-md"
+              className="group block rounded-img border border-gray-200 bg-white p-5 transition-shadow hover:shadow-md"
             >
               <h3
                 className="text-base font-semibold"
@@ -249,7 +249,7 @@ function CityCallouts({ slugs }: { slugs: string[] }) {
       <Container>
         <div className="max-w-3xl">
           <h2
-            className="text-2xl font-bold sm:text-3xl"
+            className="text-2xl font-medium sm:text-3xl"
             style={{ color: BRAND.colors.navy }}
           >
             Also serving these communities
@@ -266,7 +266,7 @@ function CityCallouts({ slugs }: { slugs: string[] }) {
               <li key={slug}>
                 <Link
                   href={`/services/roofing/roof-replacement-${slug}-wi`}
-                  className="block rounded-md border border-gray-200 bg-white px-3 py-2 hover:border-gray-300 hover:bg-gray-100"
+                  className="block rounded-btn border border-gray-200 bg-white px-3 py-2 hover:border-gray-300 hover:bg-gray-100"
                   style={{ color: BRAND.colors.navy }}
                 >
                   {city.cityName}

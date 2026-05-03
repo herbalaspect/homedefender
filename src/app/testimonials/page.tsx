@@ -43,7 +43,7 @@ export default function TestimonialsPage() {
             >
               Customer Stories
             </p>
-            <h1 className="mt-3 text-3xl font-bold leading-tight sm:text-4xl">
+            <h1 className="mt-3 text-3xl font-medium leading-tight sm:text-4xl">
               What homeowners in Madison and Dane County say.
             </h1>
             <p className="mt-4 text-base sm:text-lg opacity-90">
@@ -62,7 +62,7 @@ export default function TestimonialsPage() {
             {testimonials.map((t) => (
               <article
                 key={t.id}
-                className="flex flex-col rounded-lg border border-gray-200 bg-white p-6"
+                className="flex flex-col rounded-img border border-gray-200 bg-white p-6"
               >
                 <p
                   className="text-xs font-semibold uppercase tracking-wider"

@@ -30,7 +30,7 @@ export function WhyChooseUs() {
       <Container>
         <div className="max-w-3xl">
           <h2
-            className="text-2xl font-bold sm:text-3xl"
+            className="text-2xl font-medium sm:text-3xl"
             style={{ color: BRAND.colors.navy }}
           >
             Why Madison homeowners choose us
@@ -41,7 +41,7 @@ export function WhyChooseUs() {
             <li key={p.heading} className="flex gap-4">
               <span
                 aria-hidden="true"
-                className="mt-1 inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full text-xs font-bold text-white"
+                className="mt-1 inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full text-xs font-medium text-white"
                 style={{ backgroundColor: BRAND.colors.green }}
               >
                 ✓

@@ -1,9 +1,16 @@
 import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { BUSINESS } from "@/lib/constants";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { Analytics } from "@/components/seo/Analytics";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 /**
  * Site-wide defaults. Per-page metadata is built with `pageMetadata()` from
@@ -36,11 +43,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="h-full antialiased">
-      <body
-        className="min-h-full flex flex-col"
-        style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
-      >
+    <html lang="en" className={`h-full antialiased ${inter.variable}`}>
+      <body className="min-h-full flex flex-col font-sans">
         <Nav />
         <div className="flex-1 flex flex-col">{children}</div>
         <Footer />

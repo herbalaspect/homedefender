@@ -54,7 +54,7 @@ export default function AboutPage() {
             >
               About Us
             </p>
-            <h1 className="mt-3 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
+            <h1 className="mt-3 text-3xl font-medium leading-tight sm:text-4xl lg:text-5xl">
               A local Madison roofing crew that has to live with its work.
             </h1>
             <p className="mt-5 text-base sm:text-lg opacity-90">
@@ -68,14 +68,14 @@ export default function AboutPage() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-md px-6 py-3 text-base font-semibold"
+                className="inline-flex items-center justify-center rounded-btn px-6 py-3 text-base font-semibold"
                 style={{ backgroundColor: BRAND.colors.green, color: "#ffffff" }}
               >
                 Schedule a Free Estimate
               </Link>
               <a
                 href={`tel:${BUSINESS.phoneTel}`}
-                className="inline-flex items-center justify-center rounded-md border border-white/30 px-6 py-3 text-base font-semibold hover:bg-white/10"
+                className="inline-flex items-center justify-center rounded-btn border border-white/30 px-6 py-3 text-base font-semibold hover:bg-white/10"
               >
                 Call {BUSINESS.phone}
               </a>
@@ -89,7 +89,7 @@ export default function AboutPage() {
         <Container>
           <div className="max-w-3xl">
             <h2
-              className="text-2xl font-bold sm:text-3xl"
+              className="text-2xl font-medium sm:text-3xl"
               style={{ color: BRAND.colors.navy }}
             >
               How we work
@@ -115,7 +115,7 @@ export default function AboutPage() {
             {VALUES.map((v) => (
               <article
                 key={v.title}
-                className="rounded-lg border border-gray-200 bg-white p-6"
+                className="rounded-img border border-gray-200 bg-white p-6"
               >
                 <h3
                   className="text-lg font-semibold"
@@ -135,7 +135,7 @@ export default function AboutPage() {
         <Container>
           <div className="max-w-3xl">
             <h2
-              className="text-2xl font-bold sm:text-3xl"
+              className="text-2xl font-medium sm:text-3xl"
               style={{ color: BRAND.colors.navy }}
             >
               Where we work
@@ -164,7 +164,7 @@ export default function AboutPage() {
         <Container>
           <div className="max-w-3xl">
             <h2
-              className="text-2xl font-bold sm:text-3xl"
+              className="text-2xl font-medium sm:text-3xl"
               style={{ color: BRAND.colors.navy }}
             >
               What we don&apos;t do

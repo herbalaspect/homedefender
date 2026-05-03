@@ -1,28 +1,44 @@
 @import "tailwindcss";
 
+/* Design tokens ported from the live Webflow site
+ * (reference-site/.../css/hdr-systems.shared.c4e6eb3cf.min.css):
+ * Inter as the body+heading font, light/normal heading weights,
+ * .875rem button radius, .75rem image radius. */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --radius-button: 0.875rem;
+  --radius-image: 0.75rem;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-inter), Inter, system-ui, sans-serif;
+  --radius-btn: var(--radius-button);
+  --radius-img: var(--radius-image);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), Inter, system-ui, sans-serif;
+}
+
+/* Webflow heading defaults — light/normal weights, tight tracking on h1.
+ * Components can override per section, but defaults match the live site. */
+h1 {
+  font-weight: 400;
+  letter-spacing: -0.0125em;
+  line-height: 1.1;
+}
+h2 {
+  font-weight: 400;
+  line-height: 1.125;
+}
+h3 {
+  font-weight: 500;
+  line-height: 1.25;
 }
 
 /* Blog body typography. Used by `<div class="prose-blog">` wrappers around
@@ -38,16 +54,17 @@ body {
   margin-top: 1rem;
 }
 .prose-blog h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 1.3;
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
   margin-top: 2rem;
   color: #1A2E3B;
 }
 .prose-blog h3 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  line-height: 1.4;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.3;
   margin-top: 1.5rem;
   color: #1A2E3B;
 }

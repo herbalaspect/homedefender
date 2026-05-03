@@ -91,7 +91,7 @@ export function Nav() {
           ))}
           <a
             href={`tel:${BUSINESS.phoneTel}`}
-            className="ml-2 rounded-md px-4 py-2 text-sm font-semibold"
+            className="ml-2 rounded-btn px-4 py-2 text-sm font-semibold"
             style={{ backgroundColor: BRAND.colors.green, color: "#ffffff" }}
           >
             {BUSINESS.phone}
@@ -103,7 +103,7 @@ export function Nav() {
           type="button"
           aria-label="Open navigation menu"
           aria-expanded={mobileOpen}
-          className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-md hover:bg-white/10"
+          className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-btn hover:bg-white/10"
           onClick={() => setMobileOpen((v) => !v)}
         >
           <span className="sr-only">Toggle navigation</span>
@@ -156,7 +156,7 @@ export function Nav() {
             ))}
             <a
               href={`tel:${BUSINESS.phoneTel}`}
-              className="block w-full rounded-md px-4 py-3 text-center text-base font-semibold"
+              className="block w-full rounded-btn px-4 py-3 text-center text-base font-semibold"
               style={{ backgroundColor: BRAND.colors.green, color: "#ffffff" }}
             >
               Call {BUSINESS.phone}
@@ -208,7 +208,7 @@ function DesktopGroup({
       {isOpen && (
         <div className="absolute left-0 top-full pt-1">
           <ul
-            className="min-w-[260px] rounded-md border border-black/5 bg-white py-2 shadow-lg"
+            className="min-w-[260px] rounded-btn border border-black/5 bg-white py-2 shadow-lg"
             style={{ color: BRAND.colors.navy }}
           >
             {group.items.map((item) => (

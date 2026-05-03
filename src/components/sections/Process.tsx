@@ -35,7 +35,7 @@ export function Process() {
       <Container>
         <div className="max-w-3xl">
           <h2
-            className="text-2xl font-bold sm:text-3xl"
+            className="text-2xl font-medium sm:text-3xl"
             style={{ color: BRAND.colors.navy }}
           >
             How a roof replacement actually works
@@ -49,7 +49,7 @@ export function Process() {
           {STEPS.map((step, i) => (
             <li
               key={step.title}
-              className="rounded-lg border border-gray-200 bg-white p-5"
+              className="rounded-img border border-gray-200 bg-white p-5"
             >
               <div
                 className="text-xs font-semibold uppercase tracking-wider"

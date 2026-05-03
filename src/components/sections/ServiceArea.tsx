@@ -17,7 +17,7 @@ export function ServiceArea() {
       <Container>
         <div className="max-w-3xl">
           <h2
-            className="text-2xl font-bold sm:text-3xl"
+            className="text-2xl font-medium sm:text-3xl"
             style={{ color: BRAND.colors.navy }}
           >
             Where we work
@@ -33,7 +33,7 @@ export function ServiceArea() {
             <li key={city}>
               <Link
                 href={`/services/roofing/roof-replacement-${citySlug(city)}-wi`}
-                className="block rounded-md border border-gray-200 px-3 py-2 hover:border-gray-300 hover:bg-gray-50"
+                className="block rounded-btn border border-gray-200 px-3 py-2 hover:border-gray-300 hover:bg-gray-50"
                 style={{ color: BRAND.colors.navy }}
               >
                 {city}, WI

@@ -56,7 +56,7 @@ export default async function ContactPage({
             >
               Contact
             </p>
-            <h1 className="mt-3 text-3xl font-bold leading-tight sm:text-4xl">
+            <h1 className="mt-3 text-3xl font-medium leading-tight sm:text-4xl">
               Schedule a free estimate.
             </h1>
             <p className="mt-4 text-base sm:text-lg opacity-90">
@@ -75,7 +75,7 @@ export default async function ContactPage({
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
             <div className="lg:col-span-2">
               <h2
-                className="text-2xl font-bold sm:text-3xl"
+                className="text-2xl font-medium sm:text-3xl"
                 style={{ color: BRAND.colors.navy }}
               >
                 Tell us about the project
@@ -178,12 +178,12 @@ export default async function ContactPage({
       <section className="bg-gray-50 py-14">
         <Container>
           <h2
-            className="text-2xl font-bold sm:text-3xl"
+            className="text-2xl font-medium sm:text-3xl"
             style={{ color: BRAND.colors.navy }}
           >
             Find us
           </h2>
-          <div className="mt-6 overflow-hidden rounded-lg border border-gray-200 bg-white">
+          <div className="mt-6 overflow-hidden rounded-img border border-gray-200 bg-white">
             <iframe
               title={`${BUSINESS.name} office location`}
               src={`https://www.google.com/maps?q=${encodeURIComponent(

@@ -38,7 +38,7 @@ export function ServicesGrid() {
       <Container>
         <div className="max-w-3xl">
           <h2
-            className="text-2xl font-bold sm:text-3xl"
+            className="text-2xl font-medium sm:text-3xl"
             style={{ color: BRAND.colors.navy }}
           >
             Three services. One local team.
@@ -54,7 +54,7 @@ export function ServicesGrid() {
             <Link
               key={s.href}
               href={s.href}
-              className="group block rounded-lg border border-gray-200 bg-white p-6 transition-shadow hover:shadow-md"
+              className="group block rounded-img border border-gray-200 bg-white p-6 transition-shadow hover:shadow-md"
             >
               <h3
                 className="text-lg font-semibold"

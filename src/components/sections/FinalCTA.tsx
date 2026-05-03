@@ -21,19 +21,19 @@ export function FinalCTA({
           style={{ backgroundColor: BRAND.colors.navy, color: "#ffffff" }}
         >
           <div className="max-w-2xl">
-            <h2 className="text-2xl font-bold sm:text-3xl">{heading}</h2>
+            <h2 className="text-2xl font-medium sm:text-3xl">{heading}</h2>
             <p className="mt-3 text-base opacity-90">{body}</p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-md px-6 py-3 text-base font-semibold"
+                className="inline-flex items-center justify-center rounded-btn px-6 py-3 text-base font-semibold"
                 style={{ backgroundColor: BRAND.colors.green, color: "#ffffff" }}
               >
                 Get a Free Estimate
               </Link>
               <a
                 href={`tel:${BUSINESS.phoneTel}`}
-                className="inline-flex items-center justify-center rounded-md border border-white/30 px-6 py-3 text-base font-semibold hover:bg-white/10"
+                className="inline-flex items-center justify-center rounded-btn border border-white/30 px-6 py-3 text-base font-semibold hover:bg-white/10"
               >
                 Call {BUSINESS.phone}
               </a>

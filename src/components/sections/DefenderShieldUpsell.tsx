@@ -30,7 +30,7 @@ export function DefenderShieldUpsell() {
             >
               Annual Home Protection Plan
             </p>
-            <h2 className="mt-2 text-2xl font-bold sm:text-3xl">
+            <h2 className="mt-2 text-2xl font-medium sm:text-3xl">
               {DEFENDER_SHIELD.name}: one plan, total exterior protection
             </h2>
             <p className="mt-4 text-base opacity-90 max-w-xl">
@@ -41,14 +41,14 @@ export function DefenderShieldUpsell() {
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <Link
                 href={DEFENDER_SHIELD.primaryCtaHref}
-                className="inline-flex items-center justify-center rounded-md px-6 py-3 text-base font-semibold"
+                className="inline-flex items-center justify-center rounded-btn px-6 py-3 text-base font-semibold"
                 style={{ backgroundColor: BRAND.colors.green, color: "#ffffff" }}
               >
                 {DEFENDER_SHIELD.primaryCta}
               </Link>
               <a
                 href={`tel:${BUSINESS.phoneTel}`}
-                className="inline-flex items-center justify-center rounded-md border border-white/30 px-6 py-3 text-base font-semibold hover:bg-white/10"
+                className="inline-flex items-center justify-center rounded-btn border border-white/30 px-6 py-3 text-base font-semibold hover:bg-white/10"
               >
                 Call to enroll
               </a>
@@ -62,7 +62,7 @@ export function DefenderShieldUpsell() {
               <li key={b} className="flex items-start gap-3 text-sm">
                 <span
                   aria-hidden="true"
-                  className="mt-0.5 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full text-xs font-bold"
+                  className="mt-0.5 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full text-xs font-medium"
                   style={{ backgroundColor: BRAND.colors.green, color: "#ffffff" }}
                 >
                   ✓

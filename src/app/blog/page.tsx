@@ -37,7 +37,7 @@ export default function BlogIndex() {
       >
         <Container>
           <p className="text-sm uppercase tracking-wider opacity-80">Blog</p>
-          <h1 className="mt-2 text-4xl sm:text-5xl font-bold leading-tight">
+          <h1 className="mt-2 text-4xl sm:text-5xl font-medium leading-tight">
             Honest advice for Madison-area homeowners
           </h1>
           <p className="mt-4 max-w-2xl text-base sm:text-lg opacity-90">
@@ -54,7 +54,7 @@ export default function BlogIndex() {
             {posts.map((post) => (
               <article
                 key={post.slug}
-                className="flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow"
+                className="flex flex-col overflow-hidden rounded-img border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow"
               >
                 <Link
                   href={`/blog/${post.slug}`}
@@ -76,7 +76,7 @@ export default function BlogIndex() {
                     >
                       {CATEGORY_LABELS[post.category] ?? post.category}
                     </p>
-                    <h2 className="mt-2 text-xl font-bold leading-snug text-gray-900 line-clamp-3">
+                    <h2 className="mt-2 text-xl font-medium leading-snug text-gray-900 line-clamp-3">
                       {post.title}
                     </h2>
                     <p className="mt-3 text-sm text-gray-600 line-clamp-4 flex-1">

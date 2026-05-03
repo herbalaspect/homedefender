@@ -20,7 +20,7 @@ export function Testimonials({
       <Container>
         <div className="max-w-3xl">
           <h2
-            className="text-2xl font-bold sm:text-3xl"
+            className="text-2xl font-medium sm:text-3xl"
             style={{ color: BRAND.colors.navy }}
           >
             {heading}
@@ -30,7 +30,7 @@ export function Testimonials({
           {items.map((t) => (
             <figure
               key={t.id}
-              className="flex h-full flex-col rounded-lg border border-gray-200 bg-white p-6"
+              className="flex h-full flex-col rounded-img border border-gray-200 bg-white p-6"
             >
               <blockquote className="flex-1 text-sm text-gray-700">
                 <p>&ldquo;{t.quote}&rdquo;</p>

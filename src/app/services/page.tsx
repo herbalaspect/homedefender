@@ -39,7 +39,7 @@ export default function ServicesHubPage() {
             >
               Services
             </p>
-            <h1 className="mt-3 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
+            <h1 className="mt-3 text-3xl font-medium leading-tight sm:text-4xl lg:text-5xl">
               What we do for Madison and Dane County homes
             </h1>
             <p className="mt-5 text-base sm:text-lg opacity-90">
@@ -51,14 +51,14 @@ export default function ServicesHubPage() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-md px-6 py-3 text-base font-semibold"
+                className="inline-flex items-center justify-center rounded-btn px-6 py-3 text-base font-semibold"
                 style={{ backgroundColor: BRAND.colors.green, color: "#ffffff" }}
               >
                 Get a Free Estimate
               </Link>
               <a
                 href={`tel:${BUSINESS.phoneTel}`}
-                className="inline-flex items-center justify-center rounded-md border border-white/30 px-6 py-3 text-base font-semibold hover:bg-white/10"
+                className="inline-flex items-center justify-center rounded-btn border border-white/30 px-6 py-3 text-base font-semibold hover:bg-white/10"
               >
                 Call {BUSINESS.phone}
               </a>
@@ -75,7 +75,7 @@ export default function ServicesHubPage() {
               <Link
                 key={c.slug}
                 href={c.path}
-                className="group block rounded-lg border border-gray-200 bg-white p-6 transition-shadow hover:shadow-md"
+                className="group block rounded-img border border-gray-200 bg-white p-6 transition-shadow hover:shadow-md"
               >
                 {c.eyebrow && (
                   <p
@@ -115,7 +115,7 @@ export default function ServicesHubPage() {
         <Container>
           <div className="max-w-3xl">
             <h2
-              className="text-2xl font-bold sm:text-3xl"
+              className="text-2xl font-medium sm:text-3xl"
               style={{ color: BRAND.colors.navy }}
             >
               Where we work

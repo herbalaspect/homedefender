@@ -29,7 +29,7 @@ export default function FAQPage() {
             >
               Frequently Asked Questions
             </p>
-            <h1 className="mt-3 text-3xl font-bold leading-tight sm:text-4xl">
+            <h1 className="mt-3 text-3xl font-medium leading-tight sm:text-4xl">
               Answers to the questions we hear most.
             </h1>
             <p className="mt-4 text-base sm:text-lg opacity-90">
@@ -70,7 +70,7 @@ export default function FAQPage() {
           <Container>
             <div className="max-w-3xl">
               <h2
-                className="text-2xl font-bold sm:text-3xl"
+                className="text-2xl font-medium sm:text-3xl"
                 style={{ color: BRAND.colors.navy }}
               >
                 {cat.title}
@@ -82,7 +82,7 @@ export default function FAQPage() {
                 {cat.faqs.map((f) => (
                   <div
                     key={f.question}
-                    className="rounded-lg border border-gray-200 bg-white p-5"
+                    className="rounded-img border border-gray-200 bg-white p-5"
                   >
                     <dt
                       className="text-base font-semibold"

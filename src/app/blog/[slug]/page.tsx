@@ -81,7 +81,7 @@ export default async function BlogPostPage({
               <span className="mx-2">/</span>
               <span>{CATEGORY_LABELS[post.category] ?? post.category}</span>
             </nav>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-medium leading-tight">
               {post.title}
             </h1>
             <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm opacity-90">
@@ -107,7 +107,7 @@ export default async function BlogPostPage({
               <img
                 src={post.imageUrl}
                 alt={post.title}
-                className="mb-8 aspect-[16/9] w-full rounded-lg object-cover"
+                className="mb-8 aspect-[16/9] w-full rounded-img object-cover"
               />
             )}
             <div
@@ -121,7 +121,7 @@ export default async function BlogPostPage({
       {related.length > 0 && (
         <section className="border-t border-gray-200 py-12 sm:py-16 bg-gray-50">
           <Container>
-            <h2 className="text-2xl font-bold" style={{ color: BRAND.colors.navy }}>
+            <h2 className="text-2xl font-medium" style={{ color: BRAND.colors.navy }}>
               Related posts
             </h2>
             <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-3">
@@ -129,7 +129,7 @@ export default async function BlogPostPage({
                 <Link
                   key={p.slug}
                   href={`/blog/${p.slug}`}
-                  className="block rounded-lg border border-gray-200 bg-white p-5 shadow-sm hover:shadow-md transition-shadow"
+                  className="block rounded-img border border-gray-200 bg-white p-5 shadow-sm hover:shadow-md transition-shadow"
                 >
                   <p
                     className="text-xs font-semibold uppercase tracking-wider"
@@ -137,7 +137,7 @@ export default async function BlogPostPage({
                   >
                     {CATEGORY_LABELS[p.category] ?? p.category}
                   </p>
-                  <h3 className="mt-2 text-base font-bold leading-snug text-gray-900 line-clamp-3">
+                  <h3 className="mt-2 text-base font-medium leading-snug text-gray-900 line-clamp-3">
                     {p.title}
                   </h3>
                   <p className="mt-2 text-xs text-gray-500">

@@ -44,7 +44,7 @@ export function ServiceCategoryTemplate({
                 {category.eyebrow}
               </p>
             )}
-            <h1 className="mt-3 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
+            <h1 className="mt-3 text-3xl font-medium leading-tight sm:text-4xl lg:text-5xl">
               {category.h1}
             </h1>
             <p className="mt-5 text-base sm:text-lg opacity-90">
@@ -53,14 +53,14 @@ export function ServiceCategoryTemplate({
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-md px-6 py-3 text-base font-semibold"
+                className="inline-flex items-center justify-center rounded-btn px-6 py-3 text-base font-semibold"
                 style={{ backgroundColor: BRAND.colors.green, color: "#ffffff" }}
               >
                 Get a Free Estimate
               </Link>
               <a
                 href={`tel:${BUSINESS.phoneTel}`}
-                className="inline-flex items-center justify-center rounded-md border border-white/30 px-6 py-3 text-base font-semibold hover:bg-white/10"
+                className="inline-flex items-center justify-center rounded-btn border border-white/30 px-6 py-3 text-base font-semibold hover:bg-white/10"
               >
                 Call {BUSINESS.phone}
               </a>
@@ -91,7 +91,7 @@ export function ServiceCategoryTemplate({
           <Container>
             <div className="max-w-3xl">
               <h2
-                className="text-2xl font-bold sm:text-3xl"
+                className="text-2xl font-medium sm:text-3xl"
                 style={{ color: BRAND.colors.navy }}
               >
                 What we do
@@ -105,7 +105,7 @@ export function ServiceCategoryTemplate({
                   <Link
                     key={card.slug}
                     href={href}
-                    className="group block rounded-lg border border-gray-200 bg-white p-6 transition-shadow hover:shadow-md"
+                    className="group block rounded-img border border-gray-200 bg-white p-6 transition-shadow hover:shadow-md"
                   >
                     <h3
                       className="text-lg font-semibold"
@@ -156,7 +156,7 @@ export function ServiceCategoryTemplate({
           <Container>
             <div className="max-w-3xl">
               <h2
-                className="text-2xl font-bold sm:text-3xl"
+                className="text-2xl font-medium sm:text-3xl"
                 style={{ color: BRAND.colors.navy }}
               >
                 Frequently asked questions
@@ -165,7 +165,7 @@ export function ServiceCategoryTemplate({
                 {category.faqs.map((f) => (
                   <div
                     key={f.question}
-                    className="rounded-lg border border-gray-200 bg-white p-5"
+                    className="rounded-img border border-gray-200 bg-white p-5"
                   >
                     <dt
                       className="text-base font-semibold"
@@ -203,7 +203,7 @@ function BodySection({
       <Container>
         <div className="max-w-3xl">
           <h2
-            className="text-2xl font-bold sm:text-3xl"
+            className="text-2xl font-medium sm:text-3xl"
             style={{ color: BRAND.colors.navy }}
           >
             {section.heading}
@@ -221,7 +221,7 @@ function BodySection({
               {section.list.map((item, i) => (
                 <li
                   key={i}
-                  className="rounded-lg border border-gray-200 bg-white p-5"
+                  className="rounded-img border border-gray-200 bg-white p-5"
                 >
                   {item.heading && (
                     <p

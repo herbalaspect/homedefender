@@ -53,21 +53,21 @@ export function CityPageTemplate({ city }: { city: CityPage }) {
             >
               {cityLabel}
             </p>
-            <h1 className="mt-3 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
+            <h1 className="mt-3 text-3xl font-medium leading-tight sm:text-4xl lg:text-5xl">
               {city.h1}
             </h1>
             <p className="mt-5 text-base sm:text-lg opacity-90">{city.hero}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-md px-6 py-3 text-base font-semibold"
+                className="inline-flex items-center justify-center rounded-btn px-6 py-3 text-base font-semibold"
                 style={{ backgroundColor: BRAND.colors.green, color: "#ffffff" }}
               >
                 Get a Free Estimate
               </Link>
               <a
                 href={`tel:${BUSINESS.phoneTel}`}
-                className="inline-flex items-center justify-center rounded-md border border-white/30 px-6 py-3 text-base font-semibold hover:bg-white/10"
+                className="inline-flex items-center justify-center rounded-btn border border-white/30 px-6 py-3 text-base font-semibold hover:bg-white/10"
               >
                 Call {BUSINESS.phone}
               </a>
@@ -81,7 +81,7 @@ export function CityPageTemplate({ city }: { city: CityPage }) {
         <Container>
           <div className="max-w-3xl">
             <h2
-              className="text-2xl font-bold sm:text-3xl"
+              className="text-2xl font-medium sm:text-3xl"
               style={{ color: BRAND.colors.navy }}
             >
               About {city.cityName}{city.isNeighborhood ? "" : ", WI"}
@@ -99,7 +99,7 @@ export function CityPageTemplate({ city }: { city: CityPage }) {
           <Container>
             <div className="max-w-3xl">
               <h2
-                className="text-2xl font-bold sm:text-3xl"
+                className="text-2xl font-medium sm:text-3xl"
                 style={{ color: BRAND.colors.navy }}
               >
                 Permitting and oversight in {city.cityName}
@@ -118,7 +118,7 @@ export function CityPageTemplate({ city }: { city: CityPage }) {
           <Container>
             <div className="max-w-3xl">
               <h2
-                className="text-2xl font-bold sm:text-3xl"
+                className="text-2xl font-medium sm:text-3xl"
                 style={{ color: BRAND.colors.navy }}
               >
                 Roofing considerations specific to {city.cityName}
@@ -136,7 +136,7 @@ export function CityPageTemplate({ city }: { city: CityPage }) {
         <Container>
           <div className="max-w-3xl">
             <h2
-              className="text-2xl font-bold sm:text-3xl"
+              className="text-2xl font-medium sm:text-3xl"
               style={{ color: BRAND.colors.navy }}
             >
               Roof replacement built for {city.cityName} homes
@@ -158,7 +158,7 @@ export function CityPageTemplate({ city }: { city: CityPage }) {
       <section className="py-14 sm:py-20">
         <Container>
           <h2
-            className="text-2xl font-bold sm:text-3xl"
+            className="text-2xl font-medium sm:text-3xl"
             style={{ color: BRAND.colors.navy }}
           >
             Why {city.cityName} homeowners choose Home Defender Remodeling
@@ -174,7 +174,7 @@ export function CityPageTemplate({ city }: { city: CityPage }) {
               <li key={p} className="flex items-start gap-3">
                 <span
                   aria-hidden="true"
-                  className="mt-0.5 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full text-xs font-bold text-white"
+                  className="mt-0.5 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full text-xs font-medium text-white"
                   style={{ backgroundColor: BRAND.colors.green }}
                 >
                   ✓
@@ -194,7 +194,7 @@ export function CityPageTemplate({ city }: { city: CityPage }) {
         <Container>
           <div className="max-w-3xl">
             <h2
-              className="text-2xl font-bold sm:text-3xl"
+              className="text-2xl font-medium sm:text-3xl"
               style={{ color: BRAND.colors.navy }}
             >
               Materials we install
@@ -214,7 +214,7 @@ export function CityPageTemplate({ city }: { city: CityPage }) {
                   p: "TPO and modified bitumen for porches, dormers, and additions. Different install rules — we handle the transitions.",
                 },
               ].map((m) => (
-                <div key={m.h} className="rounded-lg border border-gray-200 bg-white p-5">
+                <div key={m.h} className="rounded-img border border-gray-200 bg-white p-5">
                   <h3
                     className="text-base font-semibold"
                     style={{ color: BRAND.colors.navy }}
@@ -234,7 +234,7 @@ export function CityPageTemplate({ city }: { city: CityPage }) {
         <Container>
           <div className="max-w-3xl">
             <h2
-              className="text-2xl font-bold sm:text-3xl"
+              className="text-2xl font-medium sm:text-3xl"
               style={{ color: BRAND.colors.navy }}
             >
               What&apos;s covered after we leave
@@ -259,7 +259,7 @@ export function CityPageTemplate({ city }: { city: CityPage }) {
         <Container>
           <div className="max-w-3xl">
             <h2
-              className="text-2xl font-bold sm:text-3xl"
+              className="text-2xl font-medium sm:text-3xl"
               style={{ color: BRAND.colors.navy }}
             >
               What does a roof replacement cost in {city.cityName}?
@@ -287,14 +287,14 @@ export function CityPageTemplate({ city }: { city: CityPage }) {
           <Container>
             <div className="max-w-3xl">
               <h2
-                className="text-2xl font-bold sm:text-3xl"
+                className="text-2xl font-medium sm:text-3xl"
                 style={{ color: BRAND.colors.navy }}
               >
                 {city.cityName} roof replacement FAQs
               </h2>
               <dl className="mt-8 space-y-6">
                 {city.faqs.map((f) => (
-                  <div key={f.question} className="rounded-lg border border-gray-200 bg-white p-5">
+                  <div key={f.question} className="rounded-img border border-gray-200 bg-white p-5">
                     <dt
                       className="text-base font-semibold"
                       style={{ color: BRAND.colors.navy }}
@@ -333,7 +333,7 @@ export function CityPageTemplate({ city }: { city: CityPage }) {
           <Container>
             <div className="max-w-3xl">
               <h2
-                className="text-2xl font-bold sm:text-3xl"
+                className="text-2xl font-medium sm:text-3xl"
                 style={{ color: BRAND.colors.navy }}
               >
                 Also serving these {city.cityName}-area communities
@@ -351,7 +351,7 @@ export function CityPageTemplate({ city }: { city: CityPage }) {
                   <li key={slug}>
                     <Link
                       href={`/services/roofing/roof-replacement-${slug}-wi`}
-                      className="block rounded-md border border-gray-200 bg-white px-3 py-2 hover:border-gray-300 hover:bg-gray-100"
+                      className="block rounded-btn border border-gray-200 bg-white px-3 py-2 hover:border-gray-300 hover:bg-gray-100"
                       style={{ color: BRAND.colors.navy }}
                     >
                       {n.cityName}, WI
