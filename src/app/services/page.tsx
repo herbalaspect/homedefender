@@ -39,7 +39,7 @@ export default function ServicesHubPage() {
             >
               Services
             </p>
-            <h1 className="mt-3 text-3xl font-medium leading-tight sm:text-4xl lg:text-5xl">
+            <h1 className="mt-3 text-3xl sm:text-4xl lg:text-5xl">
               What we do for Madison and Dane County homes
             </h1>
             <p className="mt-5 text-base sm:text-lg opacity-90">
@@ -115,7 +115,7 @@ export default function ServicesHubPage() {
         <Container>
           <div className="max-w-3xl">
             <h2
-              className="text-2xl font-medium sm:text-3xl"
+              className="text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl"
               style={{ color: BRAND.colors.navy }}
             >
               Where we work

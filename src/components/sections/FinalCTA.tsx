@@ -14,14 +14,14 @@ export function FinalCTA({
   body?: string;
 }) {
   return (
-    <section className="py-16 sm:py-20" style={{ backgroundColor: "#ffffff" }}>
+    <section className="py-20 sm:py-28" style={{ backgroundColor: "#ffffff" }}>
       <Container>
         <div
           className="rounded-2xl px-6 py-12 sm:px-12 sm:py-16"
           style={{ backgroundColor: BRAND.colors.navy, color: "#ffffff" }}
         >
           <div className="max-w-2xl">
-            <h2 className="text-2xl font-medium sm:text-3xl">{heading}</h2>
+            <h2 className="text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl">{heading}</h2>
             <p className="mt-3 text-base opacity-90">{body}</p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <Link

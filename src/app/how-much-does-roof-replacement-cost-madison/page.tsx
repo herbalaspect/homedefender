@@ -78,7 +78,7 @@ export default function CostPage() {
             >
               Pricing Transparency · 2026
             </p>
-            <h1 className="mt-3 text-3xl font-medium leading-tight sm:text-4xl lg:text-5xl">
+            <h1 className="mt-3 text-3xl sm:text-4xl lg:text-5xl">
               How Much Does a Roof Replacement Cost in Madison, WI? Complete 2026 Pricing Guide
             </h1>
           </div>
@@ -131,7 +131,7 @@ export default function CostPage() {
         <Container>
           <div className="max-w-3xl">
             <h2
-              className="text-2xl font-medium sm:text-3xl"
+              className="text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl"
               style={{ color: BRAND.colors.navy }}
             >
               The five biggest cost drivers
@@ -158,7 +158,7 @@ export default function CostPage() {
         <Container>
           <div className="max-w-3xl">
             <h2
-              className="text-2xl font-medium sm:text-3xl"
+              className="text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl"
               style={{ color: BRAND.colors.navy }}
             >
               Realistic price ranges by home type
@@ -208,7 +208,7 @@ export default function CostPage() {
         <Container>
           <div className="max-w-3xl">
             <h2
-              className="text-2xl font-medium sm:text-3xl"
+              className="text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl"
               style={{ color: BRAND.colors.navy }}
             >
               Financing and payment options

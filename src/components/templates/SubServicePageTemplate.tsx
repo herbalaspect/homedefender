@@ -40,7 +40,7 @@ export function SubServicePageTemplate({ service }: { service: SubService }) {
                 {service.eyebrow}
               </p>
             )}
-            <h1 className="mt-3 text-3xl font-medium leading-tight sm:text-4xl lg:text-5xl">
+            <h1 className="mt-3 text-3xl sm:text-4xl lg:text-5xl">
               {service.h1}
             </h1>
             <p className="mt-5 text-base sm:text-lg opacity-90">
@@ -86,7 +86,7 @@ export function SubServicePageTemplate({ service }: { service: SubService }) {
           <Container>
             <div className="max-w-3xl">
               <h2
-                className="text-2xl font-medium sm:text-3xl"
+                className="text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl"
                 style={{ color: BRAND.colors.navy }}
               >
                 Frequently asked questions
@@ -146,7 +146,7 @@ function BodySection({
       <Container>
         <div className="max-w-3xl">
           <h2
-            className="text-2xl font-medium sm:text-3xl"
+            className="text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl"
             style={{ color: BRAND.colors.navy }}
           >
             {section.heading}
@@ -199,7 +199,7 @@ function RelatedServices({ slugs }: { slugs: string[] }) {
       <Container>
         <div className="max-w-3xl">
           <h2
-            className="text-2xl font-medium sm:text-3xl"
+            className="text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl"
             style={{ color: BRAND.colors.navy }}
           >
             Related services
@@ -249,7 +249,7 @@ function CityCallouts({ slugs }: { slugs: string[] }) {
       <Container>
         <div className="max-w-3xl">
           <h2
-            className="text-2xl font-medium sm:text-3xl"
+            className="text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl"
             style={{ color: BRAND.colors.navy }}
           >
             Also serving these communities

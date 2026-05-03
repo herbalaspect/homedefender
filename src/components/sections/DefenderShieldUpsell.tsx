@@ -18,7 +18,7 @@ const BENEFITS = [
 export function DefenderShieldUpsell() {
   return (
     <section
-      className="py-16 sm:py-20"
+      className="py-20 sm:py-28"
       style={{ backgroundColor: BRAND.colors.navy, color: "#ffffff" }}
     >
       <Container>
@@ -30,7 +30,7 @@ export function DefenderShieldUpsell() {
             >
               Annual Home Protection Plan
             </p>
-            <h2 className="mt-2 text-2xl font-medium sm:text-3xl">
+            <h2 className="mt-2 text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl">
               {DEFENDER_SHIELD.name}: one plan, total exterior protection
             </h2>
             <p className="mt-4 text-base opacity-90 max-w-xl">

@@ -127,7 +127,7 @@ export default function DefenderShieldPage() {
             >
               Annual Home Protection Plan · ${DEFENDER_SHIELD.pricePerYear}/year
             </p>
-            <h1 className="mt-3 text-3xl font-medium leading-tight sm:text-4xl lg:text-5xl">
+            <h1 className="mt-3 text-3xl sm:text-4xl lg:text-5xl">
               The Defender Shield — One Plan. Total Home Protection.
             </h1>
             <p className="mt-5 text-base sm:text-lg opacity-90">
@@ -167,11 +167,11 @@ export default function DefenderShieldPage() {
       </section>
 
       {/* Everything included */}
-      <section className="py-16 sm:py-20">
+      <section className="py-20 sm:py-28">
         <Container>
           <div className="max-w-3xl">
             <h2
-              className="text-2xl font-medium sm:text-3xl"
+              className="text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl"
               style={{ color: BRAND.colors.navy }}
             >
               Everything The Defender Shield includes
@@ -208,11 +208,11 @@ export default function DefenderShieldPage() {
       </section>
 
       {/* Why preventative care saves money */}
-      <section className="bg-gray-50 py-16 sm:py-20">
+      <section className="bg-gray-50 py-20 sm:py-28">
         <Container>
           <div className="max-w-3xl">
             <h2
-              className="text-2xl font-medium sm:text-3xl"
+              className="text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl"
               style={{ color: BRAND.colors.navy }}
             >
               Why preventative care saves money
@@ -242,11 +242,11 @@ export default function DefenderShieldPage() {
       </section>
 
       {/* Comparison table — never name the competitor */}
-      <section className="py-16 sm:py-20">
+      <section className="py-20 sm:py-28">
         <Container>
           <div className="max-w-3xl">
             <h2
-              className="text-2xl font-medium sm:text-3xl"
+              className="text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl"
               style={{ color: BRAND.colors.navy }}
             >
               How The Defender Shield compares
@@ -292,11 +292,11 @@ export default function DefenderShieldPage() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-gray-50 py-16 sm:py-20">
+      <section className="bg-gray-50 py-20 sm:py-28">
         <Container>
           <div className="max-w-3xl">
             <h2
-              className="text-2xl font-medium sm:text-3xl"
+              className="text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl"
               style={{ color: BRAND.colors.navy }}
             >
               Defender Shield FAQs

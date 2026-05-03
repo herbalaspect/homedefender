@@ -16,11 +16,11 @@ export function Testimonials({
 }) {
   if (!items.length) return null;
   return (
-    <section className="bg-gray-50 py-16 sm:py-20">
+    <section className="bg-gray-50 py-20 sm:py-28">
       <Container>
         <div className="max-w-3xl">
           <h2
-            className="text-2xl font-medium sm:text-3xl"
+            className="text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl"
             style={{ color: BRAND.colors.navy }}
           >
             {heading}

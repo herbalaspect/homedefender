@@ -32,7 +32,7 @@ export default function BlogIndex() {
   return (
     <>
       <section
-        className="py-16 sm:py-20"
+        className="py-20 sm:py-28"
         style={{ backgroundColor: BRAND.colors.navy, color: "#ffffff" }}
       >
         <Container>

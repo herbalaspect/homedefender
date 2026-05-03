@@ -1,8 +1,9 @@
 import { cn } from "@/lib/utils";
 
 /**
- * Standard content-width container. 1280px max with consistent gutters.
- * Use this on every page section instead of re-typing max-w / px-* classes.
+ * Standard content-width container. 1200px max — matches the Nav and Hero
+ * grid (max-w-[1200px] px-6 lg:px-10) so every section sits on the same
+ * vertical guideline as the header.
  */
 export function Container({
   children,
@@ -14,7 +15,7 @@ export function Container({
   as?: "div" | "section" | "header" | "footer" | "main" | "nav";
 }) {
   return (
-    <Tag className={cn("mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8", className)}>
+    <Tag className={cn("mx-auto w-full max-w-[1200px] px-6 lg:px-10", className)}>
       {children}
     </Tag>
   );

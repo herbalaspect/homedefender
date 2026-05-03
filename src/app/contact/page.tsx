@@ -75,7 +75,7 @@ export default async function ContactPage({
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
             <div className="lg:col-span-2">
               <h2
-                className="text-2xl font-medium sm:text-3xl"
+                className="text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl"
                 style={{ color: BRAND.colors.navy }}
               >
                 Tell us about the project
@@ -178,7 +178,7 @@ export default async function ContactPage({
       <section className="bg-gray-50 py-14">
         <Container>
           <h2
-            className="text-2xl font-medium sm:text-3xl"
+            className="text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl"
             style={{ color: BRAND.colors.navy }}
           >
             Find us

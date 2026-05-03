@@ -54,7 +54,7 @@ export default function AboutPage() {
             >
               About Us
             </p>
-            <h1 className="mt-3 text-3xl font-medium leading-tight sm:text-4xl lg:text-5xl">
+            <h1 className="mt-3 text-3xl sm:text-4xl lg:text-5xl">
               A local Madison roofing crew that has to live with its work.
             </h1>
             <p className="mt-5 text-base sm:text-lg opacity-90">
@@ -85,11 +85,11 @@ export default function AboutPage() {
       </section>
 
       {/* How we work */}
-      <section className="py-16 sm:py-20">
+      <section className="py-20 sm:py-28">
         <Container>
           <div className="max-w-3xl">
             <h2
-              className="text-2xl font-medium sm:text-3xl"
+              className="text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl"
               style={{ color: BRAND.colors.navy }}
             >
               How we work
@@ -131,11 +131,11 @@ export default function AboutPage() {
       </section>
 
       {/* Service area */}
-      <section className="bg-gray-50 py-16 sm:py-20">
+      <section className="bg-gray-50 py-20 sm:py-28">
         <Container>
           <div className="max-w-3xl">
             <h2
-              className="text-2xl font-medium sm:text-3xl"
+              className="text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl"
               style={{ color: BRAND.colors.navy }}
             >
               Where we work
@@ -160,11 +160,11 @@ export default function AboutPage() {
       </section>
 
       {/* What we don't do */}
-      <section className="py-16 sm:py-20">
+      <section className="py-20 sm:py-28">
         <Container>
           <div className="max-w-3xl">
             <h2
-              className="text-2xl font-medium sm:text-3xl"
+              className="text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl"
               style={{ color: BRAND.colors.navy }}
             >
               What we don&apos;t do
