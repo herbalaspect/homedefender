@@ -1,9 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { BUSINESS, BRAND } from "@/lib/constants";
 import { Container } from "./Container";
+
+const HEADER_LOGO =
+  "/images/676573629ab794e176dde87e/676583b14b52c1e8ca6a2385_hdr-logo-top.svg";
 
 interface NavLink {
   href: string;
@@ -23,7 +27,7 @@ const ROOFING: NavGroup = {
     { href: "/services/roofing/roof-replacement", label: "Roof Replacement" },
     { href: "/services/roofing/roof-repair", label: "Roof Repair" },
     { href: "/services/roofing/emergency-roof-repair", label: "Emergency Roof Repair" },
-    { href: "/services/roofing/roof-inspection", label: "Roof Inspection" },
+    { href: "/services/roofing/roof-inspection-madison-wi", label: "Roof Inspection" },
     { href: "/services/roofing/asphalt-shingle-roofing", label: "Asphalt Shingle Roofing" },
     { href: "/services/roofing/metal-roofing", label: "Metal Roofing" },
   ],
@@ -59,10 +63,17 @@ export function Nav() {
       <Container as="nav" className="flex h-16 items-center justify-between gap-4">
         <Link
           href="/"
-          className="text-lg font-semibold tracking-tight"
+          className="inline-flex items-center"
           aria-label={`${BUSINESS.name} home`}
         >
-          {BUSINESS.name}
+          <Image
+            src={HEADER_LOGO}
+            alt={BUSINESS.name}
+            width={180}
+            height={40}
+            priority
+            className="h-9 w-auto"
+          />
         </Link>
 
         {/* Desktop nav */}

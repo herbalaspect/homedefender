@@ -102,6 +102,14 @@ export default async function BlogPostPage({
 
         <Container className="py-12 sm:py-16">
           <div className="mx-auto max-w-3xl">
+            {post.imageUrl && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={post.imageUrl}
+                alt={post.title}
+                className="mb-8 aspect-[16/9] w-full rounded-lg object-cover"
+              />
+            )}
             <div
               className="prose-blog"
               dangerouslySetInnerHTML={{ __html: post.bodyHtml }}

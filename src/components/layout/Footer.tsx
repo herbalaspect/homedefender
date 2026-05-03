@@ -1,6 +1,10 @@
 import Link from "next/link";
+import Image from "next/image";
 import { BUSINESS, BRAND } from "@/lib/constants";
 import { Container } from "./Container";
+
+const FOOTER_LOGO =
+  "/images/676573629ab794e176dde87e/6769357712a058752009af8f_footerlogo.svg";
 
 const NAV_COLUMNS: Array<{ heading: string; links: Array<{ href: string; label: string }> }> = [
   {
@@ -33,7 +37,13 @@ export function Footer() {
       <Container className="py-12">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
           <div className="md:col-span-2">
-            <p className="text-lg font-semibold">{BUSINESS.name}</p>
+            <Image
+              src={FOOTER_LOGO}
+              alt={BUSINESS.name}
+              width={200}
+              height={48}
+              className="h-12 w-auto"
+            />
             <p className="mt-3 text-sm opacity-80">
               Roofing, gutters, and windows for Madison, Dane County, and southern
               Wisconsin. Free estimates, written warranties, no high-pressure sales.

@@ -19,6 +19,11 @@ const nextConfig: NextConfig = {
         destination: "/service/roofing",
         permanent: true,
       },
+      {
+        source: "/services/roofing/roof-inspection",
+        destination: "/services/roofing/roof-inspection-madison-wi",
+        permanent: true,
+      },
     ];
   },
 };

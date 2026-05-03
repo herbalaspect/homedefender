@@ -95,6 +95,23 @@ for (const file of files) {
     }
   });
 
+  // Rewrite image src (and srcset): Webflow CDN → local /images/ path.
+  // Strip srcset entirely — Next/the browser will fall back to the resolved src.
+  // Also drop responsive width/height attrs the CDN injected; we'll let
+  // .prose-blog CSS do the sizing.
+  $body.find("img").each((_, el) => {
+    const $el = $(el);
+    const src = $el.attr("src") ?? "";
+    if (src.startsWith("https://cdn.prod.website-files.com/")) {
+      $el.attr(
+        "src",
+        src.replace("https://cdn.prod.website-files.com", "/images")
+      );
+    }
+    $el.removeAttr("srcset").removeAttr("sizes");
+    $el.attr("loading", "lazy");
+  });
+
   // Drop empty paragraphs.
   $body.find("p").each((_, el) => {
     if (!$(el).text().trim() && $(el).find("img").length === 0) {
@@ -127,9 +144,12 @@ for (const file of files) {
   const datePublished = PUBLISH_DATES[slug] ?? "2024-01-15";
   const dateModified = "2026-04-01";
 
-  // Map legacy CDN image to a placeholder local path. We'll bulk-migrate the
-  // images themselves in Prompt 10 (image optimization pass).
-  const imageUrl = legacyImageUrl ? `/images/blog/${slug}.jpg` : null;
+  // Hero image: rewrite Webflow CDN URL → local /images/ path. The asset
+  // already lives in public/images/{hash}/{filename} (bulk-copied from
+  // reference-site/assets/cdn.prod.website-files.com/).
+  const imageUrl = legacyImageUrl
+    ? legacyImageUrl.replace("https://cdn.prod.website-files.com", "/images")
+    : null;
 
   const ts = `${MIGRATED}
 import type { BlogPost } from "../types";

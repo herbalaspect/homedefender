@@ -54,27 +54,38 @@ export default function BlogIndex() {
             {posts.map((post) => (
               <article
                 key={post.slug}
-                className="flex flex-col rounded-lg border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow"
+                className="flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow"
               >
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="flex h-full flex-col p-6"
+                  className="flex h-full flex-col"
                 >
-                  <p
-                    className="text-xs font-semibold uppercase tracking-wider"
-                    style={{ color: BRAND.colors.green }}
-                  >
-                    {CATEGORY_LABELS[post.category] ?? post.category}
-                  </p>
-                  <h2 className="mt-2 text-xl font-bold leading-snug text-gray-900 line-clamp-3">
-                    {post.title}
-                  </h2>
-                  <p className="mt-3 text-sm text-gray-600 line-clamp-4 flex-1">
-                    {post.description}
-                  </p>
-                  <p className="mt-4 text-xs text-gray-500">
-                    {formatDate(post.datePublished)}
-                  </p>
+                  {post.imageUrl && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={post.imageUrl}
+                      alt={post.title}
+                      loading="lazy"
+                      className="aspect-[16/10] w-full object-cover"
+                    />
+                  )}
+                  <div className="flex flex-1 flex-col p-6">
+                    <p
+                      className="text-xs font-semibold uppercase tracking-wider"
+                      style={{ color: BRAND.colors.green }}
+                    >
+                      {CATEGORY_LABELS[post.category] ?? post.category}
+                    </p>
+                    <h2 className="mt-2 text-xl font-bold leading-snug text-gray-900 line-clamp-3">
+                      {post.title}
+                    </h2>
+                    <p className="mt-3 text-sm text-gray-600 line-clamp-4 flex-1">
+                      {post.description}
+                    </p>
+                    <p className="mt-4 text-xs text-gray-500">
+                      {formatDate(post.datePublished)}
+                    </p>
+                  </div>
                 </Link>
               </article>
             ))}
