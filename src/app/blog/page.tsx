@@ -3,6 +3,7 @@ import Link from "next/link";
 import { pageMetadata } from "@/lib/seo";
 import { BRAND } from "@/lib/constants";
 import { Container } from "@/components/layout/Container";
+import { LocalBusinessSchema } from "@/components/seo/LocalBusinessSchema";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { getAllPosts } from "../../../content/blog";
 
@@ -32,6 +33,8 @@ export default function BlogIndex() {
 
   return (
     <>
+      <LocalBusinessSchema />
+
       <section
         className="py-20 sm:py-28"
         style={{ backgroundColor: BRAND.colors.navy, color: "#ffffff" }}

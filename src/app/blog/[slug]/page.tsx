@@ -5,6 +5,7 @@ import { pageMetadata } from "@/lib/seo";
 import { BUSINESS, BRAND } from "@/lib/constants";
 import { Container } from "@/components/layout/Container";
 import { ArticleSchema } from "@/components/seo/ArticleSchema";
+import { LocalBusinessSchema } from "@/components/seo/LocalBusinessSchema";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { getAllPosts, getPostBySlug, getRelatedPosts } from "../../../../content/blog";
 
@@ -59,6 +60,8 @@ export default async function BlogPostPage({
 
   return (
     <>
+      <LocalBusinessSchema />
+
       <ArticleSchema
         title={post.title}
         description={post.description}
