@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { pageMetadata } from "@/lib/seo";
@@ -103,10 +104,13 @@ export default async function BlogPostPage({
         <Container className="py-12 sm:py-16">
           <div className="mx-auto max-w-3xl">
             {post.imageUrl && (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
+              <Image
                 src={post.imageUrl}
-                alt={post.title}
+                alt=""
+                width={1200}
+                height={675}
+                priority
+                sizes="(min-width: 768px) 768px, 100vw"
                 className="mb-8 aspect-[16/9] w-full rounded-img object-cover"
               />
             )}

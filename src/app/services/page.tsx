@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { pageMetadata } from "@/lib/seo";
 import { BRAND, BUSINESS } from "@/lib/constants";
@@ -10,7 +11,7 @@ const HUB_HERO_IMAGE =
   "/images/676573629ab794e176dde87e/676d19fe2da2deb189fdc54d_service.jpg";
 
 export const metadata = pageMetadata({
-  title: "Services — Roofing, Gutters, Windows | Home Defender Remodeling",
+  title: "Roofing, Gutters & Windows | Home Defender Remodeling",
   description:
     "Roofing, gutter protection, and window replacement for Madison, Dane County, and southern Wisconsin. Free written estimates and a workmanship warranty in writing.",
   path: "/services",
@@ -34,12 +35,14 @@ export default function ServicesHubPage() {
         className="relative isolate overflow-hidden"
         style={{ backgroundColor: BRAND.colors.navy, color: "#ffffff" }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src={HUB_HERO_IMAGE}
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 -z-10 h-full w-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="absolute inset-0 -z-10 object-cover"
         />
         <div
           className="absolute inset-0 -z-10"

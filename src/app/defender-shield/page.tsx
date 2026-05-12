@@ -15,7 +15,7 @@ import { FinalCTA } from "@/components/sections/FinalCTA";
  */
 
 export const metadata = pageMetadata({
-  title: "The Defender Shield — Annual Home Protection Plan | Madison",
+  title: "The Defender Shield Annual Home Protection Plan | Madison WI",
   description:
     "The Defender Shield is Home Defender Remodeling's annual home protection plan. Roof + gutters + storm response + insurance help — all for one yearly fee.",
   path: "/defender-shield",

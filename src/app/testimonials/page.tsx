@@ -15,7 +15,7 @@ import { testimonials, type ServiceType } from "../../../content/testimonials";
  */
 
 export const metadata = pageMetadata({
-  title: "Customer Testimonials | Home Defender Remodeling",
+  title: "Customer Reviews & Testimonials | Home Defender Remodeling",
   description:
     "What homeowners across Madison, Dane County, and southern Wisconsin say about working with Home Defender Remodeling on roofing, gutter, and window projects.",
   path: "/testimonials",

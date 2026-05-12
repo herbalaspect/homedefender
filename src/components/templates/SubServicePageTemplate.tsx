@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { BRAND, BUSINESS } from "@/lib/constants";
 import { Container } from "@/components/layout/Container";
@@ -32,12 +33,14 @@ export function SubServicePageTemplate({ service }: { service: SubService }) {
       >
         {service.heroImage && (
           <>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src={service.heroImage}
               alt=""
               aria-hidden="true"
-              className="absolute inset-0 -z-10 h-full w-full object-cover"
+              fill
+              priority
+              sizes="100vw"
+              className="absolute inset-0 -z-10 object-cover"
             />
             <div
               className="absolute inset-0 -z-10"

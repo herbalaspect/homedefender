@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { pageMetadata } from "@/lib/seo";
 import { BRAND } from "@/lib/constants";
@@ -6,7 +7,7 @@ import { FinalCTA } from "@/components/sections/FinalCTA";
 import { getAllPosts } from "../../../content/blog";
 
 export const metadata = pageMetadata({
-  title: "Roofing & Home Improvement Blog | Madison, WI",
+  title: "Roofing, Gutters & Home Improvement Blog | Madison, WI",
   description:
     "Honest guides to roof replacement, hail damage, gutter protection, and choosing a contractor in Madison and Dane County. Plain-language advice from a local crew.",
   path: "/blog",
@@ -61,11 +62,12 @@ export default function BlogIndex() {
                   className="flex h-full flex-col"
                 >
                   {post.imageUrl && (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
+                    <Image
                       src={post.imageUrl}
-                      alt={post.title}
-                      loading="lazy"
+                      alt=""
+                      width={800}
+                      height={500}
+                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                       className="aspect-[16/10] w-full object-cover"
                     />
                   )}

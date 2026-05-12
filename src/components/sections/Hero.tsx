@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { BUSINESS } from "@/lib/constants";
 
@@ -7,12 +8,14 @@ const HERO_IMAGE =
 export function Hero() {
   return (
     <section className="relative isolate flex min-h-[100vh] flex-col justify-end overflow-hidden bg-[#0a0a0a] pt-40 pb-32 text-white">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src={HERO_IMAGE}
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 -z-10 h-full w-full object-cover"
+        fill
+        priority
+        sizes="100vw"
+        className="absolute inset-0 -z-10 object-cover"
       />
       <div
         className="absolute inset-0 -z-10"
