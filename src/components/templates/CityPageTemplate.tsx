@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { BRAND, BUSINESS } from "@/lib/constants";
 import { Container } from "@/components/layout/Container";
@@ -79,16 +80,29 @@ export function CityPageTemplate({ city }: { city: CityPage }) {
       {/* 2. Local context */}
       <section className="py-20 sm:py-28">
         <Container>
-          <div className="max-w-3xl">
-            <h2
-              className="text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl"
-              style={{ color: BRAND.colors.navy }}
-            >
-              About {city.cityName}{city.isNeighborhood ? "" : ", WI"}
-            </h2>
-            <p className="mt-4 text-base text-gray-700 whitespace-pre-line">
-              {city.localContext}
-            </p>
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:items-center">
+            <div className="max-w-2xl">
+              <h2
+                className="text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl"
+                style={{ color: BRAND.colors.navy }}
+              >
+                About {city.cityName}{city.isNeighborhood ? "" : ", WI"}
+              </h2>
+              <p className="mt-4 text-base text-gray-700 whitespace-pre-line">
+                {city.localContext}
+              </p>
+            </div>
+            {!city.isNeighborhood && (
+              <div className="relative aspect-[4/3] overflow-hidden rounded-img border border-gray-200">
+                <Image
+                  src={`/images/cities_${city.slug}-local-context.webp`}
+                  alt={`Roof replacement work in ${city.cityName}, ${city.cityState}`}
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            )}
           </div>
         </Container>
       </section>

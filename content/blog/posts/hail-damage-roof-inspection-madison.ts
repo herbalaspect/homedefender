@@ -110,7 +110,7 @@ export const post: BlogPost = {
     "Hailstorm hit your Madison home? Here's how to inspect for damage, file a successful insurance claim, and avoid the storm-chasing scams that follow every major event.",
   datePublished: "2026-04-01",
   dateModified: "2026-04-29",
-  imageUrl: null,
+  imageUrl: "/images/blog_hail-damage-roof-inspection-madison-cover.webp",
   category: "roofing",
   bodyHtml: body,
 };

@@ -5,6 +5,7 @@ import { Container } from "@/components/layout/Container";
 import { LocalBusinessSchema } from "@/components/seo/LocalBusinessSchema";
 import { FAQSchema } from "@/components/seo/FAQSchema";
 import { FinalCTA } from "@/components/sections/FinalCTA";
+import { ImageGallery } from "@/components/sections/ImageGallery";
 import type {
   ServiceCategoryPage,
   ServiceSection,
@@ -171,6 +172,19 @@ export function ServiceCategoryTemplate({
           }
         />
       ))}
+
+      {/* Detail gallery */}
+      {category.images && category.images.length > 0 && (
+        <ImageGallery
+          images={category.images}
+          tinted={
+            (
+              (category.subServiceCards.length > 0 ? 0 : 1) +
+              (category.sections?.length ?? 0)
+            ) % 2 !== 0
+          }
+        />
+      )}
 
       {/* FAQs */}
       {category.faqs.length > 0 && (

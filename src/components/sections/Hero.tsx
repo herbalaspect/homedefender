@@ -2,8 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { BUSINESS } from "@/lib/constants";
 
-const HERO_IMAGE =
-  "/images/676573629ab794e176dde87e/688e4553093a5e635ae26720_gutter%20protection.avif";
+const HERO_IMAGE = "/images/hero_homepage-hero.webp";
 
 export function Hero() {
   return (

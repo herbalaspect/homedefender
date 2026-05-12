@@ -2,6 +2,7 @@ import { pageMetadata } from "@/lib/seo";
 import { BRAND } from "@/lib/constants";
 import { Container } from "@/components/layout/Container";
 import { LocalBusinessSchema } from "@/components/seo/LocalBusinessSchema";
+import { HeroBackground } from "@/components/sections/HeroBackground";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { testimonials, type ServiceType } from "../../../content/testimonials";
 
@@ -34,7 +35,11 @@ export default function TestimonialsPage() {
       <LocalBusinessSchema />
 
       {/* Hero */}
-      <section style={{ backgroundColor: BRAND.colors.navy, color: "#ffffff" }}>
+      <section
+        className="relative isolate overflow-hidden"
+        style={{ backgroundColor: BRAND.colors.navy, color: "#ffffff" }}
+      >
+        <HeroBackground src="/images/hero_testimonials-hero.webp" />
         <Container className="py-16 sm:py-24">
           <div className="max-w-3xl">
             <p

@@ -69,7 +69,7 @@ export const post: BlogPost = {
     "How do you know when it's time to replace your roof in Wisconsin? Seven warning signs every Madison homeowner should watch — and what to do when you spot them.",
   datePublished: "2026-04-15",
   dateModified: "2026-04-29",
-  imageUrl: null,
+  imageUrl: "/images/blog_when-to-replace-roof-wisconsin-cover.webp",
   category: "roofing",
   bodyHtml: body,
 };

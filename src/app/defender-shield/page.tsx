@@ -1,9 +1,11 @@
+import Image from "next/image";
 import Link from "next/link";
 import { pageMetadata } from "@/lib/seo";
 import { BUSINESS, BRAND, DEFENDER_SHIELD } from "@/lib/constants";
 import { Container } from "@/components/layout/Container";
 import { LocalBusinessSchema } from "@/components/seo/LocalBusinessSchema";
 import { FAQSchema } from "@/components/seo/FAQSchema";
+import { HeroBackground } from "@/components/sections/HeroBackground";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 
 /**
@@ -21,14 +23,18 @@ export const metadata = pageMetadata({
   path: "/defender-shield",
 });
 
-const BENEFITS: Array<{ title: string; body: string }> = [
+const BENEFITS: Array<{ title: string; body: string; image?: string; imageAlt?: string }> = [
   {
     title: "30-point full exterior inspection",
     body: "Once a year we inspect your roof, gutters, visible siding, window seals, flashing, and ventilation. Photos and a written summary so you know what's holding up and what to budget for.",
+    image: "/images/defender-shield_inspection-30-point.webp",
+    imageAlt: "30-point home exterior inspection checklist",
   },
   {
     title: "Annual gutter cleaning + downspout flush",
     body: "We clean the gutters AND flush the downspouts every fall. Most contractors do one or the other. Both matter — clogged downspouts back water into the fascia even when the trough is clear.",
+    image: "/images/defender-shield_gutter-cleaning-included.webp",
+    imageAlt: "Gutter cleaning and downspout flush in progress",
   },
   {
     title: "20% off any repair",
@@ -37,6 +43,8 @@ const BENEFITS: Array<{ title: string; body: string }> = [
   {
     title: "Priority response with a 24-hour callback guarantee",
     body: "Members move to the front of the line when storms hit. We guarantee a callback within 24 hours, even during the busiest weeks of the year when others are quoting 2–3 weeks out.",
+    image: "/images/defender-shield_storm-response.webp",
+    imageAlt: "Storm-response crew arriving at a Madison home",
   },
   {
     title: "Free post-storm damage assessment",
@@ -45,6 +53,8 @@ const BENEFITS: Array<{ title: string; body: string }> = [
   {
     title: "Insurance claim documentation",
     body: "If your home suffers covered damage, we handle the documentation that matters: detailed photos, written scope of work, and direct communication with your insurance adjuster.",
+    image: "/images/defender-shield_insurance-help.webp",
+    imageAlt: "Insurance claim documentation paperwork and photos",
   },
   {
     title: "Transferable to the next homeowner",
@@ -118,7 +128,11 @@ export default function DefenderShieldPage() {
       <FAQSchema faqs={FAQS} />
 
       {/* Hero */}
-      <section style={{ backgroundColor: BRAND.colors.navy, color: "#ffffff" }}>
+      <section
+        className="relative isolate overflow-hidden"
+        style={{ backgroundColor: BRAND.colors.navy, color: "#ffffff" }}
+      >
+        <HeroBackground src="/images/hero_defender-shield-hero.webp" />
         <Container className="py-16 sm:py-24">
           <div className="max-w-3xl">
             <p
@@ -186,21 +200,34 @@ export default function DefenderShieldPage() {
             {BENEFITS.map((b, i) => (
               <article
                 key={b.title}
-                className="rounded-img border border-gray-200 bg-white p-6"
+                className="overflow-hidden rounded-img border border-gray-200 bg-white"
               >
-                <p
-                  className="text-xs font-semibold uppercase tracking-wider"
-                  style={{ color: BRAND.colors.green }}
-                >
-                  Benefit {i + 1}
-                </p>
-                <h3
-                  className="mt-2 text-lg font-semibold"
-                  style={{ color: BRAND.colors.navy }}
-                >
-                  {b.title}
-                </h3>
-                <p className="mt-2 text-sm text-gray-600">{b.body}</p>
+                {b.image && (
+                  <div className="relative aspect-[16/9] w-full overflow-hidden">
+                    <Image
+                      src={b.image}
+                      alt={b.imageAlt ?? ""}
+                      fill
+                      sizes="(min-width: 768px) 50vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                )}
+                <div className="p-6">
+                  <p
+                    className="text-xs font-semibold uppercase tracking-wider"
+                    style={{ color: BRAND.colors.green }}
+                  >
+                    Benefit {i + 1}
+                  </p>
+                  <h3
+                    className="mt-2 text-lg font-semibold"
+                    style={{ color: BRAND.colors.navy }}
+                  >
+                    {b.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-gray-600">{b.body}</p>
+                </div>
               </article>
             ))}
           </div>

@@ -118,7 +118,7 @@ export const post: BlogPost = {
     "Asphalt or metal? Real cost, lifespan, and performance comparison for Wisconsin homes from a Madison-area roofing contractor. No marketing spin.",
   datePublished: "2026-03-25",
   dateModified: "2026-04-29",
-  imageUrl: null,
+  imageUrl: "/images/blog_asphalt-shingle-vs-metal-roof-wisconsin-cover.webp",
   category: "roofing",
   bodyHtml: body,
 };

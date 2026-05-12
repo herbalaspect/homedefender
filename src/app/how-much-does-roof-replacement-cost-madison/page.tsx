@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { pageMetadata } from "@/lib/seo";
 import { BRAND } from "@/lib/constants";
 import { Container } from "@/components/layout/Container";
@@ -206,27 +207,38 @@ export default function CostPage() {
       {/* Financing */}
       <section className="bg-gray-50 py-20 sm:py-28">
         <Container>
-          <div className="max-w-3xl">
-            <h2
-              className="text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl"
-              style={{ color: BRAND.colors.navy }}
-            >
-              Financing and payment options
-            </h2>
-            <p className="mt-4 text-base text-gray-800">
-              Roof replacement is a significant investment. Home Defender
-              Remodeling offers financing through Synchrony, including:
-            </p>
-            <ul className="mt-4 list-inside list-disc space-y-2 text-base text-gray-800">
-              <li>0% interest short-term plans (typically 12 months)</li>
-              <li>Low monthly payment plans (up to 10 years)</li>
-              <li>No prepayment penalties</li>
-            </ul>
-            <p className="mt-4 text-base text-gray-800">
-              We can run a soft credit check during your estimate to give you
-              exact monthly payment options before you commit. No surprises,
-              no hidden fees.
-            </p>
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+            <div className="max-w-3xl">
+              <h2
+                className="text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl"
+                style={{ color: BRAND.colors.navy }}
+              >
+                Financing and payment options
+              </h2>
+              <p className="mt-4 text-base text-gray-800">
+                Roof replacement is a significant investment. Home Defender
+                Remodeling offers financing through Synchrony, including:
+              </p>
+              <ul className="mt-4 list-inside list-disc space-y-2 text-base text-gray-800">
+                <li>0% interest short-term plans (typically 12 months)</li>
+                <li>Low monthly payment plans (up to 10 years)</li>
+                <li>No prepayment penalties</li>
+              </ul>
+              <p className="mt-4 text-base text-gray-800">
+                We can run a soft credit check during your estimate to give you
+                exact monthly payment options before you commit. No surprises,
+                no hidden fees.
+              </p>
+            </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-img border border-gray-200">
+              <Image
+                src="/images/pricing_financing-options.webp"
+                alt="Roof replacement financing options through Synchrony"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
+              />
+            </div>
           </div>
         </Container>
       </section>

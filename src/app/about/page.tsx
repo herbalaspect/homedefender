@@ -1,8 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 import { pageMetadata } from "@/lib/seo";
 import { BUSINESS, BRAND } from "@/lib/constants";
 import { Container } from "@/components/layout/Container";
 import { LocalBusinessSchema } from "@/components/seo/LocalBusinessSchema";
+import { HeroBackground } from "@/components/sections/HeroBackground";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 
 /**
@@ -45,7 +47,11 @@ export default function AboutPage() {
       <LocalBusinessSchema />
 
       {/* Hero */}
-      <section style={{ backgroundColor: BRAND.colors.navy, color: "#ffffff" }}>
+      <section
+        className="relative isolate overflow-hidden"
+        style={{ backgroundColor: BRAND.colors.navy, color: "#ffffff" }}
+      >
+        <HeroBackground src="/images/hero_about-hero.webp" />
         <Container className="py-16 sm:py-24">
           <div className="max-w-3xl">
             <p
@@ -87,29 +93,41 @@ export default function AboutPage() {
       {/* How we work */}
       <section className="py-20 sm:py-28">
         <Container>
-          <div className="max-w-3xl">
-            <h2
-              className="text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl"
-              style={{ color: BRAND.colors.navy }}
-            >
-              How we work
-            </h2>
-            <p className="mt-4 text-base text-gray-700">
-              Most of the homes we work on are 1950s–1990s asphalt-shingle
-              roofs in Madison and Dane County — the kind that take a beating
-              from hail, ice damming, and the freeze/thaw cycle every year.
-              That focus shapes everything we do: we know what fails on a
-              Wisconsin roof, we know the local permit offices, and we know
-              which storms an insurance adjuster is going to dispute.
-            </p>
-            <p className="mt-4 text-base text-gray-700">
-              We don&apos;t run sales-driven appointments. The first visit is a
-              physical inspection — we climb the roof, take photos, walk the
-              attic when relevant, and write up what we find. The estimate
-              that follows is itemized, written, and arrives within a couple
-              business days. If you decide to move forward, the crew that
-              shows up is our crew, not subcontractors we&apos;ve never met.
-            </p>
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-start">
+            <div className="max-w-3xl">
+              <h2
+                className="text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl"
+                style={{ color: BRAND.colors.navy }}
+              >
+                How we work
+              </h2>
+              <p className="mt-4 text-base text-gray-700">
+                Most of the homes we work on are 1950s–1990s asphalt-shingle
+                roofs in Madison and Dane County — the kind that take a beating
+                from hail, ice damming, and the freeze/thaw cycle every year.
+                That focus shapes everything we do: we know what fails on a
+                Wisconsin roof, we know the local permit offices, and we know
+                which storms an insurance adjuster is going to dispute.
+              </p>
+              <p className="mt-4 text-base text-gray-700">
+                We don&apos;t run sales-driven appointments. The first visit is
+                a physical inspection — we climb the roof, take photos, walk
+                the attic when relevant, and write up what we find. The
+                estimate that follows is itemized, written, and arrives within
+                a couple business days. If you decide to move forward, the
+                crew that shows up is our crew, not subcontractors we&apos;ve
+                never met.
+              </p>
+            </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-img border border-gray-200">
+              <Image
+                src="/images/about_our-story.webp"
+                alt="Home Defender Remodeling crew at work on a Madison roofing project"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
+              />
+            </div>
           </div>
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
             {VALUES.map((v) => (

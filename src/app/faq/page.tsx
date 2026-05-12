@@ -3,6 +3,7 @@ import { BRAND } from "@/lib/constants";
 import { Container } from "@/components/layout/Container";
 import { LocalBusinessSchema } from "@/components/seo/LocalBusinessSchema";
 import { FAQSchema } from "@/components/seo/FAQSchema";
+import { HeroBackground } from "@/components/sections/HeroBackground";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { faqCategories, allFaqs } from "../../../content/faqs";
 
@@ -20,7 +21,11 @@ export default function FAQPage() {
       <FAQSchema faqs={allFaqs} />
 
       {/* Hero */}
-      <section style={{ backgroundColor: BRAND.colors.navy, color: "#ffffff" }}>
+      <section
+        className="relative isolate overflow-hidden"
+        style={{ backgroundColor: BRAND.colors.navy, color: "#ffffff" }}
+      >
+        <HeroBackground src="/images/hero_faq-hero.webp" />
         <Container className="py-16 sm:py-24">
           <div className="max-w-3xl">
             <p

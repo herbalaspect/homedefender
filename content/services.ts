@@ -14,16 +14,10 @@
 
 export type ServiceCategorySlug = "roofing" | "gutter-protection" | "windows";
 
-/** Hero image paths, mirrored from the Webflow live site. Reused across
- *  related pages so the visual identity stays consistent. */
-const HERO_ROOFING =
-  "/images/676573629ab794e176dde87e/689611faea04f1e6e8811525_house%20wideshot.jpg";
-const HERO_GUTTER_INSTALL =
-  "/images/676573629ab794e176dde87e/68a368ba736ed107347908bb_Full%20shot%20man%20with%20helmet%20working%20on%20roof.jpg";
-const HERO_GUTTER_MAINT =
-  "/images/676573629ab794e176dde87e/6772af2540850ea323415b3a_Home.png";
-const HERO_CATEGORY =
-  "/images/676573629ab794e176dde87e/6769592d1ea888d5cb710175_img-overlay-safe.png";
+/** Hero image paths. Category-specific so each page's hero matches its topic. */
+const HERO_ROOFING = "/images/hero_roofing-hero.webp";
+const HERO_GUTTERS = "/images/hero_gutters-hero.webp";
+const HERO_WINDOWS = "/images/hero_windows-hero.webp";
 
 export interface ServiceSection {
   /** H2 on the page. */
@@ -71,6 +65,8 @@ export interface SubService {
   related?: string[];
   /** When set, render the geo-page neighbors block linking to these city slugs. */
   cityCallouts?: string[];
+  /** Detail-shot gallery rendered between body sections and FAQs. */
+  images?: Array<{ src: string; alt: string; caption?: string }>;
 }
 
 export interface ServiceCategoryPage {
@@ -90,6 +86,8 @@ export interface ServiceCategoryPage {
   subServiceCards: { slug: string; title: string; description: string }[];
   /** Optional content below the cards. */
   sections?: ServiceSection[];
+  /** Detail-shot gallery rendered between sections and FAQs. */
+  images?: Array<{ src: string; alt: string; caption?: string }>;
   faqs: ServiceFAQ[];
 }
 
@@ -103,7 +101,7 @@ export const serviceCategories: ServiceCategoryPage[] = [
   {
     slug: "roofing",
     path: "/service/roofing",
-    heroImage: HERO_CATEGORY,
+    heroImage: HERO_ROOFING,
     title: "Roofing Services in Madison, WI | Home Defender Remodeling",
     metaDescription:
       "Roof replacement, repair, inspection, and storm response in Madison and Dane County. Asphalt, metal, free estimates, written warranties. Call (608) 925-3576.",
@@ -166,6 +164,12 @@ export const serviceCategories: ServiceCategoryPage[] = [
         ],
       },
     ],
+    images: [
+      { src: "/images/materials_asphalt-shingles.webp", alt: "Architectural asphalt shingles on a Madison roof", caption: "Asphalt shingles" },
+      { src: "/images/materials_metal-roofing.webp", alt: "Standing-seam metal roofing panels", caption: "Metal roofing" },
+      { src: "/images/materials_tile-roofing.webp", alt: "Tile roofing detail", caption: "Tile" },
+      { src: "/images/materials_flat-roofing.webp", alt: "Flat / low-slope membrane roof installation", caption: "Flat / low-slope" },
+    ],
     faqs: [
       {
         question: "Do you handle insurance claims for storm and hail damage?",
@@ -192,7 +196,7 @@ export const serviceCategories: ServiceCategoryPage[] = [
   {
     slug: "gutter-protection",
     path: "/service/gutter-protection",
-    heroImage: HERO_CATEGORY,
+    heroImage: HERO_GUTTERS,
     title: "Gutter Services in Madison, WI | Home Defender Remodeling",
     metaDescription:
       "Seamless gutter installation, replacement, cleaning, and repair across Madison and Dane County. Stops ice dams and fascia rot. Call (608) 925-3576.",
@@ -263,7 +267,7 @@ export const serviceCategories: ServiceCategoryPage[] = [
   {
     slug: "windows",
     path: "/service/windows",
-    heroImage: HERO_CATEGORY,
+    heroImage: HERO_WINDOWS,
     title: "Window Replacement in Madison, WI | Home Defender Remodeling",
     metaDescription:
       "Energy-efficient window replacement for Madison and Dane County homes. Fewer drafts, lower heating bills, professional install. Call (608) 925-3576.",
@@ -305,6 +309,12 @@ export const serviceCategories: ServiceCategoryPage[] = [
         ],
       },
     ],
+    images: [
+      { src: "/images/windows_double-hung-window.webp", alt: "Double-hung replacement window installed on a Madison home", caption: "Double-hung" },
+      { src: "/images/windows_casement-window.webp", alt: "Casement replacement window with tight weather seal", caption: "Casement" },
+      { src: "/images/windows_sliding-window.webp", alt: "Horizontal sliding replacement window", caption: "Sliding" },
+      { src: "/images/windows_bay-window.webp", alt: "Bay window installed on a Wisconsin home exterior", caption: "Bay" },
+    ],
     faqs: [
       {
         question: "How much do replacement windows cost in Madison?",
@@ -341,6 +351,11 @@ export const subServices: SubService[] = [
     category: "roofing",
     path: "/services/roofing/roof-replacement",
     heroImage: HERO_ROOFING,
+    images: [
+      { src: "/images/roofing_replacement-tear-off.webp", alt: "Roof tear-off down to the decking on a Madison home" },
+      { src: "/images/roofing_replacement-underlayment.webp", alt: "Ice and water shield plus synthetic underlayment installed on roof deck" },
+      { src: "/images/roofing_replacement-shingles.webp", alt: "Architectural asphalt shingles being installed on a new roof" },
+    ],
     isGeoTargeted: false,
     title: "Roof Replacement in Madison & Dane County | Home Defender Remodeling",
     metaDescription:
@@ -464,6 +479,11 @@ export const subServices: SubService[] = [
     category: "roofing",
     path: "/services/roofing/roof-repair",
     heroImage: HERO_ROOFING,
+    images: [
+      { src: "/images/roofing_repair-shingle-damage.webp", alt: "Close-up of wind-damaged asphalt shingles needing repair" },
+      { src: "/images/roofing_repair-flashing.webp", alt: "Roof flashing repair around a chimney" },
+      { src: "/images/roofing_repair-completed.webp", alt: "Completed roof repair section on a Madison home" },
+    ],
     isGeoTargeted: false,
     title: "Roof Repair in Madison, WI | Home Defender Remodeling",
     metaDescription:
@@ -543,6 +563,11 @@ export const subServices: SubService[] = [
     category: "roofing",
     path: "/services/roofing/emergency-roof-repair",
     heroImage: HERO_ROOFING,
+    images: [
+      { src: "/images/roofing_emergency-tarping.webp", alt: "Emergency tarp installed over storm-damaged roof section" },
+      { src: "/images/roofing_storm-damage.webp", alt: "Storm-damaged roof shingles after a Wisconsin thunderstorm" },
+      { src: "/images/roofing_wind-damage.webp", alt: "High-wind damage to asphalt shingles on a Dane County home" },
+    ],
     isGeoTargeted: false,
     title: "Emergency Roof Repair in Madison, WI | Home Defender Remodeling",
     metaDescription:
@@ -614,6 +639,11 @@ export const subServices: SubService[] = [
     category: "roofing",
     path: "/services/roofing/asphalt-shingle-roofing",
     heroImage: HERO_ROOFING,
+    images: [
+      { src: "/images/roofing_3-tab-vs-architectural.webp", alt: "Side-by-side comparison of 3-tab and architectural asphalt shingles" },
+      { src: "/images/roofing_architectural-shingles-detail.webp", alt: "Close-up of architectural asphalt shingle texture and tab pattern" },
+      { src: "/images/roofing_asphalt-installation.webp", alt: "Asphalt shingle installation in progress on a Madison home" },
+    ],
     isGeoTargeted: false,
     title: "Asphalt Shingle Roofing in Madison, WI | Home Defender Remodeling",
     metaDescription:
@@ -689,6 +719,11 @@ export const subServices: SubService[] = [
     category: "roofing",
     path: "/services/roofing/metal-roofing",
     heroImage: HERO_ROOFING,
+    images: [
+      { src: "/images/roofing_standing-seam-detail.webp", alt: "Standing-seam metal roof panel and seam detail" },
+      { src: "/images/roofing_stone-coated-metal.webp", alt: "Stone-coated steel roofing tiles installed on a steep slope" },
+      { src: "/images/roofing_metal-roof-snow.webp", alt: "Standing-seam metal roof shedding snow in a Wisconsin winter" },
+    ],
     isGeoTargeted: false,
     title: "Metal Roofing in Madison, WI | Home Defender Remodeling",
     metaDescription:
@@ -779,6 +814,11 @@ export const subServices: SubService[] = [
     category: "roofing",
     path: "/services/roofing/storm-damage-roof-repair-madison-wi",
     heroImage: HERO_ROOFING,
+    images: [
+      { src: "/images/roofing_storm-inspection.webp", alt: "Post-storm roof inspection on a Madison home" },
+      { src: "/images/roofing_hail-damage-detail.webp", alt: "Close-up of hail damage on asphalt shingles" },
+      { src: "/images/roofing_insurance-documentation.webp", alt: "Storm-damage documentation packet for an insurance claim" },
+    ],
     isGeoTargeted: true,
     title: "Storm Damage Roof Repair in Madison, WI | Home Defender Remodeling",
     metaDescription:
@@ -897,6 +937,11 @@ export const subServices: SubService[] = [
     category: "roofing",
     path: "/services/roofing/roof-inspection-madison-wi",
     heroImage: HERO_ROOFING,
+    images: [
+      { src: "/images/roofing_inspection-checklist.webp", alt: "Roof inspection checklist used on every Home Defender inspection" },
+      { src: "/images/roofing_inspection-flashings.webp", alt: "Roof flashing being inspected around a vent pipe" },
+      { src: "/images/roofing_inspection-report.webp", alt: "Written roof inspection report with photo documentation" },
+    ],
     isGeoTargeted: true,
     title: "Free Roof Inspection in Madison, WI | Home Defender Remodeling",
     metaDescription:
@@ -994,7 +1039,12 @@ export const subServices: SubService[] = [
     slug: "gutter-installation",
     category: "gutter",
     path: "/services/gutter/gutter-installation",
-    heroImage: HERO_GUTTER_INSTALL,
+    heroImage: HERO_GUTTERS,
+    images: [
+      { src: "/images/gutters_gutter-installation.webp", alt: "Seamless gutter installation in progress on a Madison home" },
+      { src: "/images/gutters_seamless-aluminum.webp", alt: "Seamless aluminum gutter run installed along a fascia" },
+      { src: "/images/gutters_gutter-color-options.webp", alt: "Seamless aluminum gutter color options" },
+    ],
     isGeoTargeted: false,
     title: "Gutter Installation in Madison, WI | Home Defender Remodeling",
     metaDescription:
@@ -1080,7 +1130,12 @@ export const subServices: SubService[] = [
     slug: "gutter-replacement",
     category: "gutter",
     path: "/services/gutter/gutter-replacement",
-    heroImage: HERO_GUTTER_INSTALL,
+    heroImage: HERO_GUTTERS,
+    images: [
+      { src: "/images/gutters_gutter-removal.webp", alt: "Old gutters being removed during a Madison gutter replacement" },
+      { src: "/images/gutters_old-vs-new-gutters.webp", alt: "Side-by-side comparison of old failing gutters and new seamless gutters" },
+      { src: "/images/gutters_gutter-protection-detail.webp", alt: "Gutter protection guard installed over a new seamless gutter" },
+    ],
     isGeoTargeted: false,
     title: "Gutter Replacement in Madison, WI | Home Defender Remodeling",
     metaDescription:
@@ -1160,7 +1215,12 @@ export const subServices: SubService[] = [
     slug: "gutter-cleaning",
     category: "gutter",
     path: "/services/gutter/gutter-cleaning",
-    heroImage: HERO_GUTTER_MAINT,
+    heroImage: HERO_GUTTERS,
+    images: [
+      { src: "/images/gutters_gutter-cleaning.webp", alt: "Gutter cleaning in progress on a Dane County home" },
+      { src: "/images/gutters_cleaning-debris.webp", alt: "Leaves and debris removed during a gutter cleaning" },
+      { src: "/images/gutters_cleaning-tools.webp", alt: "Professional gutter cleaning tools and equipment" },
+    ],
     isGeoTargeted: false,
     title: "Gutter Cleaning in Madison, WI | Home Defender Remodeling",
     metaDescription:
@@ -1232,7 +1292,12 @@ export const subServices: SubService[] = [
     slug: "gutter-repair",
     category: "gutter",
     path: "/services/gutter/gutter-repair",
-    heroImage: HERO_GUTTER_MAINT,
+    heroImage: HERO_GUTTERS,
+    images: [
+      { src: "/images/gutters_repair-detached-gutter.webp", alt: "Detached gutter being repaired and re-secured to fascia" },
+      { src: "/images/gutters_repair-leaking-seam.webp", alt: "Leaking gutter seam being sealed during repair" },
+      { src: "/images/gutters_gutter-clogged-comparison.webp", alt: "Side-by-side comparison of clogged and properly draining gutters" },
+    ],
     isGeoTargeted: false,
     title: "Gutter Repair in Madison, WI | Home Defender Remodeling",
     metaDescription:

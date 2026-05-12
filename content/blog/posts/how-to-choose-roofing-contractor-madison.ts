@@ -125,7 +125,7 @@ export const post: BlogPost = {
     "Choosing a Madison roofing contractor? Eight questions every homeowner should ask before signing — from a contractor who knows what good answers look like.",
   datePublished: "2026-03-18",
   dateModified: "2026-04-29",
-  imageUrl: null,
+  imageUrl: "/images/blog_how-to-choose-roofing-contractor-madison-cover.webp",
   category: "roofing",
   bodyHtml: body,
 };
