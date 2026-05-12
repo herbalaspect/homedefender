@@ -30,6 +30,12 @@ const SERVICES: ServiceCard[] = [
     description:
       "Energy-efficient replacement windows that cut drafts and lower winter heating bills, with quiet, professional installation.",
   },
+  {
+    href: "/service/siding",
+    title: "Siding",
+    description:
+      "Vinyl and fiber-cement siding for Wisconsin homes — replacement, repair, and full re-siding. James Hardie and LP SmartSide installs.",
+  },
 ];
 
 export function ServicesGrid() {
@@ -41,15 +47,15 @@ export function ServicesGrid() {
             className="text-3xl tracking-[-0.0125em] sm:text-4xl lg:text-5xl"
             style={{ color: BRAND.colors.navy }}
           >
-            Three services. One local team.
+            Four services. One local team.
           </h2>
           <p className="mt-3 text-base text-gray-600">
-            Roofing leads what we do. Gutter protection and windows are how we
-            keep the rest of the exterior weather-tight without sending you to
-            three different contractors.
+            Roofing leads what we do. Gutter protection, windows, and siding
+            are how we keep the rest of the exterior weather-tight without
+            sending you to four different contractors.
           </p>
         </div>
-        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {SERVICES.map((s) => (
             <Link
               key={s.href}

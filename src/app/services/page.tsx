@@ -13,6 +13,7 @@ const CATEGORY_CARD_IMAGE: Record<string, string> = {
   roofing: "/images/services_service-roofing-card.webp",
   "gutter-protection": "/images/services_service-gutters-card.webp",
   windows: "/images/services_service-windows-card.webp",
+  siding: "/images/services_service-siding-card.webp",
 };
 
 export const metadata = pageMetadata({
@@ -96,7 +97,7 @@ export default function ServicesHubPage() {
       {/* Category cards */}
       <section className="py-20 sm:py-28">
         <Container>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {serviceCategories.map((c) => (
               <Link
                 key={c.slug}

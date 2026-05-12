@@ -44,6 +44,17 @@ const GUTTERS: NavGroup = {
   ],
 };
 
+const SIDING: NavGroup = {
+  label: "Siding Services",
+  href: "/service/siding",
+  items: [
+    { href: "/services/siding/siding-replacement", label: "Siding Replacement" },
+    { href: "/services/siding/siding-repair", label: "Siding Repair" },
+    { href: "/services/siding/vinyl-siding", label: "Vinyl Siding" },
+    { href: "/services/siding/fiber-cement-siding", label: "Fiber-Cement Siding" },
+  ],
+};
+
 const TOP_LINKS: NavLink[] = [
   { href: "/service/windows", label: "Window Service" },
   { href: "/defender-shield", label: "Defender Shield" },
@@ -76,6 +87,7 @@ export function Nav() {
         <nav className="hidden lg:flex flex-1 items-center justify-end gap-7">
           <DesktopGroup group={ROOFING} openGroup={openGroup} setOpenGroup={setOpenGroup} />
           <DesktopGroup group={GUTTERS} openGroup={openGroup} setOpenGroup={setOpenGroup} />
+          <DesktopGroup group={SIDING} openGroup={openGroup} setOpenGroup={setOpenGroup} />
           {TOP_LINKS.map((l) => (
             <Link
               key={l.href}
@@ -135,6 +147,7 @@ export function Nav() {
           <div className="mx-auto max-w-[1200px] px-6 py-4 space-y-4">
             <MobileGroup group={ROOFING} onLinkClick={() => setMobileOpen(false)} />
             <MobileGroup group={GUTTERS} onLinkClick={() => setMobileOpen(false)} />
+            <MobileGroup group={SIDING} onLinkClick={() => setMobileOpen(false)} />
             {TOP_LINKS.map((l) => (
               <Link
                 key={l.href}

@@ -31,7 +31,7 @@ export function Hero() {
             Madison · Dane County · Southern Wisconsin
           </span>
           <h1 className="mt-5 text-balance text-4xl leading-[1.1] tracking-[-0.0125em] sm:text-5xl lg:text-6xl">
-            Madison Roofing, Gutters &amp; Windows{" "}
+            Madison Roofing, Gutters, Windows &amp; Siding{" "}
             <strong className="font-semibold">Built for Wisconsin Weather</strong>
           </h1>
           <p className="mt-6 max-w-[60ch] text-lg leading-[1.5] opacity-90 sm:text-xl">

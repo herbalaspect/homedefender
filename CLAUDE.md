@@ -10,7 +10,7 @@ for visual baseline + existing copy.
 
 - Wisconsin roofing-led home improvement contractor.
 - Service area: Madison and Dane County (NOT all of Wisconsin).
-- Services: Roofing (lead), Gutter Protection, Windows.
+- Services: Roofing (lead), Gutter Protection, Windows, Siding.
 - Phone: (608) 925-3576
 - Email: info@homedefenderusa.com
 - Domain: homedefenderusa.com

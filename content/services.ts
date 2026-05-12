@@ -12,12 +12,13 @@
  * roof-inspection are verbatim; the other sub-services are written to match).
  */
 
-export type ServiceCategorySlug = "roofing" | "gutter-protection" | "windows";
+export type ServiceCategorySlug = "roofing" | "gutter-protection" | "windows" | "siding";
 
 /** Hero image paths. Category-specific so each page's hero matches its topic. */
 const HERO_ROOFING = "/images/hero_roofing-hero.webp";
 const HERO_GUTTERS = "/images/hero_gutters-hero.webp";
 const HERO_WINDOWS = "/images/hero_windows-hero.webp";
+const HERO_SIDING = "/images/hero_siding-hero.webp";
 
 export interface ServiceSection {
   /** H2 on the page. */
@@ -40,7 +41,7 @@ export interface SubService {
   /** URL slug — last path segment (e.g. "roof-replacement"). */
   slug: string;
   /** Which category folder this lives under in /services/{category}/. */
-  category: "roofing" | "gutter";
+  category: "roofing" | "gutter" | "siding";
   /** Full path on the site. */
   path: string;
   /** True when the slug already contains a city suffix (storm-damage-...-madison-wi etc). */
@@ -335,6 +336,59 @@ export const serviceCategories: ServiceCategoryPage[] = [
         question: "Do you handle the trim and interior finish work?",
         answer:
           "Yes. Insert installations leave most of the interior trim intact. Full-frame replacement requires interior trim work, which we do as part of the install — match the existing profile, prime, and leave it ready for paint.",
+      },
+    ],
+  },
+  /* ============== SIDING ==============
+   * Added as the 4th service. All visible copy is marked
+   * `[TODO siding copy]` and is meant to be replaced by the user before this
+   * page is included in the published sitemap. Page structure, schema, nav,
+   * and hub wiring are in place — only the prose is pending. */
+  {
+    slug: "siding",
+    path: "/service/siding",
+    heroImage: HERO_SIDING,
+    title: "[TODO siding copy] Siding Services in Madison, WI",
+    metaDescription:
+      "[TODO siding copy] Meta description for /service/siding (145–160 chars) — user to provide.",
+    h1: "[TODO siding copy] Siding Services for Madison Homes",
+    eyebrow: "Siding",
+    hero: "[TODO siding copy] One-paragraph hero subtext describing the siding service line — user to provide.",
+    intro: [
+      "[TODO siding copy] First intro paragraph for /service/siding — user to provide.",
+      "[TODO siding copy] Second intro paragraph — user to provide.",
+    ],
+    subServiceCards: [
+      {
+        slug: "siding-replacement",
+        title: "Siding Replacement",
+        description:
+          "[TODO siding copy] Card description for the siding replacement sub-service — user to provide.",
+      },
+      {
+        slug: "siding-repair",
+        title: "Siding Repair",
+        description:
+          "[TODO siding copy] Card description for the siding repair sub-service — user to provide.",
+      },
+      {
+        slug: "vinyl-siding",
+        title: "Vinyl Siding",
+        description:
+          "[TODO siding copy] Card description for the vinyl siding sub-service — user to provide.",
+      },
+      {
+        slug: "fiber-cement-siding",
+        title: "Fiber-Cement Siding (James Hardie / LP SmartSide)",
+        description:
+          "[TODO siding copy] Card description for the fiber-cement siding sub-service — user to provide.",
+      },
+    ],
+    faqs: [
+      {
+        question: "[TODO siding copy] FAQ question 1 for /service/siding",
+        answer:
+          "[TODO siding copy] FAQ answer 1 — user to provide.",
       },
     ],
   },
@@ -1361,6 +1415,143 @@ export const subServices: SubService[] = [
       },
     ],
     related: ["gutter-cleaning", "gutter-replacement", "gutter-installation"],
+  },
+  /* ============== SIDING SUB-SERVICES ============== */
+  {
+    slug: "siding-replacement",
+    category: "siding",
+    path: "/services/siding/siding-replacement",
+    heroImage: HERO_SIDING,
+    images: [
+      { src: "/images/siding_replacement-tear-off.webp", alt: "Siding tear-off on a Madison home before re-siding" },
+      { src: "/images/siding_replacement-house-wrap.webp", alt: "House wrap installed over sheathing before new siding goes up" },
+      { src: "/images/siding_replacement-installation.webp", alt: "New siding being installed on a Wisconsin home" },
+    ],
+    isGeoTargeted: false,
+    title: "[TODO siding copy] Siding Replacement in Madison",
+    metaDescription:
+      "[TODO siding copy] Meta description for siding-replacement (145–160 chars) — user to provide.",
+    h1: "[TODO siding copy] Siding Replacement in Madison and Dane County",
+    eyebrow: "Siding Service",
+    hero: "[TODO siding copy] Hero subtext for siding replacement — user to provide.",
+    sections: [
+      {
+        heading: "[TODO siding copy] First section heading",
+        paragraphs: [
+          "[TODO siding copy] First section paragraph — user to provide.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "[TODO siding copy] FAQ question 1 for siding replacement",
+        answer:
+          "[TODO siding copy] FAQ answer 1 — user to provide.",
+      },
+    ],
+    related: ["siding-repair", "vinyl-siding", "fiber-cement-siding"],
+  },
+  {
+    slug: "siding-repair",
+    category: "siding",
+    path: "/services/siding/siding-repair",
+    heroImage: HERO_SIDING,
+    images: [
+      { src: "/images/siding_repair-panel.webp", alt: "Damaged siding panel being replaced" },
+      { src: "/images/siding_repair-wind-damage.webp", alt: "Wind-damaged siding on a Madison-area home" },
+      { src: "/images/siding_repair-completed.webp", alt: "Completed siding repair section blending into surrounding panels" },
+    ],
+    isGeoTargeted: false,
+    title: "[TODO siding copy] Siding Repair in Madison",
+    metaDescription:
+      "[TODO siding copy] Meta description for siding-repair (145–160 chars) — user to provide.",
+    h1: "[TODO siding copy] Siding Repair in Madison and Dane County",
+    eyebrow: "Siding Service",
+    hero: "[TODO siding copy] Hero subtext for siding repair — user to provide.",
+    sections: [
+      {
+        heading: "[TODO siding copy] First section heading",
+        paragraphs: [
+          "[TODO siding copy] First section paragraph — user to provide.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "[TODO siding copy] FAQ question 1 for siding repair",
+        answer:
+          "[TODO siding copy] FAQ answer 1 — user to provide.",
+      },
+    ],
+    related: ["siding-replacement", "vinyl-siding", "fiber-cement-siding"],
+  },
+  {
+    slug: "vinyl-siding",
+    category: "siding",
+    path: "/services/siding/vinyl-siding",
+    heroImage: HERO_SIDING,
+    images: [
+      { src: "/images/siding_vinyl-detail.webp", alt: "Vinyl siding profile detail" },
+      { src: "/images/siding_vinyl-color-options.webp", alt: "Vinyl siding color options" },
+      { src: "/images/siding_vinyl-installation.webp", alt: "Vinyl siding installation in progress" },
+    ],
+    isGeoTargeted: false,
+    title: "[TODO siding copy] Vinyl Siding in Madison",
+    metaDescription:
+      "[TODO siding copy] Meta description for vinyl-siding (145–160 chars) — user to provide.",
+    h1: "[TODO siding copy] Vinyl Siding for Madison and Dane County Homes",
+    eyebrow: "Siding Material",
+    hero: "[TODO siding copy] Hero subtext for vinyl siding — user to provide.",
+    sections: [
+      {
+        heading: "[TODO siding copy] First section heading",
+        paragraphs: [
+          "[TODO siding copy] First section paragraph — user to provide.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "[TODO siding copy] FAQ question 1 for vinyl siding",
+        answer:
+          "[TODO siding copy] FAQ answer 1 — user to provide.",
+      },
+    ],
+    related: ["fiber-cement-siding", "siding-replacement", "siding-repair"],
+  },
+  {
+    slug: "fiber-cement-siding",
+    category: "siding",
+    path: "/services/siding/fiber-cement-siding",
+    heroImage: HERO_SIDING,
+    images: [
+      { src: "/images/siding_fiber-cement-detail.webp", alt: "Fiber-cement siding profile detail" },
+      { src: "/images/siding_fiber-cement-installation.webp", alt: "Fiber-cement siding installation in progress" },
+      { src: "/images/siding_james-hardie-color.webp", alt: "James Hardie siding color sample on a Madison home" },
+    ],
+    isGeoTargeted: false,
+    title: "[TODO siding copy] Fiber-Cement Siding (James Hardie / LP SmartSide) in Madison",
+    metaDescription:
+      "[TODO siding copy] Meta description for fiber-cement-siding (145–160 chars) — user to provide.",
+    h1: "[TODO siding copy] Fiber-Cement Siding for Madison Homes",
+    eyebrow: "Siding Material",
+    hero: "[TODO siding copy] Hero subtext for fiber-cement siding — user to provide.",
+    sections: [
+      {
+        heading: "[TODO siding copy] First section heading",
+        paragraphs: [
+          "[TODO siding copy] First section paragraph — user to provide.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "[TODO siding copy] FAQ question 1 for fiber-cement siding",
+        answer:
+          "[TODO siding copy] FAQ answer 1 — user to provide.",
+      },
+    ],
+    related: ["vinyl-siding", "siding-replacement", "siding-repair"],
   },
 ];
 

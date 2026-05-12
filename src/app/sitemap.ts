@@ -27,6 +27,7 @@ const STATIC_ROUTES: ReadonlyArray<{
   { path: "/service/roofing", priority: 0.8, changeFrequency: "monthly" },
   { path: "/service/gutter-protection", priority: 0.8, changeFrequency: "monthly" },
   { path: "/service/windows", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/service/siding", priority: 0.8, changeFrequency: "monthly" },
   {
     path: "/services/roofing/roof-replacement",
     priority: 0.8,
@@ -75,6 +76,26 @@ const STATIC_ROUTES: ReadonlyArray<{
   },
   {
     path: "/services/gutter/gutter-cleaning",
+    priority: 0.7,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/services/siding/siding-replacement",
+    priority: 0.8,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/services/siding/siding-repair",
+    priority: 0.8,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/services/siding/vinyl-siding",
+    priority: 0.7,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/services/siding/fiber-cement-siding",
     priority: 0.7,
     changeFrequency: "monthly",
   },

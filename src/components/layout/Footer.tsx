@@ -25,6 +25,7 @@ const NAV_COLUMNS: Array<{ heading: string; links: Array<{ href: string; label: 
       { href: "/service/roofing", label: "Roofing" },
       { href: "/service/gutter-protection", label: "Gutter Protection" },
       { href: "/service/windows", label: "Windows" },
+      { href: "/service/siding", label: "Siding" },
       { href: "/defender-shield", label: "The Defender Shield" },
     ],
   },
