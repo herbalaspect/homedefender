@@ -106,7 +106,7 @@ Required 301 redirects (configured in `next.config.ts`):
 - Forms: Resend (`RESEND_API_KEY` in `.env.local` and Vercel env vars)
 - Hosting: Vercel
 - Analytics: GA4 tag `G-527SS464GW` + Vercel Analytics
-- Pixels: Meta Pixel `1768103664011292`
+- No Meta Pixel currently — removed from site (was `1768103664011292` on Webflow); revisit if/when paid social spend resumes
 
 ## Deploy
 

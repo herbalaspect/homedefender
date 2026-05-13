@@ -64,13 +64,8 @@ export const BRAND = {
   font: "Arial, sans-serif",
 } as const;
 
-/**
- * Analytics + pixel IDs (preserved from the existing Webflow site).
- * Sourced from reference-site/pages/index.html.
- */
 export const TRACKING = {
   gaMeasurementId: "G-527SS464GW",
-  metaPixelId: "1768103664011292",
 } as const;
 
 /**

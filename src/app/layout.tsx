@@ -5,6 +5,7 @@ import { BUSINESS } from "@/lib/constants";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { Analytics } from "@/components/seo/Analytics";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -49,6 +50,7 @@ export default function RootLayout({
         <div className="flex-1 flex flex-col">{children}</div>
         <Footer />
         <Analytics />
+        <VercelAnalytics />
       </body>
     </html>
   );
