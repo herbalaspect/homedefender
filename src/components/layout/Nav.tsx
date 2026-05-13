@@ -51,7 +51,7 @@ const SIDING: NavGroup = {
     { href: "/services/siding/siding-replacement", label: "Siding Replacement" },
     { href: "/services/siding/siding-repair", label: "Siding Repair" },
     { href: "/services/siding/vinyl-siding", label: "Vinyl Siding" },
-    { href: "/services/siding/fiber-cement-siding", label: "Fiber-Cement Siding" },
+    { href: "/services/siding/fiber-cement-siding", label: "Fiber Cement Siding" },
   ],
 };
 

@@ -339,56 +339,63 @@ export const serviceCategories: ServiceCategoryPage[] = [
       },
     ],
   },
-  /* ============== SIDING ==============
-   * Added as the 4th service. All visible copy is marked
-   * `[TODO siding copy]` and is meant to be replaced by the user before this
-   * page is included in the published sitemap. Page structure, schema, nav,
-   * and hub wiring are in place — only the prose is pending. */
+  /* ============== SIDING ============== */
   {
     slug: "siding",
     path: "/service/siding",
     heroImage: HERO_SIDING,
-    title: "[TODO siding copy] Siding Services in Madison, WI",
+    title: "Siding Replacement & Repair in Madison, WI | Home Defender",
     metaDescription:
-      "[TODO siding copy] Meta description for /service/siding (145–160 chars) — user to provide.",
-    h1: "[TODO siding copy] Siding Services for Madison Homes",
+      "Madison siding contractor for vinyl, fiber cement, repair, and full replacement. Built for Wisconsin freeze-thaw, hail, and humidity. Free in-home consultation.",
+    h1: "Siding Replacement & Repair in Madison, WI",
     eyebrow: "Siding",
-    hero: "[TODO siding copy] One-paragraph hero subtext describing the siding service line — user to provide.",
+    hero:
+      "Your siding is the only thing standing between Wisconsin weather and the wood frame holding up your house. Twenty winters of freeze-thaw, a few hailstorms, and a couple of humid summers later, even quality siding starts to fail — usually in places you can't see from the ground. We install and repair siding on Madison-area homes with materials built for our climate. No high-pressure quotes. Just a contractor who'll tell you whether you actually need a replacement.",
     intro: [
-      "[TODO siding copy] First intro paragraph for /service/siding — user to provide.",
-      "[TODO siding copy] Second intro paragraph — user to provide.",
+      "Wisconsin climate is harder on siding than almost any other part of the country. A 110-degree seasonal swing — from -20°F January nights to 90°F July afternoons — puts every panel, seam, and fastener through hundreds of expansion and contraction cycles every year. Add ice damming on north-facing walls, summer hail storms across Dane County, and lake-effect humidity for homes near Mendota or Monona, and your siding has a hard job. The wrong material — or the right material installed badly — can fail in under ten years. The right material installed correctly can protect your home for fifty.",
+      "We work on Madison-area homes that span more than a century of construction — from 1890s Queen Anne homes in the Marquette historic district to 2010s subdivisions in Sun Prairie and Verona. Different eras need different approaches. A historic Tudor Revival in University Heights needs material that satisfies the Madison Landmarks Commission. A lake-adjacent home in McFarland needs corrosion-resistant flashings and humidity-rated materials. A 1990s Colonial in Waunakee usually needs the underlying ventilation and house wrap brought up to current standards while the siding is off. We don't pretend every home is the same project. We look at yours, tell you what we see, and write an honest estimate.",
     ],
     subServiceCards: [
       {
         slug: "siding-replacement",
         title: "Siding Replacement",
         description:
-          "[TODO siding copy] Card description for the siding replacement sub-service — user to provide.",
+          "Full siding replacement for Madison-area homes. We tear off the old, inspect and upgrade the underlying wall system, and install new siding rated for Wisconsin's climate. Most projects complete in 1–2 weeks. Free written estimate after an in-person inspection.",
       },
       {
         slug: "siding-repair",
         title: "Siding Repair",
         description:
-          "[TODO siding copy] Card description for the siding repair sub-service — user to provide.",
+          "Targeted repair for isolated damage — cracked panels, wind-lifted boards, hail dents, water-damaged sections. We assess whether repair is the right call or whether replacement makes more sense. Most repairs complete in a single visit.",
       },
       {
         slug: "vinyl-siding",
         title: "Vinyl Siding",
         description:
-          "[TODO siding copy] Card description for the vinyl siding sub-service — user to provide.",
+          "Vinyl and insulated vinyl siding installation for Madison homes. The most common siding choice in Wisconsin — affordable, low-maintenance, and available in dozens of profiles and colors. We use premium-grade products rated for Midwest cold.",
       },
       {
         slug: "fiber-cement-siding",
-        title: "Fiber-Cement Siding (James Hardie / LP SmartSide)",
+        title: "Fiber Cement Siding",
         description:
-          "[TODO siding copy] Card description for the fiber-cement siding sub-service — user to provide.",
+          "Fiber cement siding for homeowners who want maximum durability — including premium products engineered specifically for Wisconsin's climate. Hail-resistant, fire-resistant, and rated for 30–50 years. Higher upfront cost, lowest long-term cost.",
       },
     ],
     faqs: [
       {
-        question: "[TODO siding copy] FAQ question 1 for /service/siding",
+        question: "How much does siding replacement cost in Madison?",
         answer:
-          "[TODO siding copy] FAQ answer 1 — user to provide.",
+          "For 2026, most Madison-area siding replacement projects run between $9,000 and $22,000 depending on home size, material, and complexity. Vinyl is the most affordable — typically $4–$8 per square foot installed. Fiber cement runs $10–$15 per square foot. A typical 1,800–2,400 sq ft home runs $11,000–$18,000 for a full replacement. We never quote without seeing the home. Estimates are written, itemized, and free.",
+      },
+      {
+        question: "How do I know if I need siding repair or full replacement?",
+        answer:
+          "If less than half the siding is damaged and the rest is in good shape, repair is usually the right call. If damage is widespread, the siding is more than 20 years old, you're seeing moisture damage behind the panels, or repairs keep failing in the same areas — replacement is the smarter long-term move. A free in-home inspection is the only way to know for sure. We'll tell you honestly which path makes more sense for your home.",
+      },
+      {
+        question: "What siding material is best for Wisconsin?",
+        answer:
+          "For most Madison-area homes, premium architectural vinyl or fiber cement give the best results. Vinyl wins on upfront cost and low maintenance. Fiber cement wins on lifespan, hail resistance, and resale value. Insulated vinyl is a middle path that adds noticeable energy efficiency at a moderate price premium. The right answer depends on how long you plan to stay in your home and your budget. We walk through the tradeoffs during your free consultation — no pressure toward any specific material.",
       },
     ],
   },
@@ -1428,25 +1435,108 @@ export const subServices: SubService[] = [
       { src: "/images/siding_replacement-installation.webp", alt: "New siding being installed on a Wisconsin home" },
     ],
     isGeoTargeted: false,
-    title: "[TODO siding copy] Siding Replacement in Madison",
+    title: "Siding Replacement in Madison, WI | Home Defender",
     metaDescription:
-      "[TODO siding copy] Meta description for siding-replacement (145–160 chars) — user to provide.",
-    h1: "[TODO siding copy] Siding Replacement in Madison and Dane County",
+      "Full siding replacement for Madison-area homes. Vinyl, fiber cement, and engineered wood options. 10-year workmanship warranty. Free in-home consultation.",
+    h1: "Siding Replacement in Madison, WI",
     eyebrow: "Siding Service",
-    hero: "[TODO siding copy] Hero subtext for siding replacement — user to provide.",
+    hero:
+      "A full siding replacement is one of the most expensive things you'll do to your home — and one of the most consequential. Done right, the new siding will outlast you. Done wrong, you'll be calling a different contractor in five years to fix what should have been done correctly the first time. We don't shortcut the underlayment, the flashing, or the moisture management. Free in-home consultation. Written estimates. No high-pressure quotes.",
     sections: [
       {
-        heading: "[TODO siding copy] First section heading",
+        heading: "Signs your home needs full siding replacement",
         paragraphs: [
-          "[TODO siding copy] First section paragraph — user to provide.",
+          "Not every damaged panel means you need a full replacement. But there's a point where targeted repair stops making sense and full replacement becomes the better long-term move. Most homeowners hit that point when one or more of these conditions show up at the same time.",
+        ],
+        list: [
+          {
+            heading: "Widespread damage",
+            body: "Cracks, holes, warping, or rot affecting more than 30–40% of the home's siding.",
+          },
+          {
+            heading: "Age",
+            body: "Siding more than 20 years old that's starting to show wear in multiple places.",
+          },
+          {
+            heading: "Recurring moisture problems",
+            body: "Mold, mildew, or water stains that keep coming back after repairs.",
+          },
+          {
+            heading: "Structural damage behind the panels",
+            body: "Soft sheathing, rotted studs, or visible damage when a panel is pulled.",
+          },
+          {
+            heading: "Rising energy bills",
+            body: "Older siding without proper insulation or with failed seams lets conditioned air escape.",
+          },
+          {
+            heading: "Fading or chalking",
+            body: "UV damage across the entire exterior, especially on south and west-facing walls.",
+          },
+        ],
+      },
+      {
+        heading: "The replacement process — what to expect",
+        paragraphs: [
+          "A full siding replacement is more than just swapping panels. The siding is the outer layer of a system that includes sheathing, house wrap, insulation, and flashing. When old siding comes off, we inspect everything underneath — and address what needs addressing before new siding goes on. Skipping that step is the single biggest reason new siding fails early.",
+          "A typical Home Defender Remodeling siding replacement includes the following steps.",
+        ],
+        list: [
+          {
+            heading: "1. Tear-off and disposal",
+            body: "We remove existing siding, trim, and flashings and haul them off the site.",
+          },
+          {
+            heading: "2. Sheathing inspection",
+            body: "We identify and replace any rotted or damaged wood before anything new goes up.",
+          },
+          {
+            heading: "3. House wrap upgrade",
+            body: "Modern weather-resistive barriers replace older felt or damaged wrap.",
+          },
+          {
+            heading: "4. Insulation review",
+            body: "If your wall cavities are under-insulated, we discuss options while the wall is open.",
+          },
+          {
+            heading: "5. New flashing",
+            body: "Fresh flashing at every window, door, and penetration.",
+          },
+          {
+            heading: "6. Siding installation",
+            body: "In the material and profile you've chosen, fastened to manufacturer spec.",
+          },
+          {
+            heading: "7. Trim, corners, and final detailing",
+            body: "Matched to your home's architectural style.",
+          },
+          {
+            heading: "8. Magnet sweep and full cleanup",
+            body: "We leave the site cleaner than we found it.",
+          },
         ],
       },
     ],
     faqs: [
       {
-        question: "[TODO siding copy] FAQ question 1 for siding replacement",
+        question: "How long does a full siding replacement take?",
         answer:
-          "[TODO siding copy] FAQ answer 1 — user to provide.",
+          "Most Madison-area homes complete in 1–2 weeks of active work. Smaller homes (under 1,800 sq ft) often finish in 5–7 days. Larger homes or complex architectural details (multiple gables, decorative trim, multi-story) can run 2–3 weeks. Weather can extend the timeline — we won't leave the wall open if there's serious rain or storms in the forecast.",
+      },
+      {
+        question: "What's the warranty on a Home Defender Remodeling siding replacement?",
+        answer:
+          "We back our installation with a 10-year workmanship warranty. That's separate from the manufacturer warranty on the siding material itself, which typically runs 25–50 years depending on the product. If anything goes wrong because of how we installed it, we fix it. No fine print.",
+      },
+      {
+        question: "Can you replace siding around existing windows, or do I need to replace them at the same time?",
+        answer:
+          "Both options work. We can install new siding around existing windows with proper flashing and trim integration. That said, replacing siding is also one of the easiest times to replace windows — the wall is already open and the trim is coming off either way. Most homeowners who are within 5–10 years of needing window replacement choose to do both at once. We'll walk through the tradeoffs honestly during your consultation.",
+      },
+      {
+        question: "How much does a full siding replacement cost?",
+        answer:
+          "For Madison-area homes in 2026, expect $9,000–$22,000 for a full replacement, with most projects landing in the $11,000–$18,000 range. The biggest cost drivers are home size, material choice, and architectural complexity. Vinyl is the most affordable; fiber cement adds 50–100% to material cost but extends lifespan significantly. We provide written, itemized estimates after an in-person inspection — no phone quotes, no rough ranges over email.",
       },
     ],
     related: ["siding-repair", "vinyl-siding", "fiber-cement-siding"],
@@ -1462,25 +1552,90 @@ export const subServices: SubService[] = [
       { src: "/images/siding_repair-completed.webp", alt: "Completed siding repair section blending into surrounding panels" },
     ],
     isGeoTargeted: false,
-    title: "[TODO siding copy] Siding Repair in Madison",
+    title: "Siding Repair in Madison, WI | Home Defender",
     metaDescription:
-      "[TODO siding copy] Meta description for siding-repair (145–160 chars) — user to provide.",
-    h1: "[TODO siding copy] Siding Repair in Madison and Dane County",
+      "Siding repair for Madison-area homes — wind damage, hail, cracked panels, water damage. Honest assessment of repair vs replacement. Call (608) 925-3576.",
+    h1: "Siding Repair in Madison, WI",
     eyebrow: "Siding Service",
-    hero: "[TODO siding copy] Hero subtext for siding repair — user to provide.",
+    hero:
+      "A few cracked panels after a hailstorm don't mean you need to replace your entire siding. Sometimes a targeted repair is the right call — fixes the problem, costs a fraction of full replacement, and buys your existing siding another 5–10 years of life. The trick is knowing when repair makes sense and when it doesn't. We assess the damage, give you an honest answer, and only recommend replacement when repair genuinely isn't the better choice. Free inspection. Written estimates.",
     sections: [
       {
-        heading: "[TODO siding copy] First section heading",
+        heading: "When siding repair makes sense",
         paragraphs: [
-          "[TODO siding copy] First section paragraph — user to provide.",
+          "Siding repair is most appropriate when damage is localized, the rest of the home's siding is in good condition, and the underlying wall system hasn't been compromised. Common repair-appropriate scenarios we see across Madison and Dane County.",
+        ],
+        list: [
+          {
+            heading: "Storm damage",
+            body: "Hail dents on a few panels, wind-lifted boards, debris impact in one section.",
+          },
+          {
+            heading: "Isolated cracks",
+            body: "A single panel cracked from impact, with surrounding panels intact.",
+          },
+          {
+            heading: "Loose or detached sections",
+            body: "Boards that have pulled away from fasteners but aren't structurally damaged.",
+          },
+          {
+            heading: "Color matching for a recent buy",
+            body: "Homeowner just bought a home and a few panels were damaged before they moved in.",
+          },
+          {
+            heading: "Pre-sale touch-ups",
+            body: "Getting the exterior presentable before listing the home.",
+          },
+          {
+            heading: "Insurance claim work",
+            body: "Covered damage being restored as part of a homeowner's policy claim.",
+          },
+        ],
+      },
+      {
+        heading: "When replacement is the smarter long-term move",
+        paragraphs: [
+          "We turn down siding repair work when repair genuinely isn't in the homeowner's interest. The honest answer matters more than the short-term job. Replacement usually makes more sense in these cases.",
+        ],
+        list: [
+          {
+            heading: "Damage is widespread",
+            body: "More than 30–40% of the home's siding shows similar damage.",
+          },
+          {
+            heading: "The siding is more than 20 years old",
+            body: "Patching old material that's failing across the board doesn't extend its life much.",
+          },
+          {
+            heading: "Moisture damage is present behind the panels",
+            body: "Repairing siding over rotted sheathing just hides the problem.",
+          },
+          {
+            heading: "You've already had repeated repairs",
+            body: "The same areas keep failing, suggesting the underlying problem isn't fixable at the panel level.",
+          },
+          {
+            heading: "The home is being prepared for long-term ownership",
+            body: "Putting another $1,500 into siding that needs replacement in 2 years isn't a good investment.",
+          },
         ],
       },
     ],
     faqs: [
       {
-        question: "[TODO siding copy] FAQ question 1 for siding repair",
+        question: "How much does siding repair cost?",
         answer:
-          "[TODO siding copy] FAQ answer 1 — user to provide.",
+          "Most siding repairs in the Madison area run between $300 and $2,500 depending on the size of the damaged area, material, and accessibility. A single cracked vinyl panel might be $250–$500. A section of storm-damaged siding across two stories of a home might run $1,500–$3,000. We provide written estimates after an inspection — no rough numbers over the phone.",
+      },
+      {
+        question: "Can you match my existing siding color?",
+        answer:
+          "Most of the time, yes. We carry the most common vinyl and fiber cement colors in stock. Older siding, discontinued colors, or unusual profiles can sometimes require a special order — which adds 1–3 weeks to the timeline. We'll let you know during the inspection what's involved. Worst case, we can sometimes pull undamaged siding from a less-visible side of the house and use it for the visible repair, then install the new color on the back where it shows less.",
+      },
+      {
+        question: "Will my insurance cover storm damage repairs?",
+        answer:
+          "Often yes, if the damage is from a covered event (hail, severe wind, falling debris). Your homeowner's policy usually covers the repair minus your deductible. We document the damage in writing, photograph everything, and work directly with your insurance adjuster. Most Madison homeowners under-document storm damage and end up with smaller payouts than they're entitled to — we don't let that happen to our customers.",
       },
     ],
     related: ["siding-replacement", "vinyl-siding", "fiber-cement-siding"],
@@ -1496,25 +1651,107 @@ export const subServices: SubService[] = [
       { src: "/images/siding_vinyl-installation.webp", alt: "Vinyl siding installation in progress" },
     ],
     isGeoTargeted: false,
-    title: "[TODO siding copy] Vinyl Siding in Madison",
+    title: "Vinyl Siding Installation in Madison, WI | Home Defender",
     metaDescription:
-      "[TODO siding copy] Meta description for vinyl-siding (145–160 chars) — user to provide.",
-    h1: "[TODO siding copy] Vinyl Siding for Madison and Dane County Homes",
+      "Vinyl and insulated vinyl siding installation for Madison homes. Premium products rated for Wisconsin cold. Free consultation, 10-year workmanship warranty.",
+    h1: "Vinyl Siding Installation in Madison, WI",
     eyebrow: "Siding Material",
-    hero: "[TODO siding copy] Hero subtext for vinyl siding — user to provide.",
+    hero:
+      "Vinyl is the most common siding material in Wisconsin — and for good reason. It's affordable, low-maintenance, and available in more colors and profiles than any other siding material. But not all vinyl is the same. The cheap stuff you'd find on a 1990s spec home cracks in a Wisconsin January. Premium vinyl, properly installed, holds up for 25–30 years and looks great the entire time. We install only premium-grade vinyl products engineered for Midwest cold.",
     sections: [
       {
-        heading: "[TODO siding copy] First section heading",
+        heading: "What vinyl siding actually delivers",
         paragraphs: [
-          "[TODO siding copy] First section paragraph — user to provide.",
+          "For most Madison-area homes, vinyl siding hits the right balance of cost, durability, and appearance. The honest case for vinyl.",
+        ],
+        list: [
+          {
+            heading: "Cost",
+            body: "Installed cost typically runs $4–$8 per square foot, roughly half of what fiber cement runs.",
+          },
+          {
+            heading: "Maintenance",
+            body: "Wash it once a year with a garden hose. No painting, no sealing, no staining.",
+          },
+          {
+            heading: "Color permanence",
+            body: "Color is baked through the material rather than painted on, so scratches don't show a different color underneath.",
+          },
+          {
+            heading: "Selection",
+            body: "Dozens of profiles — traditional lap, Dutch lap, board and batten, shake — and hundreds of colors.",
+          },
+          {
+            heading: "Lifespan",
+            body: "25–30 years for premium products in Wisconsin's climate, with insulated vinyl on the longer end of that range.",
+          },
+        ],
+      },
+      {
+        heading: "The honest tradeoffs",
+        paragraphs: [
+          "Vinyl isn't perfect. These are the things honest contractors talk about up front. For homes where the budget points to vinyl, premium-grade products installed correctly perform very well in Madison — but it's worth knowing where vinyl has limits.",
+        ],
+        list: [
+          {
+            heading: "Cold brittleness",
+            body: "Vinyl gets harder and more brittle below 10°F. Cheap vinyl can crack from impact in deep winter. Premium vinyl handles cold significantly better.",
+          },
+          {
+            heading: "Heat expansion",
+            body: "Vinyl expands and contracts substantially with temperature swings. Installation has to account for this, or seams pull apart over time.",
+          },
+          {
+            heading: "Hail vulnerability",
+            body: "Vinyl dents and cracks under significant hail more than fiber cement does.",
+          },
+        ],
+      },
+      {
+        heading: "Insulated vinyl — when it's worth the upgrade",
+        paragraphs: [
+          "Insulated vinyl adds a layer of rigid foam backing bonded directly to the back of the vinyl panel. The result is a measurably more rigid, more impact-resistant, and more energy-efficient siding system. The upgrade typically adds about $1.50–$3.00 per square foot installed.",
+          "Where insulated vinyl makes the most sense in Madison.",
+        ],
+        list: [
+          {
+            heading: "Homes with older insulation",
+            body: "Most homes built before 1985 are under-insulated by current standards. Insulated vinyl is a noticeable improvement.",
+          },
+          {
+            heading: "North-facing walls",
+            body: "North sides of the home see the most cold exposure and the most ice damming risk. Insulated vinyl helps both.",
+          },
+          {
+            heading: "Homeowners staying long-term",
+            body: "The energy savings compound over time. If you're staying 10+ years, the math usually works.",
+          },
+          {
+            heading: "Homes with poor sound insulation",
+            body: "The rigid foam noticeably reduces outdoor noise.",
+          },
+          {
+            heading: "When standard vinyl is the smarter call",
+            body: "Investment properties or short-term holds where the payback period won't match your timeline; tight budgets where standard vinyl still performs well; or homes that already have good wall insulation.",
+          },
         ],
       },
     ],
     faqs: [
       {
-        question: "[TODO siding copy] FAQ question 1 for vinyl siding",
+        question: "How long does vinyl siding last in Wisconsin?",
         answer:
-          "[TODO siding copy] FAQ answer 1 — user to provide.",
+          "Premium-grade vinyl in Wisconsin typically delivers 25–30 years of service life before significant degradation. Standard or budget vinyl usually delivers 15–20 years before fading, cracking, or seam failure shows up. Wisconsin's deep cold and freeze-thaw cycles are harder on vinyl than the climates manufacturers test in — premium products are worth the modest upgrade for the longer life and warranty backing.",
+      },
+      {
+        question: "Does vinyl siding really crack in Wisconsin winters?",
+        answer:
+          "Cheaper vinyl can. Below about 10°F — which Madison hits regularly in January and February — older or thinner vinyl becomes brittle and more vulnerable to impact damage from snow shovels, hail, or wind-blown debris. Premium vinyl is engineered to maintain flexibility at lower temperatures, but it's still not invincible. This is one reason we only install premium-grade products. The cost difference between budget and premium vinyl is small compared to the cost of replacing prematurely failed siding.",
+      },
+      {
+        question: "Can I paint vinyl siding?",
+        answer:
+          "Technically yes, but we don't recommend it. Vinyl is designed with the color baked into the material — painting works against that design and the paint typically fails within 5–7 years, sometimes peeling in sheets. If your vinyl is faded or you don't like the color, replacement is almost always the better long-term move than painting. The exception is if the vinyl is otherwise in great condition and you only have 5 years left in the home — in that case, paint might bridge the gap.",
       },
     ],
     related: ["fiber-cement-siding", "siding-replacement", "siding-repair"],
@@ -1527,28 +1764,103 @@ export const subServices: SubService[] = [
     images: [
       { src: "/images/siding_fiber-cement-detail.webp", alt: "Fiber-cement siding profile detail" },
       { src: "/images/siding_fiber-cement-installation.webp", alt: "Fiber-cement siding installation in progress" },
-      { src: "/images/siding_james-hardie-color.webp", alt: "James Hardie siding color sample on a Madison home" },
     ],
     isGeoTargeted: false,
-    title: "[TODO siding copy] Fiber-Cement Siding (James Hardie / LP SmartSide) in Madison",
+    title: "Fiber Cement Siding in Madison, WI | Home Defender",
     metaDescription:
-      "[TODO siding copy] Meta description for fiber-cement-siding (145–160 chars) — user to provide.",
-    h1: "[TODO siding copy] Fiber-Cement Siding for Madison Homes",
+      "Fiber cement siding installation for Madison homes. 30–50 year lifespan, hail-resistant, engineered for Wisconsin climate. Free in-home consultation.",
+    h1: "Fiber Cement Siding in Madison, WI",
     eyebrow: "Siding Material",
-    hero: "[TODO siding copy] Hero subtext for fiber-cement siding — user to provide.",
+    hero:
+      "If you're staying in your home for the long term and you want siding that won't need replacement again in your lifetime, fiber cement is hard to beat. It's the most durable siding material widely available in Wisconsin — won't crack in cold, won't dent from hail, won't burn, and lasts 30–50 years. The tradeoff is upfront cost: roughly 2x what vinyl costs. For long-term homeowners, the math almost always works. We install fiber cement on Madison-area homes using premium products engineered for cold-climate performance.",
     sections: [
       {
-        heading: "[TODO siding copy] First section heading",
+        heading: "Built for everything Wisconsin throws at it",
         paragraphs: [
-          "[TODO siding copy] First section paragraph — user to provide.",
+          "Fiber cement is a composite of Portland cement, sand, and cellulose fibers — pressed into siding panels that look like wood but perform like masonry. The combination delivers properties that no other siding material matches at a residential price point.",
+        ],
+        list: [
+          {
+            heading: "Cold resistance",
+            body: "Fiber cement doesn't become brittle in deep cold. It's stable from -40°F to 120°F without expansion-contraction stress.",
+          },
+          {
+            heading: "Hail resistance",
+            body: "Hailstones typically bounce off without leaving marks. Compare that to vinyl, which dents and cracks.",
+          },
+          {
+            heading: "Fire resistance",
+            body: "Class A fire rating. Won't ignite, won't accelerate flame spread.",
+          },
+          {
+            heading: "Pest resistance",
+            body: "Termites, carpenter ants, and woodpeckers can't damage it. Not food, not nesting material.",
+          },
+          {
+            heading: "Moisture resistance",
+            body: "Won't rot, won't grow mold, won't swell from humidity.",
+          },
+          {
+            heading: "Wind resistance",
+            body: "Heavier than vinyl, properly fastened fiber cement handles winds well above 130 mph.",
+          },
+          {
+            heading: "Lifespan",
+            body: "30–50 years in Wisconsin's climate, with proper paint maintenance every 10–15 years.",
+          },
+        ],
+      },
+      {
+        heading: "The honest tradeoffs",
+        paragraphs: [
+          "Fiber cement is the right answer for many Madison homes, but it's not the right answer for every Madison home. Honest tradeoffs to weigh.",
+        ],
+        list: [
+          {
+            heading: "Upfront cost",
+            body: "Installed cost typically runs $10–$15 per square foot, roughly 2x what vinyl runs. For an average Madison home, that translates to $5,000–$10,000 more upfront.",
+          },
+          {
+            heading: "Repainting cycle",
+            body: "Fiber cement is painted, not color-impregnated. The paint typically holds up 10–15 years before needing refresh. Not a huge cost, but it's a maintenance item vinyl doesn't have.",
+          },
+          {
+            heading: "Installation complexity",
+            body: "Fiber cement is heavier than vinyl, requires specialized cutting tools, and demands more skilled installation. Choosing the right contractor matters more than with vinyl.",
+          },
+          {
+            heading: "Weight",
+            body: "Heavier panels need solid sheathing underneath. Older homes with damaged or undersized sheathing may need that upgraded as part of the project.",
+          },
+        ],
+      },
+      {
+        heading: "When fiber cement is the clear winner",
+        paragraphs: [
+          "Fiber cement is the clear winner for long-term homeowners (10+ years), homes in hail-prone areas, premium neighborhoods where resale value matters, and historic districts where appearance fidelity is important. Vinyl may still be the better call for short-term holds, tight budgets, or lower-end investment properties. We walk through the tradeoffs honestly during your consultation — no pressure toward either material.",
         ],
       },
     ],
     faqs: [
       {
-        question: "[TODO siding copy] FAQ question 1 for fiber-cement siding",
+        question: "Is one fiber cement brand better than the others?",
         answer:
-          "[TODO siding copy] FAQ answer 1 — user to provide.",
+          "James Hardie is the market leader in North America and the brand most Madison-area homeowners recognize. Their HardieZone system genuinely does engineer different formulations for different climates — Wisconsin homes get a different product than Florida homes, optimized for cold and freeze-thaw rather than humidity and salt air. Other brands like Allura, Nichiha, and CertainTeed are also reputable and can be the right call depending on the project and price point. During the consultation we walk through the options based on what fits your home, your timeline, and your budget — we're not locked into any single manufacturer.",
+      },
+      {
+        question: "How often does fiber cement need to be repainted?",
+        answer:
+          "Most fiber cement paint systems hold up 10–15 years before showing wear. Pre-finished products with factory-applied color (such as James Hardie's ColorPlus line) typically come with a 15-year color warranty that's realistic in Wisconsin's climate. Repainting a fiber cement home costs about $3,000–$8,000 depending on size — significant, but spread over 15 years it's about $250–$550 per year, which is reasonable for the lifespan you're getting.",
+      },
+      {
+        question: "Will my home appraise higher with fiber cement siding?",
+        answer:
+          "Generally yes. Real estate data consistently shows fiber cement adds more resale value than vinyl, particularly in mid-range and premium home markets. The exact number varies by neighborhood, but fiber cement typically recoups 70–80% of its installed cost in home value — compared to vinyl's 60–70%. In premium Madison neighborhoods (Maple Bluff, Shorewood Hills, University Heights, Nakoma), the resale value premium is often larger.",
+      },
+      {
+        question: "Does fiber cement work on historic district homes in Madison?",
+        answer:
+          "In most cases, yes — and the Madison Landmarks Commission generally approves fiber cement as a substitute for original wood siding when the profile matches the home's original architectural style. Historic district homes in University Heights and Marquette / Third Lake Ridge require Certificate of Appropriateness approval for visible material changes, and we handle that application as part of our process. Most major fiber cement manufacturers offer profiles specifically designed to match traditional clapboard, shingle, and board-and-batten styles common in Madison's historic neighborhoods.",
       },
     ],
     related: ["vinyl-siding", "siding-replacement", "siding-repair"],
