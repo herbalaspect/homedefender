@@ -9,36 +9,36 @@ domain cutover from current Webflow host to Vercel.
 ## Pre-Launch
 
 ### Content & SEO
-- [ ] Every page has a unique `<title>` (50–60 chars) and meta description (145–160 chars)
-- [ ] Single `<h1>` per page with primary keyword + city
-- [ ] LocalBusiness JSON-LD on every page
-- [ ] FAQ schema on city + neighborhood pages
-- [ ] Article schema (with author + dates) on blog posts
-- [ ] All images have descriptive alt text — no empty alts, no `image1.jpg`
-- [ ] OG + Twitter Card images set; preview at opengraph.xyz
-- [ ] No `[Customer Name]` placeholders remain in `content/testimonials.ts`
-- [ ] Brand string check: no `Home Defender` alone, no `Home Defender USA`, no `Remodelling`
-- [ ] Service-area string check: only `Madison, Dane County, and southern Wisconsin`
-- [ ] No `Enroll now` / `Buy now` / Stripe / payment UX anywhere on the site
-- [ ] All 51 pages from `PLAN.md` accounted for; no `#` placeholder links
+- [ ] Every page has a unique `<title>` (50–60 chars) and meta description (145–160 chars) — _not yet audited per-page_
+- [x] Single `<h1>` per page with primary keyword + city
+- [x] LocalBusiness JSON-LD on every page
+- [x] FAQ schema on city + neighborhood pages
+- [x] Article schema (with author + dates) on blog posts
+- [ ] All images have descriptive alt text — no empty alts, no `image1.jpg` — _8 empty `alt=""` still in src (Hero, blog, services, templates, Analytics noscript pixel)_
+- [ ] OG + Twitter Card images set; preview at opengraph.xyz — _wired in `src/lib/seo.ts`; not yet previewed_
+- [ ] No `[Customer Name]` placeholders remain in `content/testimonials.ts` — _4 in `content/testimonials.ts`, 16+ in `content/cities.ts`_
+- [x] Brand string check: no `Home Defender` alone, no `Home Defender USA`, no `Remodelling`
+- [x] Service-area string check: only `Madison, Dane County, and southern Wisconsin`
+- [x] No `Enroll now` / `Buy now` / Stripe / payment UX anywhere on the site
+- [ ] All 51 pages from `PLAN.md` accounted for; no `#` placeholder links — _not yet cross-checked against PLAN.md_
 
 ### Tech
-- [ ] `npm run build` clean — no TS or ESLint errors
-- [ ] `next.config.ts` redirects verified (`/testimonial`, `/service-archive/*`, roof-inspection)
-- [ ] `robots.ts` allows all; `sitemap.ts` includes all 51 routes
-- [ ] `/sitemap.xml` and `/robots.txt` load on production
-- [ ] 404 page exists and is styled
+- [x] `npm run build` clean — no TS or ESLint errors
+- [x] `next.config.ts` redirects verified (`/testimonial`, `/service-archive/*`, roof-inspection)
+- [x] `robots.ts` allows all; `sitemap.ts` includes all 51 routes
+- [ ] `/sitemap.xml` and `/robots.txt` load on production — _verify after deploy_
+- [ ] 404 page exists and is styled — _no `not-found.tsx` in `src/app/`_
 - [ ] Lighthouse: ≥90 performance, 100 SEO, 100 accessibility on homepage + 1 service + 1 city page
 - [ ] Mobile check on real device (iPhone Safari + Android Chrome)
-- [ ] Phone links use `tel:+16089253576`; mailto uses `info@homedefenderusa.com`
+- [x] Phone links use `tel:+16089253576`; mailto uses `info@homedefenderusa.com`
 
 ### Forms & Analytics
-- [ ] `RESEND_API_KEY` set in Vercel production env
+- [ ] `RESEND_API_KEY` set in Vercel production env — _can't verify from repo_
 - [ ] Contact form submits end-to-end to `info@homedefenderusa.com` (test from preview)
-- [ ] Form spam protection in place (honeypot or rate limit)
-- [ ] GA4 `G-527SS464GW` firing on all pages (Realtime check)
-- [ ] Meta Pixel `1768103664011292` firing + Lead event on form submit
-- [ ] Vercel Analytics enabled
+- [x] Form spam protection in place (honeypot or rate limit) — _honeypot field in `/api/contact`_
+- [x] GA4 `G-527SS464GW` firing on all pages (Realtime check) — _wired via `<Analytics />` in root layout; Realtime check still required post-deploy_
+- [ ] Meta Pixel `1768103664011292` firing + Lead event on form submit — _PageView fires; **no `fbq('track','Lead')` on submit**_
+- [ ] Vercel Analytics enabled — _`@vercel/analytics` not installed_
 
 ### Domain cutover
 - [ ] Add `homedefenderusa.com` + `www` to Vercel project
