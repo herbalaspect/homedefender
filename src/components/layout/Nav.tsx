@@ -5,8 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { BUSINESS } from "@/lib/constants";
 
-const HEADER_LOGO =
-  "/images/676573629ab794e176dde87e/688dbd4055a6972d91949d3f_HomeDefenderLogoBlack.png";
+const HEADER_LOGO = "/images/logo-horizontal.png";
 
 interface NavLink {
   href: string;
@@ -77,7 +76,7 @@ export function Nav() {
 
   return (
     <header className="sticky top-0 z-40 bg-white border-b border-gray-200 text-gray-900">
-      <div className="mx-auto flex min-h-[4.5rem] max-w-[1200px] items-center justify-between gap-8 px-6 lg:px-10">
+      <div className="mx-auto flex min-h-[5rem] max-w-[1200px] items-center justify-between gap-8 px-6 lg:px-10">
         <Link
           href="/"
           className="inline-flex shrink-0 items-center"
@@ -86,10 +85,10 @@ export function Nav() {
           <Image
             src={HEADER_LOGO}
             alt={BUSINESS.name}
-            width={263}
-            height={56}
+            width={524}
+            height={101}
             priority
-            className="h-10 w-auto sm:h-11"
+            className="h-14 w-auto sm:h-16"
           />
         </Link>
 
