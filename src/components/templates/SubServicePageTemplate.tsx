@@ -183,6 +183,24 @@ function BodySection({
           >
             {section.heading}
           </h2>
+          {section.image && (
+            <figure className="mt-6 overflow-hidden rounded-img border border-gray-200 bg-white">
+              <div className="relative aspect-[16/9] w-full">
+                <Image
+                  src={section.image.src}
+                  alt={section.image.alt}
+                  fill
+                  sizes="(min-width: 1024px) 768px, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              {section.image.caption && (
+                <figcaption className="px-4 py-3 text-sm text-gray-600">
+                  {section.image.caption}
+                </figcaption>
+              )}
+            </figure>
+          )}
           {section.paragraphs?.map((p, i) => (
             <p
               key={i}

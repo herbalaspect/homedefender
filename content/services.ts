@@ -30,6 +30,8 @@ export interface ServiceSection {
    * copy — used for things like "Hail damage / Wind damage / Ice damage".
    */
   list?: { heading?: string; body: string }[];
+  /** Optional image rendered below the heading, above the body copy. */
+  image?: { src: string; alt: string; caption?: string };
 }
 
 export interface ServiceFAQ {
@@ -412,11 +414,6 @@ export const subServices: SubService[] = [
     category: "roofing",
     path: "/services/roofing/roof-replacement",
     heroImage: HERO_ROOFING,
-    images: [
-      { src: "/images/roofing_replacement-tear-off.webp", alt: "Roof tear-off down to the decking on a Madison home" },
-      { src: "/images/roofing_replacement-underlayment.webp", alt: "Ice and water shield plus synthetic underlayment installed on roof deck" },
-      { src: "/images/roofing_replacement-shingles.webp", alt: "Architectural asphalt shingles being installed on a new roof" },
-    ],
     isGeoTargeted: false,
     title: "Roof Replacement in Madison & Dane County | Home Defender Remodeling",
     metaDescription:
@@ -427,6 +424,7 @@ export const subServices: SubService[] = [
     sections: [
       {
         heading: "What a roof replacement actually includes",
+        image: { src: "/images/roofing_replacement-tear-off.webp", alt: "Roof tear-off down to the decking on a Madison home" },
         paragraphs: [
           "A roof is a system of layers, and shortcuts at any layer are how roofs fail early. Every full replacement we do covers the same basics, in the same order:",
         ],
@@ -463,12 +461,14 @@ export const subServices: SubService[] = [
       },
       {
         heading: "Why we always tear off",
+        image: { src: "/images/roofing_replacement-underlayment.webp", alt: "Ice and water shield plus synthetic underlayment installed on roof deck" },
         paragraphs: [
           "Some contractors will quote a layover (new shingles installed over old) because it's cheaper and faster. We don't. A layover hides decking rot, doubles the weight on your trusses, voids the manufacturer's warranty in most cases, and shortens the life of the new shingles by trapping heat against them. Madison's freeze/thaw climate makes the trade especially bad. We tear off every roof, every time.",
         ],
       },
       {
         heading: "Materials we install",
+        image: { src: "/images/roofing_replacement-shingles.webp", alt: "Architectural asphalt shingles being installed on a new roof" },
         list: [
           {
             heading: "Architectural asphalt shingles",
@@ -540,11 +540,6 @@ export const subServices: SubService[] = [
     category: "roofing",
     path: "/services/roofing/roof-repair",
     heroImage: HERO_ROOFING,
-    images: [
-      { src: "/images/roofing_repair-shingle-damage.webp", alt: "Close-up of wind-damaged asphalt shingles needing repair" },
-      { src: "/images/roofing_repair-flashing.webp", alt: "Roof flashing repair around a chimney" },
-      { src: "/images/roofing_repair-completed.webp", alt: "Completed roof repair section on a Madison home" },
-    ],
     isGeoTargeted: false,
     title: "Roof Repair in Madison, WI | Home Defender Remodeling",
     metaDescription:
@@ -555,6 +550,7 @@ export const subServices: SubService[] = [
     sections: [
       {
         heading: "When a repair is the right call",
+        image: { src: "/images/roofing_repair-shingle-damage.webp", alt: "Close-up of wind-damaged asphalt shingles needing repair" },
         paragraphs: [
           "Roofs fail in a lot of places before they fail as a system. A repair makes sense when the underlying material has years of service left, the damage is localized, and the cause is fixable without disturbing the rest of the roof.",
         ],
@@ -585,6 +581,7 @@ export const subServices: SubService[] = [
       },
       {
         heading: "How we diagnose",
+        image: { src: "/images/roofing_repair-flashing.webp", alt: "Roof flashing repair around a chimney" },
         paragraphs: [
           "Every repair starts with a physical inspection — we get on the roof, find the cause, photograph it, and write up what we found. We don't quote repairs sight-unseen and we don't replace shingles without understanding why they failed in the first place.",
         ],
@@ -624,11 +621,6 @@ export const subServices: SubService[] = [
     category: "roofing",
     path: "/services/roofing/emergency-roof-repair",
     heroImage: HERO_ROOFING,
-    images: [
-      { src: "/images/roofing_emergency-tarping.webp", alt: "Emergency tarp installed over storm-damaged roof section" },
-      { src: "/images/roofing_storm-damage.webp", alt: "Storm-damaged roof shingles after a Wisconsin thunderstorm" },
-      { src: "/images/roofing_wind-damage.webp", alt: "High-wind damage to asphalt shingles on a Dane County home" },
-    ],
     isGeoTargeted: false,
     title: "Emergency Roof Repair in Madison, WI | Home Defender Remodeling",
     metaDescription:
@@ -639,6 +631,7 @@ export const subServices: SubService[] = [
     sections: [
       {
         heading: "What counts as an emergency",
+        image: { src: "/images/roofing_storm-damage.webp", alt: "Storm-damaged roof shingles after a Wisconsin thunderstorm" },
         list: [
           {
             heading: "Active leaks into the home",
@@ -660,6 +653,7 @@ export const subServices: SubService[] = [
       },
       {
         heading: "What we do when you call",
+        image: { src: "/images/roofing_emergency-tarping.webp", alt: "Emergency tarp installed over storm-damaged roof section" },
         paragraphs: [
           "Step one is a call back from someone who can actually help — not an answering service. We'll ask what you're seeing, when it started, and what the weather has been like. If it sounds like an active emergency we're on the way the same day where it's safe to be on a roof.",
           "Step two is the tarp. We secure tarps over the affected area to stop water entry while we plan the permanent repair. A tarp isn't a fix — it's a holding action while we figure out scope, get materials, and wait for a weather window. Defender Shield members move to the front of the line on emergency response.",
@@ -700,11 +694,6 @@ export const subServices: SubService[] = [
     category: "roofing",
     path: "/services/roofing/asphalt-shingle-roofing",
     heroImage: HERO_ROOFING,
-    images: [
-      { src: "/images/roofing_3-tab-vs-architectural.webp", alt: "Side-by-side comparison of 3-tab and architectural asphalt shingles" },
-      { src: "/images/roofing_architectural-shingles-detail.webp", alt: "Close-up of architectural asphalt shingle texture and tab pattern" },
-      { src: "/images/roofing_asphalt-installation.webp", alt: "Asphalt shingle installation in progress on a Madison home" },
-    ],
     isGeoTargeted: false,
     title: "Asphalt Shingle Roofing in Madison, WI | Home Defender Remodeling",
     metaDescription:
@@ -715,6 +704,7 @@ export const subServices: SubService[] = [
     sections: [
       {
         heading: "Why asphalt is the default for Wisconsin",
+        image: { src: "/images/roofing_asphalt-installation.webp", alt: "Asphalt shingle installation in progress on a Madison home" },
         paragraphs: [
           "Almost every neighborhood we work in is mostly asphalt-shingled — Maple Bluff, Shorewood Hills, the Madison isthmus, Sun Prairie, Verona, Fitchburg, the post-war ranches in DeForest and Cottage Grove. There's a reason. Architectural asphalt does well in this climate: handles freeze/thaw cycles, sheds rain reliably, and is rated for the wind events southern Wisconsin sees most years.",
           "The cost story matters too. A typical Madison ranch or two-story can be re-roofed in asphalt for $11,000–$16,000. The same home in standing-seam metal runs $25,000–$40,000+. That gap is real money, and most homeowners get more value out of asphalt over the time they actually plan to stay in the house.",
@@ -722,6 +712,7 @@ export const subServices: SubService[] = [
       },
       {
         heading: "What we install",
+        image: { src: "/images/roofing_3-tab-vs-architectural.webp", alt: "Side-by-side comparison of 3-tab and architectural asphalt shingles" },
         list: [
           {
             heading: "Architectural (laminated) shingles",
@@ -739,6 +730,7 @@ export const subServices: SubService[] = [
       },
       {
         heading: "Real-world lifespan",
+        image: { src: "/images/roofing_architectural-shingles-detail.webp", alt: "Close-up of architectural asphalt shingle texture and tab pattern" },
         paragraphs: [
           "Manufacturer ratings list 30, 40, 50 year warranties. The honest answer for southern Wisconsin: most architectural shingles deliver 22–28 years of real service before they're due for replacement. Freeze/thaw, summer heat, and ice damming all accelerate granule loss and seal degradation. Plan for replacement around the 22-year mark and you'll rarely be caught off guard.",
           "Class 4 impact-resistant shingles tend to last a few years longer in real-world use because the heavier mat resists thermal cycling better. The Defender Shield's annual inspection catches the early signs of wear so you can plan replacement on your timeline, not the weather's.",
@@ -780,11 +772,6 @@ export const subServices: SubService[] = [
     category: "roofing",
     path: "/services/roofing/metal-roofing",
     heroImage: HERO_ROOFING,
-    images: [
-      { src: "/images/roofing_standing-seam-detail.webp", alt: "Standing-seam metal roof panel and seam detail" },
-      { src: "/images/roofing_stone-coated-metal.webp", alt: "Stone-coated steel roofing tiles installed on a steep slope" },
-      { src: "/images/roofing_metal-roof-snow.webp", alt: "Standing-seam metal roof shedding snow in a Wisconsin winter" },
-    ],
     isGeoTargeted: false,
     title: "Metal Roofing in Madison, WI | Home Defender Remodeling",
     metaDescription:
@@ -795,6 +782,7 @@ export const subServices: SubService[] = [
     sections: [
       {
         heading: "When metal is the right call",
+        image: { src: "/images/roofing_metal-roof-snow.webp", alt: "Standing-seam metal roof shedding snow in a Wisconsin winter" },
         list: [
           {
             heading: "You plan to stay in the house long-term",
@@ -816,6 +804,7 @@ export const subServices: SubService[] = [
       },
       {
         heading: "What we install",
+        image: { src: "/images/roofing_standing-seam-detail.webp", alt: "Standing-seam metal roof panel and seam detail" },
         list: [
           {
             heading: "Standing-seam panels",
@@ -833,6 +822,7 @@ export const subServices: SubService[] = [
       },
       {
         heading: "Cost and longevity",
+        image: { src: "/images/roofing_stone-coated-metal.webp", alt: "Stone-coated steel roofing tiles installed on a steep slope" },
         paragraphs: [
           "Standing-seam metal runs $1,000–$1,500 per square installed for standard panel systems, higher for premium colors and finishes. A typical Madison home that costs $13,000 in asphalt costs $26,000–$40,000 in metal. The math is real — but so is the lifespan: 50+ years of service vs. 22–28 for asphalt.",
           "Cost-per-year-of-service is the more useful metric. Asphalt at $13,000 over 25 years is about $520/year. Metal at $30,000 over 55 years is about $545/year. The difference shrinks once you account for not paying to replace it once or twice in between. Add the insurance discount where applicable and metal often comes out ahead over the long run.",
@@ -875,11 +865,6 @@ export const subServices: SubService[] = [
     category: "roofing",
     path: "/services/roofing/storm-damage-roof-repair-madison-wi",
     heroImage: HERO_ROOFING,
-    images: [
-      { src: "/images/roofing_storm-inspection.webp", alt: "Post-storm roof inspection on a Madison home" },
-      { src: "/images/roofing_hail-damage-detail.webp", alt: "Close-up of hail damage on asphalt shingles" },
-      { src: "/images/roofing_insurance-documentation.webp", alt: "Storm-damage documentation packet for an insurance claim" },
-    ],
     isGeoTargeted: true,
     title: "Storm Damage Roof Repair in Madison, WI | Home Defender Remodeling",
     metaDescription:
@@ -890,6 +875,7 @@ export const subServices: SubService[] = [
     sections: [
       {
         heading: "What storm damage actually looks like",
+        image: { src: "/images/roofing_hail-damage-detail.webp", alt: "Close-up of hail damage on asphalt shingles" },
         paragraphs: [
           "Most storm damage isn't visible from the ground. The granule loss, lifted shingles, dented metal flashings, and cracked seals that compromise a roof are usually only visible when someone is up there looking. By the time damage shows up as a leak or a stain on your ceiling, the underlying problem has been working for weeks.",
         ],
@@ -914,6 +900,7 @@ export const subServices: SubService[] = [
       },
       {
         heading: "What to do immediately after a storm",
+        image: { src: "/images/roofing_storm-inspection.webp", alt: "Post-storm roof inspection on a Madison home" },
         list: [
           {
             heading: "Step 1 — Stay off the roof",
@@ -935,6 +922,7 @@ export const subServices: SubService[] = [
       },
       {
         heading: "How we handle insurance claims for Madison homeowners",
+        image: { src: "/images/roofing_insurance-documentation.webp", alt: "Storm-damage documentation packet for an insurance claim" },
         paragraphs: [
           "Most homeowners under-document storm damage and lose claims they should win. Insurance adjusters move fast, work for the insurance company, and don't always identify damage that exists. Home Defender Remodeling levels the playing field.",
         ],
@@ -998,11 +986,6 @@ export const subServices: SubService[] = [
     category: "roofing",
     path: "/services/roofing/roof-inspection-madison-wi",
     heroImage: HERO_ROOFING,
-    images: [
-      { src: "/images/roofing_inspection-checklist.webp", alt: "Roof inspection checklist used on every Home Defender inspection" },
-      { src: "/images/roofing_inspection-flashings.webp", alt: "Roof flashing being inspected around a vent pipe" },
-      { src: "/images/roofing_inspection-report.webp", alt: "Written roof inspection report with photo documentation" },
-    ],
     isGeoTargeted: true,
     title: "Free Roof Inspection in Madison, WI | Home Defender Remodeling",
     metaDescription:
@@ -1013,6 +996,7 @@ export const subServices: SubService[] = [
     sections: [
       {
         heading: "What our 30-point inspection covers",
+        image: { src: "/images/roofing_inspection-checklist.webp", alt: "Roof inspection checklist used on every Home Defender inspection" },
         paragraphs: [
           "We don't shortcut roof inspections. Our inspectors physically climb every roof we inspect — drone footage and ground-level photos miss too much. Each inspection covers thirty distinct check points, organized into six categories:",
         ],
@@ -1045,6 +1029,7 @@ export const subServices: SubService[] = [
       },
       {
         heading: "What you get after the inspection",
+        image: { src: "/images/roofing_inspection-report.webp", alt: "Written roof inspection report with photo documentation" },
         list: [
           {
             heading: "Written report",
@@ -1101,11 +1086,6 @@ export const subServices: SubService[] = [
     category: "gutter",
     path: "/services/gutter/gutter-installation",
     heroImage: HERO_GUTTERS,
-    images: [
-      { src: "/images/gutters_gutter-installation.webp", alt: "Seamless gutter installation in progress on a Madison home" },
-      { src: "/images/gutters_seamless-aluminum.webp", alt: "Seamless aluminum gutter run installed along a fascia" },
-      { src: "/images/gutters_gutter-color-options.webp", alt: "Seamless aluminum gutter color options" },
-    ],
     isGeoTargeted: false,
     title: "Gutter Installation in Madison, WI | Home Defender Remodeling",
     metaDescription:
@@ -1116,6 +1096,7 @@ export const subServices: SubService[] = [
     sections: [
       {
         heading: "What we install",
+        image: { src: "/images/gutters_seamless-aluminum.webp", alt: "Seamless aluminum gutter run installed along a fascia" },
         list: [
           {
             heading: "Seamless 5\" K-style aluminum",
@@ -1137,6 +1118,7 @@ export const subServices: SubService[] = [
       },
       {
         heading: "How we install",
+        image: { src: "/images/gutters_gutter-installation.webp", alt: "Seamless gutter installation in progress on a Madison home" },
         list: [
           {
             heading: "On-site fabrication",
@@ -1192,11 +1174,6 @@ export const subServices: SubService[] = [
     category: "gutter",
     path: "/services/gutter/gutter-replacement",
     heroImage: HERO_GUTTERS,
-    images: [
-      { src: "/images/gutters_gutter-removal.webp", alt: "Old gutters being removed during a Madison gutter replacement" },
-      { src: "/images/gutters_old-vs-new-gutters.webp", alt: "Side-by-side comparison of old failing gutters and new seamless gutters" },
-      { src: "/images/gutters_gutter-protection-detail.webp", alt: "Gutter protection guard installed over a new seamless gutter" },
-    ],
     isGeoTargeted: false,
     title: "Gutter Replacement in Madison, WI | Home Defender Remodeling",
     metaDescription:
@@ -1207,6 +1184,7 @@ export const subServices: SubService[] = [
     sections: [
       {
         heading: "When replacement is the right call",
+        image: { src: "/images/gutters_old-vs-new-gutters.webp", alt: "Side-by-side comparison of old failing gutters and new seamless gutters" },
         list: [
           {
             heading: "Trough damage past repair",
@@ -1228,6 +1206,7 @@ export const subServices: SubService[] = [
       },
       {
         heading: "What we do",
+        image: { src: "/images/gutters_gutter-removal.webp", alt: "Old gutters being removed during a Madison gutter replacement" },
         list: [
           {
             heading: "Tear off the old system",
@@ -1277,11 +1256,6 @@ export const subServices: SubService[] = [
     category: "gutter",
     path: "/services/gutter/gutter-cleaning",
     heroImage: HERO_GUTTERS,
-    images: [
-      { src: "/images/gutters_gutter-cleaning.webp", alt: "Gutter cleaning in progress on a Dane County home" },
-      { src: "/images/gutters_cleaning-debris.webp", alt: "Leaves and debris removed during a gutter cleaning" },
-      { src: "/images/gutters_cleaning-tools.webp", alt: "Professional gutter cleaning tools and equipment" },
-    ],
     isGeoTargeted: false,
     title: "Gutter Cleaning in Madison, WI | Home Defender Remodeling",
     metaDescription:
@@ -1292,6 +1266,7 @@ export const subServices: SubService[] = [
     sections: [
       {
         heading: "Why cleaning matters",
+        image: { src: "/images/gutters_cleaning-debris.webp", alt: "Leaves and debris removed during a gutter cleaning" },
         paragraphs: [
           "Clogged gutters back water up under the shingles and into the fascia. The fascia rots. The water finds the soffit. From there it gets into the wall cavity. By the time you see a stain on the ceiling, the underlying repair is into the thousands.",
           "Clogged downspouts are the version of this problem that most people miss. The trough can look clean from the ground while the downspout outlet is fully packed with debris — water backs up into the gutter, overflows, and ends up dumping at the foundation. Splash blocks and downspout extensions matter just as much as the trough itself.",
@@ -1299,6 +1274,7 @@ export const subServices: SubService[] = [
       },
       {
         heading: "What we do",
+        image: { src: "/images/gutters_gutter-cleaning.webp", alt: "Gutter cleaning in progress on a Dane County home" },
         list: [
           {
             heading: "Hand-clean every trough",
@@ -1320,6 +1296,7 @@ export const subServices: SubService[] = [
       },
       {
         heading: "How often",
+        image: { src: "/images/gutters_cleaning-tools.webp", alt: "Professional gutter cleaning tools and equipment" },
         paragraphs: [
           "Twice a year is right for most Madison homes — once in late spring after the silver-maple seeds and oak catkins drop, once in late fall after leaves come down. Pine-heavy lots may need a third cleaning. Defender Shield members get one cleaning included as part of the annual plan, with a downspout flush.",
         ],
@@ -1354,11 +1331,6 @@ export const subServices: SubService[] = [
     category: "gutter",
     path: "/services/gutter/gutter-repair",
     heroImage: HERO_GUTTERS,
-    images: [
-      { src: "/images/gutters_repair-detached-gutter.webp", alt: "Detached gutter being repaired and re-secured to fascia" },
-      { src: "/images/gutters_repair-leaking-seam.webp", alt: "Leaking gutter seam being sealed during repair" },
-      { src: "/images/gutters_gutter-clogged-comparison.webp", alt: "Side-by-side comparison of clogged and properly draining gutters" },
-    ],
     isGeoTargeted: false,
     title: "Gutter Repair in Madison, WI | Home Defender Remodeling",
     metaDescription:
@@ -1369,6 +1341,7 @@ export const subServices: SubService[] = [
     sections: [
       {
         heading: "What we repair",
+        image: { src: "/images/gutters_repair-detached-gutter.webp", alt: "Detached gutter being repaired and re-secured to fascia" },
         list: [
           {
             heading: "Sagging or separated sections",
@@ -1394,6 +1367,7 @@ export const subServices: SubService[] = [
       },
       {
         heading: "When repair stops being the right call",
+        image: { src: "/images/gutters_gutter-clogged-comparison.webp", alt: "Side-by-side comparison of clogged and properly draining gutters" },
         paragraphs: [
           "If we're patching a third leak in a 20-year-old aluminum gutter that's also sagging in two places, we'll tell you straight: replacement is the better spend. We're not going to talk you into a series of small repairs on a system that's at the end of its life. The Defender Shield's annual inspection makes this judgment easier — we have a year-over-year record of how the system is holding up.",
         ],
@@ -1429,11 +1403,6 @@ export const subServices: SubService[] = [
     category: "siding",
     path: "/services/siding/siding-replacement",
     heroImage: HERO_SIDING,
-    images: [
-      { src: "/images/siding_replacement-tear-off.webp", alt: "Siding tear-off on a Madison home before re-siding" },
-      { src: "/images/siding_replacement-house-wrap.webp", alt: "House wrap installed over sheathing before new siding goes up" },
-      { src: "/images/siding_replacement-installation.webp", alt: "New siding being installed on a Wisconsin home" },
-    ],
     isGeoTargeted: false,
     title: "Siding Replacement in Madison, WI | Home Defender",
     metaDescription:
@@ -1445,6 +1414,7 @@ export const subServices: SubService[] = [
     sections: [
       {
         heading: "Signs your home needs full siding replacement",
+        image: { src: "/images/siding_replacement-tear-off.webp", alt: "Siding tear-off on a Madison home before re-siding" },
         paragraphs: [
           "Not every damaged panel means you need a full replacement. But there's a point where targeted repair stops making sense and full replacement becomes the better long-term move. Most homeowners hit that point when one or more of these conditions show up at the same time.",
         ],
@@ -1477,6 +1447,7 @@ export const subServices: SubService[] = [
       },
       {
         heading: "The replacement process — what to expect",
+        image: { src: "/images/siding_replacement-installation.webp", alt: "New siding being installed on a Wisconsin home" },
         paragraphs: [
           "A full siding replacement is more than just swapping panels. The siding is the outer layer of a system that includes sheathing, house wrap, insulation, and flashing. When old siding comes off, we inspect everything underneath — and address what needs addressing before new siding goes on. Skipping that step is the single biggest reason new siding fails early.",
           "A typical Home Defender Remodeling siding replacement includes the following steps.",
@@ -1546,11 +1517,6 @@ export const subServices: SubService[] = [
     category: "siding",
     path: "/services/siding/siding-repair",
     heroImage: HERO_SIDING,
-    images: [
-      { src: "/images/siding_repair-panel.webp", alt: "Damaged siding panel being replaced" },
-      { src: "/images/siding_repair-wind-damage.webp", alt: "Wind-damaged siding on a Madison-area home" },
-      { src: "/images/siding_repair-completed.webp", alt: "Completed siding repair section blending into surrounding panels" },
-    ],
     isGeoTargeted: false,
     title: "Siding Repair in Madison, WI | Home Defender",
     metaDescription:
@@ -1562,6 +1528,7 @@ export const subServices: SubService[] = [
     sections: [
       {
         heading: "When siding repair makes sense",
+        image: { src: "/images/siding_repair-panel.webp", alt: "Damaged siding panel being replaced" },
         paragraphs: [
           "Siding repair is most appropriate when damage is localized, the rest of the home's siding is in good condition, and the underlying wall system hasn't been compromised. Common repair-appropriate scenarios we see across Madison and Dane County.",
         ],
@@ -1594,6 +1561,7 @@ export const subServices: SubService[] = [
       },
       {
         heading: "When replacement is the smarter long-term move",
+        image: { src: "/images/siding_repair-wind-damage.webp", alt: "Wind-damaged siding on a Madison-area home" },
         paragraphs: [
           "We turn down siding repair work when repair genuinely isn't in the homeowner's interest. The honest answer matters more than the short-term job. Replacement usually makes more sense in these cases.",
         ],
@@ -1645,11 +1613,6 @@ export const subServices: SubService[] = [
     category: "siding",
     path: "/services/siding/vinyl-siding",
     heroImage: HERO_SIDING,
-    images: [
-      { src: "/images/siding_vinyl-detail.webp", alt: "Vinyl siding profile detail" },
-      { src: "/images/siding_vinyl-color-options.webp", alt: "Vinyl siding color options" },
-      { src: "/images/siding_vinyl-installation.webp", alt: "Vinyl siding installation in progress" },
-    ],
     isGeoTargeted: false,
     title: "Vinyl Siding Installation in Madison, WI | Home Defender",
     metaDescription:
@@ -1661,6 +1624,7 @@ export const subServices: SubService[] = [
     sections: [
       {
         heading: "What vinyl siding actually delivers",
+        image: { src: "/images/siding_vinyl-detail.webp", alt: "Vinyl siding profile detail" },
         paragraphs: [
           "For most Madison-area homes, vinyl siding hits the right balance of cost, durability, and appearance. The honest case for vinyl.",
         ],
@@ -1689,6 +1653,7 @@ export const subServices: SubService[] = [
       },
       {
         heading: "The honest tradeoffs",
+        image: { src: "/images/siding_vinyl-color-options.webp", alt: "Vinyl siding color options" },
         paragraphs: [
           "Vinyl isn't perfect. These are the things honest contractors talk about up front. For homes where the budget points to vinyl, premium-grade products installed correctly perform very well in Madison — but it's worth knowing where vinyl has limits.",
         ],
@@ -1709,6 +1674,7 @@ export const subServices: SubService[] = [
       },
       {
         heading: "Insulated vinyl — when it's worth the upgrade",
+        image: { src: "/images/siding_vinyl-installation.webp", alt: "Vinyl siding installation in progress" },
         paragraphs: [
           "Insulated vinyl adds a layer of rigid foam backing bonded directly to the back of the vinyl panel. The result is a measurably more rigid, more impact-resistant, and more energy-efficient siding system. The upgrade typically adds about $1.50–$3.00 per square foot installed.",
           "Where insulated vinyl makes the most sense in Madison.",
@@ -1761,10 +1727,6 @@ export const subServices: SubService[] = [
     category: "siding",
     path: "/services/siding/fiber-cement-siding",
     heroImage: HERO_SIDING,
-    images: [
-      { src: "/images/siding_fiber-cement-detail.webp", alt: "Fiber-cement siding profile detail" },
-      { src: "/images/siding_fiber-cement-installation.webp", alt: "Fiber-cement siding installation in progress" },
-    ],
     isGeoTargeted: false,
     title: "Fiber Cement Siding in Madison, WI | Home Defender",
     metaDescription:
@@ -1776,6 +1738,7 @@ export const subServices: SubService[] = [
     sections: [
       {
         heading: "Built for everything Wisconsin throws at it",
+        image: { src: "/images/siding_fiber-cement-installation.webp", alt: "Fiber-cement siding installation in progress" },
         paragraphs: [
           "Fiber cement is a composite of Portland cement, sand, and cellulose fibers — pressed into siding panels that look like wood but perform like masonry. The combination delivers properties that no other siding material matches at a residential price point.",
         ],
@@ -1812,6 +1775,7 @@ export const subServices: SubService[] = [
       },
       {
         heading: "The honest tradeoffs",
+        image: { src: "/images/siding_fiber-cement-detail.webp", alt: "Fiber-cement siding profile detail" },
         paragraphs: [
           "Fiber cement is the right answer for many Madison homes, but it's not the right answer for every Madison home. Honest tradeoffs to weigh.",
         ],
