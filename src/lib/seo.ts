@@ -27,7 +27,7 @@ export function pageMetadata({
   description: string;
   /** Path on the site (e.g. "/about" or "/services/roofing/roof-replacement-madison-wi"). */
   path: string;
-  /** Path or full URL to the OG image. */
+  /** Path or full URL to the OG image. Falls back to the homepage hero. */
   image?: string;
   type?: "website" | "article";
   noindex?: boolean;
@@ -35,7 +35,7 @@ export function pageMetadata({
   modifiedTime?: string;
 }): Metadata {
   const url = absoluteUrl(path);
-  const ogImage = image ? absoluteUrl(image) : undefined;
+  const ogImage = absoluteUrl(image ?? "/images/hero_homepage-hero.webp");
 
   // If the title already contains the brand name, use it as-is to avoid
   // double-suffixing via the layout's title template.
@@ -54,7 +54,7 @@ export function pageMetadata({
       siteName: BUSINESS.name,
       title: typeof finalTitle === "string" ? finalTitle : finalTitle.absolute,
       description,
-      images: ogImage ? [ogImage] : undefined,
+      images: [ogImage],
       ...(type === "article" && publishedTime
         ? { publishedTime, modifiedTime: modifiedTime ?? publishedTime }
         : {}),
@@ -63,7 +63,7 @@ export function pageMetadata({
       card: "summary_large_image",
       title: typeof finalTitle === "string" ? finalTitle : finalTitle.absolute,
       description,
-      images: ogImage ? [ogImage] : undefined,
+      images: [ogImage],
     },
   };
 }

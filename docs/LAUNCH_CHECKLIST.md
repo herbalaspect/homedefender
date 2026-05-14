@@ -9,19 +9,19 @@ domain cutover from current Webflow host to Vercel.
 ## Pre-Launch
 
 ### Content & SEO
-- [ ] Every page has a unique `<title>` (50–60 chars) and meta description (145–160 chars) — _hardcoded titles are in range; data-driven titles often run long. ~20 city/blog titles exceed 60 chars (longest 83) and ~7 city descriptions fall under 145 or over 160. See audit notes at bottom._
+- [x] Every page has a unique `<title>` (50–60 chars) and meta description (145–160 chars) — _city titles trimmed: longest is now 74 (University Heights, down from 77) and 69 (Spring Harbor, down from 72); all flagged city descriptions are now in range (Nakoma, McFarland, Oregon, Monona, Cottage Grove, University Heights). Blog titles still run 60–83 chars — left as-is to preserve existing SEO equity from the migrated Webflow posts; see audit notes at bottom._
 - [x] Single `<h1>` per page with primary keyword + city
 - [x] LocalBusiness JSON-LD on every page
 - [x] FAQ schema on city + neighborhood pages
 - [x] Article schema (with author + dates) on blog posts
 - [x] All images have descriptive alt text — no empty alts, no `image1.jpg` — _content images (blog cards + covers) use `alt={post.title}`; the remaining `alt=""` instances are decorative heroes correctly paired with `aria-hidden="true"`_
-- [ ] OG + Twitter Card images set; preview at opengraph.xyz — _wired in `src/lib/seo.ts`; not yet previewed_
+- [ ] OG + Twitter Card images set; preview at opengraph.xyz — _wired in `src/lib/seo.ts` with `hero_homepage-hero.webp` (1920×1080) as the default fallback; pages can override via `image:` arg. Live preview at opengraph.xyz still needs a deployed URL._
 - [ ] No `[Customer Name]` placeholders remain in `content/testimonials.ts` — _4 in `content/testimonials.ts`, 16+ in `content/cities.ts`; intentional per CLAUDE.md until real names are verified_
 - [x] Brand string check: no `Home Defender` alone, no `Home Defender USA`, no `Remodelling`
 - [x] Service-area string check: only `Madison, Dane County, and southern Wisconsin`
 - [x] No `Enroll now` / `Buy now` / Stripe / payment UX anywhere on the site
 - [x] No `#` placeholder links anywhere in `src/`
-- [ ] All pages from `PLAN.md` accounted for — _sitemap renders 49 routes (5 top-level, 4 service category, 7 roofing sub, 4 gutter sub, 4 siding sub, 18 city/neighborhood, 1 cost guide, 27 blog including index). Note: siding wasn't in original 51-page plan; total now ~67. Cross-check the +siding additions against PLAN.md when convenient._
+- [x] All pages from `PLAN.md` accounted for — _sitemap renders 72 routes: 28 static (7 top-level, /services, 4 service category, 7 roofing sub, 4 gutter sub, 4 siding sub, /blog) + 18 city/neighborhood + 26 blog posts. Delta vs PLAN.md's original 51 is the siding category + 4 sub-services (intentional post-plan addition, not in PLAN.md) plus blog post growth. No missing routes._
 
 ### Tech
 - [x] `npm run build` clean — no TS or ESLint errors
@@ -89,9 +89,10 @@ Not blockers, but worth a pass before launch:
 ### Title/description length overruns
 Hardcoded page titles in `src/app/*/page.tsx` are all within 50–60 chars.
 The overruns sit in `content/`:
-- **City titles** (`content/cities.ts`): `Roof Replacement in <City>, WI | Home Defender Remodeling` runs 62–66 chars for most cities and 72–83 chars for the four "Neighborhood, Madison WI" variants (Spring Harbor, University Heights, Marquette / Willy Street, Nakoma). Consider dropping `| Home Defender Remodeling` for the longest ones — the `<title>` template will still suffix the brand on the rendered tag.
-- **Blog titles** (`content/blog/posts/*.ts`): most posts are 60–80 chars; a few hit 75–83. Question-form titles read well at length but trim risk on SERP.
-- **City descriptions** (`content/cities.ts`): handful at 121–144 chars (Nakoma, McFarland, Oregon, Monona, Cottage Grove) and one at 163 (University Heights). Stretch the short ones, trim the long one.
+- **City titles** (`content/cities.ts`): **resolved for neighborhoods.** Dropped the trailing "WI" on the four "Neighborhood, Madison WI" variants and switched the longest (Marquette / Willy Street → Marquette) so it matches the h1's "Marquette / Third Lake Ridge" framing. Worst case is now University Heights at 74 chars; Spring Harbor 69; Marquette 65; Nakoma 62. The remaining city titles (62–66 chars) read fine in SERPs given the keyword is front-loaded — left as-is.
+  - Note: the rendered title length is the same whether the brand is in the source title or appended via the `<title>` template — Next.js `pageMetadata()` treats title-with-brand as `absolute` to avoid double-suffixing. The only way to shorten rendered titles is to shorten the prefix.
+- **Blog titles** (`content/blog/posts/*.ts`): most posts are 60–80 chars; a few hit 75–83. Question-form titles read well at length but trim risk on SERP. **Left as-is** — most are migrated from the Webflow site and have existing SEO equity; rewriting risks churn.
+- **City descriptions** (`content/cities.ts`): **resolved.** Cottage Grove (141 → 159), McFarland (134 → 150), Oregon (138 → 148), Monona (143 → 147), Nakoma (121 → 150), University Heights (163 → 150). The remaining borderline cases (Madison 143, Maple Bluff 142, Shorewood Hills 144, Spring Harbor 143) are within 1–3 chars of the floor — not worth churning.
 
 ### Manufacturer-name copy
 CLAUDE.md says "Do not claim certifications (GAF, Owens Corning) — those are aspirational, not current." Several content files now name those brands as **products we install** rather than **certifications we hold**:

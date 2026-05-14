@@ -15,12 +15,13 @@ interface NavLink {
 
 interface NavGroup {
   label: string;
-  href: string;
+  /** Parent URL for the group label. Omit for trigger-only menus like "More". */
+  href?: string;
   items: NavLink[];
 }
 
 const ROOFING: NavGroup = {
-  label: "Roofing Services",
+  label: "Roofing",
   href: "/service/roofing",
   items: [
     { href: "/services/roofing/roof-replacement", label: "Roof Replacement" },
@@ -33,7 +34,7 @@ const ROOFING: NavGroup = {
 };
 
 const GUTTERS: NavGroup = {
-  label: "Gutter Services",
+  label: "Gutters",
   href: "/service/gutter-protection",
   items: [
     { href: "/service/gutter-protection", label: "Gutter Protection" },
@@ -45,7 +46,7 @@ const GUTTERS: NavGroup = {
 };
 
 const SIDING: NavGroup = {
-  label: "Siding Services",
+  label: "Siding",
   href: "/service/siding",
   items: [
     { href: "/services/siding/siding-replacement", label: "Siding Replacement" },
@@ -55,11 +56,19 @@ const SIDING: NavGroup = {
   ],
 };
 
+const MORE: NavGroup = {
+  label: "More",
+  items: [
+    { href: "/about", label: "About" },
+    { href: "/how-much-does-roof-replacement-cost-madison", label: "Roof Cost Guide" },
+    { href: "/blog", label: "Blog" },
+    { href: "/faq", label: "FAQ" },
+  ],
+};
+
 const TOP_LINKS: NavLink[] = [
-  { href: "/service/windows", label: "Window Service" },
+  { href: "/service/windows", label: "Windows" },
   { href: "/defender-shield", label: "Defender Shield" },
-  { href: "/about", label: "About" },
-  { href: "/testimonials", label: "Testimonials" },
 ];
 
 export function Nav() {
@@ -84,7 +93,7 @@ export function Nav() {
           />
         </Link>
 
-        <nav className="hidden lg:flex flex-1 items-center justify-end gap-7">
+        <nav className="hidden lg:flex flex-1 items-center justify-end gap-6">
           <DesktopGroup group={ROOFING} openGroup={openGroup} setOpenGroup={setOpenGroup} />
           <DesktopGroup group={GUTTERS} openGroup={openGroup} setOpenGroup={setOpenGroup} />
           <DesktopGroup group={SIDING} openGroup={openGroup} setOpenGroup={setOpenGroup} />
@@ -97,6 +106,7 @@ export function Nav() {
               {l.label}
             </Link>
           ))}
+          <DesktopGroup group={MORE} openGroup={openGroup} setOpenGroup={setOpenGroup} alignRight />
           <a
             href={`tel:${BUSINESS.phoneTel}`}
             className="ml-2 inline-flex items-center gap-2 rounded-btn bg-[#0a0a0a] px-3 py-2.5 text-[14px] font-semibold tracking-wide text-white hover:bg-black/85"
@@ -158,6 +168,7 @@ export function Nav() {
                 {l.label}
               </Link>
             ))}
+            <MobileGroup group={MORE} onLinkClick={() => setMobileOpen(false)} />
             <a
               href={`tel:${BUSINESS.phoneTel}`}
               className="inline-flex w-full items-center justify-center gap-2 rounded-btn bg-[#0a0a0a] px-4 py-3 text-base font-semibold text-white"
@@ -176,42 +187,58 @@ function DesktopGroup({
   group,
   openGroup,
   setOpenGroup,
+  alignRight = false,
 }: {
   group: NavGroup;
   openGroup: string | null;
   setOpenGroup: (g: string | null) => void;
+  alignRight?: boolean;
 }) {
   const isOpen = openGroup === group.label;
+  const triggerClass =
+    "inline-flex items-center gap-1.5 text-[15px] font-medium leading-none hover:text-black/70";
+  const caret = (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="11"
+      height="11"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <polyline points="6 9 12 15 18 9" />
+    </svg>
+  );
+
   return (
     <div
       className="relative"
       onMouseEnter={() => setOpenGroup(group.label)}
       onMouseLeave={() => setOpenGroup(null)}
     >
-      <Link
-        href={group.href}
-        className="inline-flex items-center gap-1.5 text-[15px] font-medium leading-none hover:text-black/70"
-        aria-expanded={isOpen}
-      >
-        {group.label}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="11"
-          height="11"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden="true"
+      {group.href ? (
+        <Link href={group.href} className={triggerClass} aria-expanded={isOpen}>
+          {group.label}
+          {caret}
+        </Link>
+      ) : (
+        <button
+          type="button"
+          className={triggerClass}
+          aria-expanded={isOpen}
+          onClick={() => setOpenGroup(isOpen ? null : group.label)}
         >
-          <polyline points="6 9 12 15 18 9" />
-        </svg>
-      </Link>
+          {group.label}
+          {caret}
+        </button>
+      )}
       {isOpen && (
-        <div className="absolute left-0 top-full pt-3">
-          <ul className="min-w-[260px] rounded-btn border border-gray-200 bg-white py-2 shadow-lg">
+        <div className={`absolute ${alignRight ? "right-0" : "left-0"} top-full pt-3`}>
+          <ul className="min-w-[220px] rounded-btn border border-gray-200 bg-white py-2 shadow-lg">
             {group.items.map((item) => (
               <li key={item.href}>
                 <Link
@@ -257,11 +284,13 @@ function MobileGroup({
         </svg>
       </summary>
       <ul className="mt-1 space-y-1 pl-4 text-[15px]">
-        <li>
-          <Link href={group.href} className="block py-2" onClick={onLinkClick}>
-            All {group.label}
-          </Link>
-        </li>
+        {group.href && (
+          <li>
+            <Link href={group.href} className="block py-2" onClick={onLinkClick}>
+              All {group.label}
+            </Link>
+          </li>
+        )}
         {group.items.map((item) => (
           <li key={item.href}>
             <Link href={item.href} className="block py-2" onClick={onLinkClick}>
