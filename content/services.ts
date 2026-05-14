@@ -68,8 +68,6 @@ export interface SubService {
   related?: string[];
   /** When set, render the geo-page neighbors block linking to these city slugs. */
   cityCallouts?: string[];
-  /** Detail-shot gallery rendered between body sections and FAQs. */
-  images?: Array<{ src: string; alt: string; caption?: string }>;
 }
 
 export interface ServiceCategoryPage {
@@ -89,8 +87,6 @@ export interface ServiceCategoryPage {
   subServiceCards: { slug: string; title: string; description: string }[];
   /** Optional content below the cards. */
   sections?: ServiceSection[];
-  /** Detail-shot gallery rendered between sections and FAQs. */
-  images?: Array<{ src: string; alt: string; caption?: string }>;
   faqs: ServiceFAQ[];
 }
 
@@ -162,16 +158,11 @@ export const serviceCategories: ServiceCategoryPage[] = [
     sections: [
       {
         heading: "Where we work",
+        image: { src: "/images/materials_asphalt-shingles.webp", alt: "Architectural asphalt shingles on a Madison roof" },
         paragraphs: [
           "Madison, Dane County, and southern Wisconsin. We have dedicated city pages for the cities and Madison neighborhoods we work in most often, with notes on permitting, architectural-review constraints, and the weather patterns specific to each area.",
         ],
       },
-    ],
-    images: [
-      { src: "/images/materials_asphalt-shingles.webp", alt: "Architectural asphalt shingles on a Madison roof", caption: "Asphalt shingles" },
-      { src: "/images/materials_metal-roofing.webp", alt: "Standing-seam metal roofing panels", caption: "Metal roofing" },
-      { src: "/images/materials_tile-roofing.webp", alt: "Tile roofing detail", caption: "Tile" },
-      { src: "/images/materials_flat-roofing.webp", alt: "Flat / low-slope membrane roof installation", caption: "Flat / low-slope" },
     ],
     faqs: [
       {
@@ -239,6 +230,7 @@ export const serviceCategories: ServiceCategoryPage[] = [
     sections: [
       {
         heading: "Why ice damming is a Wisconsin gutter problem",
+        image: { src: "/images/gutters_gutter-protection-detail.webp", alt: "Gutter protection guard installed over a seamless gutter" },
         paragraphs: [
           "Ice dams form when warm air from the attic melts snow on the upper roof, the meltwater runs down to the cold eaves, and refreezes — building a wall of ice that backs water up under the shingles. Properly pitched gutters and clean downspouts don't prevent ice damming on their own, but a clogged or sagging gutter system makes it dramatically worse. Cleaning, flushing, and re-pitching every couple of years is the cheapest insurance against winter water damage.",
         ],
@@ -285,6 +277,7 @@ export const serviceCategories: ServiceCategoryPage[] = [
     sections: [
       {
         heading: "What we install",
+        image: { src: "/images/windows_double-hung-window.webp", alt: "Double-hung replacement window installed on a Madison home" },
         list: [
           {
             heading: "Double-hung vinyl",
@@ -306,17 +299,12 @@ export const serviceCategories: ServiceCategoryPage[] = [
       },
       {
         heading: "How a Wisconsin window install actually works",
+        image: { src: "/images/windows_casement-window.webp", alt: "Casement replacement window with tight weather seal" },
         paragraphs: [
           "Most replacement windows go in as inserts inside the existing frame — minimal interior trim damage, no siding work. Full-frame replacement (rip out the existing frame down to the studs) is more invasive but the right call when the frame is rotted, when you're changing window size, or when you want the maximum thermal performance.",
           "We always inspect the frame and sill before quoting. Inserts on a rotted sill is throwing money away — the rot keeps eating, the new window fails early, and you do the job twice.",
         ],
       },
-    ],
-    images: [
-      { src: "/images/windows_double-hung-window.webp", alt: "Double-hung replacement window installed on a Madison home", caption: "Double-hung" },
-      { src: "/images/windows_casement-window.webp", alt: "Casement replacement window with tight weather seal", caption: "Casement" },
-      { src: "/images/windows_sliding-window.webp", alt: "Horizontal sliding replacement window", caption: "Sliding" },
-      { src: "/images/windows_bay-window.webp", alt: "Bay window installed on a Wisconsin home exterior", caption: "Bay" },
     ],
     faqs: [
       {
@@ -381,6 +369,15 @@ export const serviceCategories: ServiceCategoryPage[] = [
         title: "Fiber Cement Siding",
         description:
           "Fiber cement siding for homeowners who want maximum durability — including premium products engineered specifically for Wisconsin's climate. Hail-resistant, fire-resistant, and rated for 30–50 years. Higher upfront cost, lowest long-term cost.",
+      },
+    ],
+    sections: [
+      {
+        heading: "What we put behind the siding",
+        image: { src: "/images/siding_replacement-house-wrap.webp", alt: "House wrap installed over sheathing before new siding goes up" },
+        paragraphs: [
+          "Siding is the layer you see, but the layers behind it are where Wisconsin homes succeed or fail. Every full replacement we do includes a sheathing inspection, sheathing repair where needed, modern house wrap (not the 1990s felt most older homes were built with), and the right ventilation strategy for the wall assembly. Skipping these steps to come in cheaper is how contractors win the bid and lose the long game — the siding goes up over rotted sheathing and aged felt, and it's failing again in eight years.",
+        ],
       },
     ],
     faqs: [

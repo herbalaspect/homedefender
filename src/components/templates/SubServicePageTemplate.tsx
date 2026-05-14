@@ -5,7 +5,6 @@ import { Container } from "@/components/layout/Container";
 import { LocalBusinessSchema } from "@/components/seo/LocalBusinessSchema";
 import { FAQSchema } from "@/components/seo/FAQSchema";
 import { FinalCTA } from "@/components/sections/FinalCTA";
-import { ImageGallery } from "@/components/sections/ImageGallery";
 import type { ServiceSection, SubService } from "../../../content/services";
 import { getSubServiceBySlug } from "../../../content/services";
 import { getCityBySlug } from "../../../content/cities";
@@ -97,20 +96,11 @@ export function SubServicePageTemplate({ service }: { service: SubService }) {
         />
       ))}
 
-      {/* 2b. Detail gallery */}
-      {service.images && service.images.length > 0 && (
-        <ImageGallery
-          images={service.images}
-          tinted={service.sections.length % 2 === 0}
-        />
-      )}
-
       {/* 3. FAQs */}
       {service.faqs.length > 0 && (
         <section
           className={
-            // Account for image gallery section in the alternating rhythm.
-            (service.sections.length + (service.images?.length ? 1 : 0)) % 2 === 0
+            service.sections.length % 2 === 0
               ? "bg-gray-50 py-20 sm:py-28"
               : "py-20 sm:py-28"
           }
