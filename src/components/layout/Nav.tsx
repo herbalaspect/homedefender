@@ -224,9 +224,9 @@ function ServicesMenu() {
         <Caret />
       </Link>
       <div className="invisible absolute left-0 top-full z-50 pt-3 opacity-0 transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-        <div className="grid grid-cols-2 gap-x-10 gap-y-6 rounded-btn border border-gray-200 bg-white p-6 shadow-lg">
+        <div className="grid w-[520px] grid-cols-2 gap-x-10 gap-y-6 rounded-btn border border-gray-200 bg-white p-6 shadow-lg">
           {SERVICE_GROUPS.map((col) => (
-            <div key={col.label} className="min-w-[180px]">
+            <div key={col.label}>
               <Link
                 href={col.href!}
                 className="block text-[15px] font-semibold leading-none text-gray-900 hover:text-black/70"
