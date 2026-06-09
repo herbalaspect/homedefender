@@ -68,6 +68,7 @@ const MORE: NavGroup = {
 const TOP_LINKS: NavLink[] = [
   { href: "/service/windows", label: "Windows" },
   { href: "/defender-shield", label: "Defender Shield" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Nav() {
