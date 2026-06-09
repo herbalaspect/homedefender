@@ -20,12 +20,26 @@ const NAV_COLUMNS: Array<{ heading: string; links: Array<{ href: string; label: 
     ],
   },
   {
-    heading: "Services",
+    heading: "Roofing",
     links: [
-      { href: "/service/roofing", label: "Roofing" },
+      { href: "/service/roofing", label: "Roofing Overview" },
+      { href: "/services/roofing/roof-replacement", label: "Roof Replacement" },
+      { href: "/services/roofing/roof-repair", label: "Roof Repair" },
+      { href: "/services/roofing/emergency-roof-repair", label: "Emergency Roof Repair" },
+      { href: "/services/roofing/roof-inspection-madison-wi", label: "Roof Inspection" },
+      { href: "/services/roofing/asphalt-shingle-roofing", label: "Asphalt Shingle Roofing" },
+      { href: "/services/roofing/metal-roofing", label: "Metal Roofing" },
+    ],
+  },
+  {
+    heading: "More Services",
+    links: [
       { href: "/service/gutter-protection", label: "Gutter Protection" },
+      { href: "/services/gutter/gutter-installation", label: "Gutter Installation" },
+      { href: "/services/gutter/gutter-repair", label: "Gutter Repair" },
+      { href: "/services/siding/siding-replacement", label: "Siding Replacement" },
+      { href: "/services/siding/vinyl-siding", label: "Vinyl Siding" },
       { href: "/service/windows", label: "Windows" },
-      { href: "/service/siding", label: "Siding" },
       { href: "/defender-shield", label: "The Defender Shield" },
     ],
   },
@@ -36,7 +50,7 @@ export function Footer() {
   return (
     <footer style={{ backgroundColor: BRAND.colors.navy, color: "#ffffff" }}>
       <Container className="py-12">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-5">
           <div className="md:col-span-2">
             <Image
               src={FOOTER_LOGO}

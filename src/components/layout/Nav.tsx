@@ -14,7 +14,7 @@ interface NavLink {
 
 interface NavGroup {
   label: string;
-  /** Parent URL for the group label. Omit for trigger-only menus like "More". */
+  /** Parent URL for the group label. Omit for trigger-only menus. */
   href?: string;
   items: NavLink[];
 }
@@ -55,25 +55,50 @@ const SIDING: NavGroup = {
   ],
 };
 
-const MORE: NavGroup = {
-  label: "More",
+const WINDOWS: NavGroup = {
+  label: "Windows",
+  href: "/service/windows",
+  items: [],
+};
+
+const SERVICE_GROUPS: NavGroup[] = [ROOFING, GUTTERS, SIDING, WINDOWS];
+
+const RESOURCES: NavGroup = {
+  label: "Resources",
   items: [
     { href: "/about", label: "About" },
     { href: "/how-much-does-roof-replacement-cost-madison", label: "Roof Cost Guide" },
     { href: "/blog", label: "Blog" },
+    { href: "/testimonials", label: "Testimonials" },
     { href: "/faq", label: "FAQ" },
   ],
 };
 
-const TOP_LINKS: NavLink[] = [
-  { href: "/service/windows", label: "Windows" },
-  { href: "/defender-shield", label: "Defender Shield" },
-  { href: "/contact", label: "Contact" },
-];
+const triggerClass =
+  "inline-flex items-center gap-1.5 text-[15px] font-medium leading-none hover:text-black/70";
+
+function Caret() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="11"
+      height="11"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="transition-transform group-hover:rotate-180 group-focus-within:rotate-180"
+      aria-hidden="true"
+    >
+      <polyline points="6 9 12 15 18 9" />
+    </svg>
+  );
+}
 
 export function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [openGroup, setOpenGroup] = useState<string | null>(null);
 
   return (
     <header className="sticky top-0 z-40 bg-white border-b border-gray-200 text-gray-900">
@@ -93,20 +118,15 @@ export function Nav() {
           />
         </Link>
 
-        <nav className="hidden lg:flex flex-1 items-center justify-end gap-6">
-          <DesktopGroup group={ROOFING} openGroup={openGroup} setOpenGroup={setOpenGroup} />
-          <DesktopGroup group={GUTTERS} openGroup={openGroup} setOpenGroup={setOpenGroup} />
-          <DesktopGroup group={SIDING} openGroup={openGroup} setOpenGroup={setOpenGroup} />
-          {TOP_LINKS.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="text-[15px] font-medium leading-none hover:text-black/70"
-            >
-              {l.label}
-            </Link>
-          ))}
-          <DesktopGroup group={MORE} openGroup={openGroup} setOpenGroup={setOpenGroup} alignRight />
+        <nav className="hidden lg:flex flex-1 items-center justify-end gap-7">
+          <ServicesMenu />
+          <Link href="/defender-shield" className={triggerClass}>
+            Defender Shield
+          </Link>
+          <DropdownMenu group={RESOURCES} alignRight />
+          <Link href="/contact" className={triggerClass}>
+            Contact
+          </Link>
           <a
             href={`tel:${BUSINESS.phoneTel}`}
             className="ml-2 inline-flex items-center gap-2 rounded-btn bg-[#0a0a0a] px-3 py-2.5 text-[14px] font-semibold tracking-wide text-white hover:bg-black/85"
@@ -155,20 +175,28 @@ export function Nav() {
       {mobileOpen && (
         <div className="lg:hidden border-t border-gray-200 bg-white">
           <div className="mx-auto max-w-[1200px] px-6 py-4 space-y-4">
-            <MobileGroup group={ROOFING} onLinkClick={() => setMobileOpen(false)} />
-            <MobileGroup group={GUTTERS} onLinkClick={() => setMobileOpen(false)} />
-            <MobileGroup group={SIDING} onLinkClick={() => setMobileOpen(false)} />
-            {TOP_LINKS.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                className="block py-2 text-[15px] font-medium"
-                onClick={() => setMobileOpen(false)}
-              >
-                {l.label}
-              </Link>
+            {SERVICE_GROUPS.map((group) => (
+              <MobileGroup
+                key={group.label}
+                group={group}
+                onLinkClick={() => setMobileOpen(false)}
+              />
             ))}
-            <MobileGroup group={MORE} onLinkClick={() => setMobileOpen(false)} />
+            <Link
+              href="/defender-shield"
+              className="block py-2 text-[15px] font-medium"
+              onClick={() => setMobileOpen(false)}
+            >
+              Defender Shield
+            </Link>
+            <MobileGroup group={RESOURCES} onLinkClick={() => setMobileOpen(false)} />
+            <Link
+              href="/contact"
+              className="block py-2 text-[15px] font-medium"
+              onClick={() => setMobileOpen(false)}
+            >
+              Contact
+            </Link>
             <a
               href={`tel:${BUSINESS.phoneTel}`}
               className="inline-flex w-full items-center justify-center gap-2 rounded-btn bg-[#0a0a0a] px-4 py-3 text-base font-semibold text-white"
@@ -183,75 +211,74 @@ export function Nav() {
   );
 }
 
-function DesktopGroup({
-  group,
-  openGroup,
-  setOpenGroup,
-  alignRight = false,
-}: {
-  group: NavGroup;
-  openGroup: string | null;
-  setOpenGroup: (g: string | null) => void;
-  alignRight?: boolean;
-}) {
-  const isOpen = openGroup === group.label;
-  const triggerClass =
-    "inline-flex items-center gap-1.5 text-[15px] font-medium leading-none hover:text-black/70";
-  const caret = (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="11"
-      height="11"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <polyline points="6 9 12 15 18 9" />
-    </svg>
-  );
-
+/**
+ * Services mega menu. The panel is always rendered in the DOM and revealed with
+ * CSS (group-hover / group-focus-within) rather than conditional mounting, so
+ * every service link is present in the server-rendered HTML and crawlable.
+ */
+function ServicesMenu() {
   return (
-    <div
-      className="relative"
-      onMouseEnter={() => setOpenGroup(group.label)}
-      onMouseLeave={() => setOpenGroup(null)}
-    >
-      {group.href ? (
-        <Link href={group.href} className={triggerClass} aria-expanded={isOpen}>
-          {group.label}
-          {caret}
-        </Link>
-      ) : (
-        <button
-          type="button"
-          className={triggerClass}
-          aria-expanded={isOpen}
-          onClick={() => setOpenGroup(isOpen ? null : group.label)}
-        >
-          {group.label}
-          {caret}
-        </button>
-      )}
-      {isOpen && (
-        <div className={`absolute ${alignRight ? "right-0" : "left-0"} top-full pt-3`}>
-          <ul className="min-w-[220px] rounded-btn border border-gray-200 bg-white py-2 shadow-lg">
-            {group.items.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="block px-4 py-3 text-[15px] font-medium leading-none hover:bg-gray-50"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+    <div className="group relative">
+      <Link href="/services" className={triggerClass} aria-haspopup="true">
+        Services
+        <Caret />
+      </Link>
+      <div className="invisible absolute left-0 top-full z-50 pt-3 opacity-0 transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+        <div className="grid grid-cols-2 gap-x-10 gap-y-6 rounded-btn border border-gray-200 bg-white p-6 shadow-lg">
+          {SERVICE_GROUPS.map((col) => (
+            <div key={col.label} className="min-w-[180px]">
+              <Link
+                href={col.href!}
+                className="block text-[15px] font-semibold leading-none text-gray-900 hover:text-black/70"
+              >
+                {col.label}
+              </Link>
+              {col.items.length > 0 && (
+                <ul className="mt-3 space-y-2.5">
+                  {col.items.map((item) => (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        className="block text-[14px] leading-none text-gray-600 hover:text-gray-900"
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
         </div>
-      )}
+      </div>
+    </div>
+  );
+}
+
+/** Single-column dropdown (Resources). Same always-in-DOM, CSS-reveal pattern. */
+function DropdownMenu({ group, alignRight = false }: { group: NavGroup; alignRight?: boolean }) {
+  return (
+    <div className="group relative">
+      <button type="button" className={triggerClass} aria-haspopup="true">
+        {group.label}
+        <Caret />
+      </button>
+      <div
+        className={`invisible absolute ${alignRight ? "right-0" : "left-0"} top-full z-50 pt-3 opacity-0 transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100`}
+      >
+        <ul className="min-w-[220px] rounded-btn border border-gray-200 bg-white py-2 shadow-lg">
+          {group.items.map((item) => (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                className="block px-4 py-3 text-[15px] font-medium leading-none hover:bg-gray-50"
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
@@ -263,6 +290,19 @@ function MobileGroup({
   group: NavGroup;
   onLinkClick: () => void;
 }) {
+  // A group with no children (e.g. Windows) renders as a plain link.
+  if (group.items.length === 0 && group.href) {
+    return (
+      <Link
+        href={group.href}
+        className="block py-2 text-[15px] font-medium"
+        onClick={onLinkClick}
+      >
+        {group.label}
+      </Link>
+    );
+  }
+
   return (
     <details className="group">
       <summary className="flex cursor-pointer list-none items-center justify-between py-2 text-[15px] font-medium">
