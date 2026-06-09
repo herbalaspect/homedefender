@@ -6,7 +6,7 @@ const HERO_IMAGE = "/images/hero_homepage-hero.webp";
 
 export function Hero() {
   return (
-    <section className="relative isolate flex min-h-[100vh] flex-col justify-end overflow-hidden bg-[#0a0a0a] pt-40 pb-32 text-white">
+    <section className="relative isolate flex min-h-[calc(100vh-5rem)] flex-col justify-center overflow-hidden bg-[#0a0a0a] py-20 text-white">
       <Image
         src={HERO_IMAGE}
         alt=""
