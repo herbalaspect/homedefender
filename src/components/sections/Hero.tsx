@@ -61,14 +61,23 @@ export function Hero() {
               ))}
             </div>
             <p className="text-[15px] font-medium">
-              5/5 Reviews from{" "}
               <a
                 href={BUSINESS.social.google}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline underline-offset-2 hover:opacity-80"
               >
-                Google Ratings
+                See our five-star Google reviews
+              </a>
+            </p>
+            <p className="text-[13px] opacity-80">
+              <a
+                href={BUSINESS.googleReviewUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 hover:opacity-100"
+              >
+                Leave us a review
               </a>
             </p>
           </div>
