@@ -33,7 +33,7 @@ export default function HomePage() {
       <ServicesGrid />
       <WhyChooseUs />
       <Process />
-      <Testimonials items={testimonialTrio} />
+      <Testimonials items={testimonialTrio} showReviewCta />
       <DefenderShieldUpsell />
       <ServiceArea />
       <FinalCTA />

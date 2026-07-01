@@ -1,4 +1,4 @@
-import { BRAND } from "@/lib/constants";
+import { BRAND, BUSINESS } from "@/lib/constants";
 import { Container } from "@/components/layout/Container";
 import type { Testimonial } from "../../../content/testimonials";
 
@@ -6,13 +6,18 @@ import type { Testimonial } from "../../../content/testimonials";
  * Testimonials section. Pass an explicit array (3 distinct entries on the
  * homepage, fewer on service-specific pages). Never duplicate quote text
  * across the page — CLAUDE.md SEO rule.
+ *
+ * Set `showReviewCta` to append a "Leave us a review" link that opens the
+ * Google review dialog (homepage only — service pages leave it off).
  */
 export function Testimonials({
   heading = "What customers say",
   items,
+  showReviewCta = false,
 }: {
   heading?: string;
   items: Testimonial[];
+  showReviewCta?: boolean;
 }) {
   if (!items.length) return null;
   return (
@@ -44,6 +49,23 @@ export function Testimonials({
             </figure>
           ))}
         </div>
+        {showReviewCta && (
+          <div className="mt-10 flex flex-col items-start gap-2">
+            <a
+              href={BUSINESS.googleReviewUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-img px-5 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              style={{ backgroundColor: BRAND.colors.green }}
+            >
+              <span aria-hidden="true">★</span>
+              Leave us a review on Google
+            </a>
+            <p className="text-sm text-gray-500">
+              Worked with us? A quick review helps other Madison homeowners find us.
+            </p>
+          </div>
+        )}
       </Container>
     </section>
   );
