@@ -54,6 +54,14 @@ export const BUSINESS = {
     // linkedin: not active yet — do NOT add until profile exists
     // instagram: not active yet — do NOT add until profile exists
   },
+  /**
+   * Official "write a review" short link from the Google Business Profile
+   * dashboard ("Ask for reviews"). Opens the review dialog for our listing.
+   * NOTE: Google offers no way to pre-select a star rating via URL — the
+   * customer chooses the stars. Do NOT ask only for 5-star reviews in copy
+   * (Google's "review gating" policy).
+   */
+  googleReviewUrl: "https://g.page/r/CWBgU44PzqsLEAI/review",
 } as const;
 
 export const BRAND = {
