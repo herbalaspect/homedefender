@@ -50,7 +50,10 @@ export const BUSINESS = {
   ] as const,
   social: {
     facebook: "https://www.facebook.com/profile.php?id=61570822227803",
-    google: "https://maps.app.goo.gl/PqGYGV7MYZofukGC9",
+    // Official Google Business Profile short link (opens our listing + reviews).
+    // Same listing as googleReviewUrl below — the previous maps.app.goo.gl link
+    // pointed to a stale duplicate listing (CID 0x0babce0f8e536060) with no reviews.
+    google: "https://g.page/r/CS_9dZLqiNShEBM",
     // linkedin: not active yet — do NOT add until profile exists
     // instagram: not active yet — do NOT add until profile exists
   },
@@ -61,7 +64,7 @@ export const BUSINESS = {
    * customer chooses the stars. Do NOT ask only for 5-star reviews in copy
    * (Google's "review gating" policy).
    */
-  googleReviewUrl: "https://g.page/r/CWBgU44PzqsLEAI/review",
+  googleReviewUrl: "https://g.page/r/CS_9dZLqiNShEBM/review",
 } as const;
 
 export const BRAND = {
